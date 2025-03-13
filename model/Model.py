@@ -50,12 +50,17 @@ class Traffic_model(nn.Module):
         elif self.model == 'OpenCity':
             from OpenCity.OpenCity import OpenCity
             self.predictor = OpenCity(args_predictor, args.dataset_use, args.device, dim_in)
+        elif self.model == 'NewCity':
+            from model.NewCity.NewCity import NewCity
+            self.predictor = NewCity(args_predictor, args.dataset_use, args.device, dim_in)
         else:
             raise ValueError
 
-    def forward(self, source, label, select_dataset, batch_seen=None):
+    def forward(self, source, label, select_dataset, weather_data=None, batch_seen=None):
         if self.model == 'OpenCity':
             x_predic = self.predictor(source, label, select_dataset)
+        elif self.model == 'NewCity':
+            x_predic = self.predictor(source, label, select_dataset, weather_data)
         else:
             x_predic = self.predictor(source[..., 0:self.input_base_dim], select_dataset)
         return x_predic
