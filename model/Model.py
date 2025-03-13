@@ -60,7 +60,7 @@ class Traffic_model(nn.Module):
         if self.model == 'OpenCity':
             x_predic = self.predictor(source, label, select_dataset)
         elif self.model == 'NewCity':
-            x_predic = self.predictor(source, label, select_dataset, weather_data)
+            x_predic = self.predictor(source, label, select_dataset)
         else:
             x_predic = self.predictor(source[..., 0:self.input_base_dim], select_dataset)
         return x_predic

@@ -6,6 +6,7 @@ import torch.nn.functional as F
 import torch.nn.init as init
 from functools import partial
 
+
 def drop_path(x, drop_prob=0., training=False):
     if drop_prob == 0. or not training:
         return x
@@ -58,28 +59,30 @@ class PositionalEncoding(nn.Module):
         return self.pe[:, :x.size(2)].unsqueeze(1).expand_as(x)
 
 class PatchEmbedding_flow(nn.Module):
-    def __init__(self, d_model, patch_len, stride, padding, his):
+
+    def __init__(self, d_model, patch_len, stride, padding, his, num_feas):
         super(PatchEmbedding_flow, self).__init__()
-        # Patching
         self.patch_len = patch_len
         self.stride = stride
         self.his = his
-
-        self.value_embedding = nn.Linear(patch_len, d_model, bias=False)
+        self.num_feas = num_feas
+        self.value_embedding = nn.Linear(patch_len * num_feas, d_model)  # 输入维度对齐
         self.position_encoding = PositionalEncoding(d_model)
 
     def forward(self, x):
-        # do patching
-        x = x.squeeze(-1).permute(0, 2, 1)
-        if self.his == x.shape[-1]:
-            x = x.unfold(dimension=-1, size=self.patch_len, step=self.stride)
+        bs, time_steps, num_nodes, num_feas = x.size()
+        x = x.permute(0, 2, 1, 3)  # [bs, num_nodes, time_steps, num_feas]
+        if self.his == x.shape[2]:
+            x = x.unfold(dimension=2, size=self.patch_len, step=self.stride)
         else:
-            gap = self.his // x.shape[-1]
-            x = x.unfold(dimension=-1, size=self.patch_len//gap, step=self.stride//gap)
-            x = F.pad(x, (0, (self.patch_len - self.patch_len//gap)))
-        x = self.value_embedding(x)
+            gap = self.his // x.shape[2]
+            x = x.unfold(dimension=2, size=self.patch_len//gap, step=self.stride//gap)
+            x = F.pad(x, (0, 0, 0, self.patch_len - self.patch_len//gap))
+        x = x.contiguous().view(bs * num_nodes, x.size(2), -1)
+        x = self.value_embedding(x)  # [bs*num_nodes, num_patch, d_model]
+        x = x.view(bs, num_nodes, -1, self.value_embedding.out_features)
         x = x + self.position_encoding(x)
-        x = x.permute(0, 2, 1, 3)
+        x = x.permute(0, 2, 1, 3)  # [bs, num_patch, num_nodes, d_model]
         return x
 
 class PatchEmbedding_time(nn.Module):
@@ -361,7 +364,13 @@ class NewCity(nn.Module):
         self.sem_mask = None
 
         self.patch_embedding_flow = PatchEmbedding_flow(
-            self.embed_dim, patch_len=12, stride=12, padding=0, his=args.input_window)
+            d_model=args.embed_dim,
+            patch_len=12,
+            stride=12,
+            padding = None,
+            his=args.input_window,
+            num_feas=6  # 使用数据预处理中定义的维度
+        )
         self.patch_embedding_time = PatchEmbedding_time(
             self.embed_dim, patch_len=12, stride=12, padding=0, his=args.input_window)
         self.spatial_embedding = LaplacianPE(self.lape_dim, self.embed_dim)
@@ -370,17 +379,20 @@ class NewCity(nn.Module):
         self.encoder_blocks = nn.ModuleList([
             STEncoderBlock(
                 dim=self.embed_dim, s_attn_size=self.s_attn_size, t_attn_size=self.t_attn_size,
-                geo_num_heads=self.geo_num_heads, sem_num_heads=self.sem_num_heads, tc_num_heads=self.tc_num_heads, t_num_heads=self.t_num_heads,
-                mlp_ratio=self.mlp_ratio, qkv_bias=self.qkv_bias, drop=self.drop, attn_drop=self.attn_drop, drop_path=enc_dpr[i], act_layer=nn.GELU,
-                device=self.device, type_ln=self.type_ln, output_dim=self.output_dim,
-            ) for i in range(self.enc_depth)
+                geo_num_heads=self.geo_num_heads, sem_num_heads=self.sem_num_heads,
+                tc_num_heads=self.tc_num_heads, t_num_heads=self.t_num_heads,
+                mlp_ratio=self.mlp_ratio, qkv_bias=self.qkv_bias,
+                drop=self.drop, attn_drop=self.attn_drop,
+                drop_path=self.drop_path, device=self.device,
+                type_ln=self.type_ln
+            ) for _ in range(self.enc_depth)
         ])
 
         self.flatten = nn.Flatten(start_dim=-2)
         self.linear = nn.Linear(24*self.skip_dim, self.output_window)
 
 
-    def forward(self, input, lbls, select_dataset):
+    def forward(self, input, lbls, select_dataset, external_features=None):
 
         bs, time_steps, num_nodes, num_feas = input.size()
         x = input
@@ -400,14 +412,14 @@ class NewCity(nn.Module):
         x_in /= stdev
 
         # Patch Embedding
-        enc = self.patch_embedding_flow(x_in)
-
+        enc = self.patch_embedding_flow(input)
         # adj
         adj = self.adj_mx_dict[select_dataset].to(self.device)
 
         # Spatio-Temporal Dependencies Modeling
-        for i, encoder_block in enumerate(self.encoder_blocks):
-            enc = encoder_block(enc, enc, enc, feas_all_his, feas_all_pre, adj, self.geo_mask_dict[select_dataset].to(self.device), self.sem_mask)
+        for encoder_block in self.encoder_blocks:
+            enc = encoder_block(enc, enc, enc, feas_all_his, feas_all_pre, adj,
+                                self.geo_mask_dict[select_dataset].to(self.device), None)
 
         # Prediction head
         skip = enc.permute(0, 2, 3, 1).contiguous()
