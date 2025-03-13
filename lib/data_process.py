@@ -41,7 +41,20 @@ def time_add(data, week_start, interval=5, weekday_only=False, holiday_list=None
         for j in holiday_list :
             holiday_data[j-1 * time_slot:j * time_slot, :] = 2
     return day_data, week_data, holiday_data
+def split_weather_data(weather_data):
+    """
+    该函数用于将 weather_data 中的温度、降水和天气类型分开
+    :param weather_data: 形状为 (样本数, 节点数, 3) 的三维数组
+    :return: 温度、降水和天气类型三个数组
+    """
+    # 提取温度数据，假设温度是第一个特征
+    temperature_data = weather_data[:, :, 0]
+    # 提取降水数据，假设降水是第二个特征
+    precipitation_data = weather_data[:, :, 1]
+    # 提取天气类型数据，假设天气类型是第三个特征
+    weather_type_data = weather_data[:, :, 2]
 
+    return temperature_data, precipitation_data, weather_type_data
 # load dataset
 def load_st_dataset(dataset, args):
     # =========== Traffic flow (PEMS) =========== #
@@ -80,6 +93,7 @@ def load_st_dataset(dataset, args):
         args.interval = interval
         args.week_day = week_day
         day_data, week_data, holiday_data = time_add(data, week_start, interval=interval, weekday_only=False, holiday_list=holiday_list)
+
     # 5 / 1 / 2017 - 8 / 31 / 2017 Monday
     elif dataset == 'PEMS07':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
@@ -104,6 +118,38 @@ def load_st_dataset(dataset, args):
         args.interval = interval
         args.week_day = week_day
         day_data, week_data, holiday_data = time_add(data, week_start, interval=interval, weekday_only=False, holiday_list=holiday_list)
+
+    elif dataset == 'CD_DIDI_Weather':
+        data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
+        data = np.load(data_path)['data']
+        traffic_data = data[:, :, :1]  # 假设第一个特征是交通数据
+        weather_data = data[:, :, 1:]  # 后三个特征是天气数据
+        week_start = 1
+        holiday_list = [4]
+        interval = 10
+        week_day = 7
+        args.interval = interval
+        args.week_day = week_day
+        day_data, week_data, holiday_data = time_add(traffic_data, week_start, interval=interval, weekday_only=False, holiday_list=holiday_list)
+        temperature_data, precipitation_data, weather_type_data = split_weather_data(weather_data)
+        print(traffic_data.shape)
+        print(weather_data.shape)
+        data = np.expand_dims(data, axis=-1)
+        day_data = np.expand_dims(day_data, axis=-1).astype(int)
+        week_data = np.expand_dims(week_data, axis=-1).astype(int)
+        holiday_data = np.expand_dims(holiday_data, axis=-1).astype(int)
+        weather_data = np.expand_dims(data, axis=-1)
+        temperature_data = np.expand_dims(temperature_data, axis=-1).astype(int)
+        precipitation_data = np.expand_dims(precipitation_data, axis=-1).astype(int)
+        # weather_type_data = np.expand_dims(weather_type_data, axis=-1).astype(int)
+        traffic_data = np.concatenate([traffic_data, day_data, week_data, holiday_data], axis=-1)
+        weather_data = np.concatenate([weather_data, temperature_data, precipitation_data], axis=-1)
+        print(traffic_data.shape)
+        print(weather_data.shape)
+        print('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
+          data[..., 0:1].mean(), np.median(data[..., 0:1]), data.dtype)
+        return data
+
     # 1 / 1 / 2018 - 4 / 30 / 2018 Monday
     elif dataset == 'SZ_DIDI':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
@@ -248,11 +294,13 @@ def load_st_dataset(dataset, args):
         # raise ValueError
 
     if len(data.shape) == 2:
+        print(data.shape)
         data = np.expand_dims(data, axis=-1)
         day_data = np.expand_dims(day_data, axis=-1).astype(int)
         week_data = np.expand_dims(week_data, axis=-1).astype(int)
         # holiday_data = np.expand_dims(holiday_data, axis=-1).astype(int)
         data = np.concatenate([data, day_data, week_data], axis=-1)
+        print(data.shape)
     elif len(data.shape) > 2:
         print(args.data_type)
         if args.data_type == 'crime':
