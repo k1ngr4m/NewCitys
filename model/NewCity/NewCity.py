@@ -365,7 +365,7 @@ class NewCity(nn.Module):
 
         self.patch_embedding_flow = PatchEmbedding_flow(
             d_model=args.embed_dim,
-            patch_len=6,
+            patch_len=12,
             stride=6,
             padding = None,
             his=args.input_window,
