@@ -351,6 +351,10 @@ class NewCity(nn.Module):
         self.output_window = args.output_window
         self.device = device
         self.far_mask_delta = args.far_mask_delta
+        args.weather_dim = 3
+
+        self.weather_fc = nn.Linear(args.weather_dim, self.embed_dim)  # args.weather_dim 是天气数据的维度
+
 
         self.geo_mask_dict = {}
         for i, data_graph in enumerate(dataset_use):
@@ -380,7 +384,7 @@ class NewCity(nn.Module):
         self.linear = nn.Linear(24*self.skip_dim, self.output_window)
 
 
-    def forward(self, input, lbls, select_dataset):
+    def forward(self, input, lbls, select_dataset, external_features=None):
 
         bs, time_steps, num_nodes, num_feas = input.size()
         x = input
@@ -401,6 +405,10 @@ class NewCity(nn.Module):
 
         # Patch Embedding
         enc = self.patch_embedding_flow(x_in)
+        if external_features is not None:
+            weather_data = external_features  # 假设 external_features 是天气数据
+            weather_embedding = self.weather_fc(weather_data)
+            enc = enc + weather_embedding.unsqueeze(1).unsqueeze(1)  # 根据数据维度调整
 
         # adj
         adj = self.adj_mx_dict[select_dataset].to(self.device)
