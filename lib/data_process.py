@@ -111,6 +111,8 @@ def load_st_dataset(dataset, args):
     elif dataset == 'CD_DIDI':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
         data = np.load(data_path)['data'][:, :, 0]
+        print(data.shape)
+        print(data[:5])
         week_start = 1
         holiday_list = [4]
         interval = 10
