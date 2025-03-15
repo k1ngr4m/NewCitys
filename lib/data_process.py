@@ -74,6 +74,7 @@ def load_st_dataset(dataset, args):
     elif dataset == 'PEMS08':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
         data = np.load(data_path)['data'][:, :, 0]
+        print(data.shape[0])
         print(data.shape, data[data==0].shape)
         week_start = 5
         holiday_list = [4]
@@ -166,6 +167,29 @@ def load_st_dataset(dataset, args):
         args.week_day = week_day
         day_data, week_data, holiday_data = time_add(data, week_start, interval=interval, weekday_only=False, holiday_list=holiday_list)
 
+    elif dataset == 'TWF2020':
+        data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
+        data = np.load(data_path)['data'][:, :, 0]
+        week_start = 1
+        holiday_list = [4]
+        interval = 10
+        week_day = 7
+        args.interval = interval
+        args.week_day = week_day
+        day_data, week_data, holiday_data = time_add(data, week_start, interval=interval, weekday_only=False,
+                                                     holiday_list=holiday_list)
+        print(data.shape)
+    elif dataset == 'TaxiBJ':
+        data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
+        data = np.load(data_path)['data'][:, :, 0]
+        week_start = 1  # 周一作为周起始日
+        interval = 30  # 时间间隔为30分钟
+        args.interval = interval  # 将参数传递给模型配置
+        args.week_day = 7  # 一周7天
+        holiday_list = None
+        day_data, week_data, holiday_data = time_add(data, week_start, interval=interval, weekday_only=False,
+                                                     holiday_list=holiday_list)
+        print(data.shape)
     # =========== Traffic speed (PEMS) =========== #
     # 2012.03.01 - 2012.06.30
     elif dataset == 'METR_LA':

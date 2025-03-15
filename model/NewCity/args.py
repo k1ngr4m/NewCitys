@@ -69,7 +69,7 @@ def parse_args(parser, args_base):
     for dataset_select in (args_base.dataset_use):
         args_predictor.filepath = '../data/' + dataset_select +'/'
         args_predictor.filename = dataset_select
-        if dataset_select == 'PEMS08' or dataset_select == 'PEMS04' or dataset_select == 'PEMS07':
+        if dataset_select == 'PEMS08' or dataset_select == 'PEMS04' or dataset_select == 'PEMS07' or dataset_select == 'TWF2020':
             A, Distance = get_adjacency_matrix(
                 distance_df_filename=args_predictor.filepath + dataset_select + '.csv',
                 num_of_vertices=args_base.num_nodes_dict[dataset_select])
