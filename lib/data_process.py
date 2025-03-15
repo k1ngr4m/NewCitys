@@ -41,20 +41,6 @@ def time_add(data, week_start, interval=5, weekday_only=False, holiday_list=None
         for j in holiday_list :
             holiday_data[j-1 * time_slot:j * time_slot, :] = 2
     return day_data, week_data, holiday_data
-def split_weather_data(weather_data):
-    """
-    该函数用于将 weather_data 中的温度、降水和天气类型分开
-    :param weather_data: 形状为 (样本数, 节点数, 3) 的三维数组
-    :return: 温度、降水和天气类型三个数组
-    """
-    # 提取温度数据，假设温度是第一个特征
-    temperature_data = weather_data[:, :, 0]
-    # 提取降水数据，假设降水是第二个特征
-    precipitation_data = weather_data[:, :, 1]
-    # 提取天气类型数据，假设天气类型是第三个特征
-    weather_type_data = weather_data[:, :, 2]
-
-    return temperature_data, precipitation_data, weather_type_data
 # load dataset
 def load_st_dataset(dataset, args):
     # =========== Traffic flow (PEMS) =========== #
@@ -476,6 +462,8 @@ def define_dataloder(args):
         print(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
         # print(sss)
         data = load_st_dataset(dataset_name, args)
+        if dataset_name == 'TaxiBJ':
+            weather_data = load_weather_dataset(dataset_name, args)
         num_nodes_dict[dataset_name] = data.shape[1]
         data_train, data_val, data_test = split_data_by_ratio(data, args.val_ratio, args.test_ratio)
         print('data_train', data_train.shape, data_val.shape, data_test.shape)
