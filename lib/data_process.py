@@ -462,8 +462,8 @@ def define_dataloder(args):
         print(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
         # print(sss)
         data = load_st_dataset(dataset_name, args)
-        if dataset_name == 'TaxiBJ':
-            weather_data = load_weather_dataset(dataset_name, args)
+        # if dataset_name == 'TaxiBJ':
+        #     weather_data = load_weather_dataset(dataset_name, args)
         num_nodes_dict[dataset_name] = data.shape[1]
         data_train, data_val, data_test = split_data_by_ratio(data, args.val_ratio, args.test_ratio)
         print('data_train', data_train.shape, data_val.shape, data_test.shape)

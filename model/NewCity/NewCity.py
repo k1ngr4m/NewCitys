@@ -351,8 +351,8 @@ class NewCity(nn.Module):
         self.output_window = args.output_window
         self.device = device
         self.far_mask_delta = args.far_mask_delta
-        self.weather_dim = args.weather_dim
-        print("weather_dim:" + self.weather_dim)
+        self.weather_dim = 0
+        print(f"weather_dim:{self.weather_dim}")
         self.weather_fc = nn.Linear(self.weather_dim, self.embed_dim)  # args.weather_dim 是天气数据的维度
 
 
@@ -402,16 +402,25 @@ class NewCity(nn.Module):
         x_in = x_in - means
         stdev = torch.sqrt(torch.var(x_in, dim=1, keepdim=True, unbiased=False)+ 1e-5).detach()
         x_in /= stdev
+        # Patch Embedding
+        enc = self.patch_embedding_flow(x_in)
 
         # 假设天气数据在输入数据的最后 weather_dim 个维度
         weather_data = input[..., -self.weather_dim:]
+        if weather_data !=0 :
+            # 对天气数据做分片（与 PatchEmbedding_flow 一致）
+            weather_patched = weather_data.squeeze(-1).permute(0, 2, 1)  # [B, N, T]
+            weather_patched = weather_patched.unfold(
+                dimension=-1,
+                size=self.patch_embedding_flow.patch_len,
+                step=self.patch_embedding_flow.stride
+            )  # [B, N, num_patches, patch_len]
 
-        # Patch Embedding
-        enc = self.patch_embedding_flow(x_in)
-        if weather_data is not None:
-            weather_embedding = self.weather_fc(weather_data)
-            enc = enc + weather_embedding.unsqueeze(1).unsqueeze(1)  # 根据数据维度调整
+            # 投影到嵌入空间
+            weather_embedding = self.weather_fc(weather_patched)  # [B, N, num_patches, D]
+            weather_embedding = weather_embedding.permute(0, 2, 1, 3)  # [B, num_patches, N, D]
 
+            enc = enc + weather_embedding
 
         # adj
         adj = self.adj_mx_dict[select_dataset].to(self.device)
