@@ -35,7 +35,7 @@ with h5py.File(meteo_file, 'r') as f:
     weather = f['Weather'][:]  # 天气数据，shape: (num_timeslots, 17)
 
 # 将天气日期转换为 datetime 对象
-meteo_dates = [datetime.strptime(date.decode('utf-8'), '%Y%m%d%H') for date in meteo_dates]
+meteo_dates = [datetime.strptime(date.decode('utf-8'), '%Y%m%d%H%M') for date in meteo_dates]
 # 过滤并解析日期
 valid_flow_dates = []
 valid_flow_data = []
