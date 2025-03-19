@@ -405,7 +405,7 @@ class NewCity(nn.Module):
         x_in /= stdev
 
         # 在归一化后添加数据检查
-        print("x_in mean:", x_in.mean().item(), "x_in std:", x_in.std().item())
+        # print("x_in mean:", x_in.mean().item(), "x_in std:", x_in.std().item())
         # Patch Embedding
         enc = self.patch_embedding_flow(x_in)
 
@@ -443,7 +443,7 @@ class NewCity(nn.Module):
             # 调整为与enc匹配的形状 [B, num_patches, N, embed_dim]
             weather_embedding = weather_embedding.reshape(B, num_patches, N, -1)
 
-            print(f"enc shape: {enc.shape}, weather_embedding shape: {weather_embedding.shape}")
+            # print(f"enc shape: {enc.shape}, weather_embedding shape: {weather_embedding.shape}")
 
             # 确保enc的维度匹配并相加
             # enc = enc + weather_embedding.permute(0, 2, 1, 3)  # 调整维度顺序为 [B, N, num_patches, D]
