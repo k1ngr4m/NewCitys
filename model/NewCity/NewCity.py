@@ -405,22 +405,23 @@ class NewCity(nn.Module):
         # Patch Embedding
         enc = self.patch_embedding_flow(x_in)
 
-        # 假设天气数据在输入数据的最后 weather_dim 个维度
-        weather_data = input[..., -self.weather_dim:]
-        if weather_data !=0 :
-            # 对天气数据做分片（与 PatchEmbedding_flow 一致）
-            weather_patched = weather_data.squeeze(-1).permute(0, 2, 1)  # [B, N, T]
-            weather_patched = weather_patched.unfold(
-                dimension=-1,
-                size=self.patch_embedding_flow.patch_len,
-                step=self.patch_embedding_flow.stride
-            )  # [B, N, num_patches, patch_len]
-
-            # 投影到嵌入空间
-            weather_embedding = self.weather_fc(weather_patched)  # [B, N, num_patches, D]
-            weather_embedding = weather_embedding.permute(0, 2, 1, 3)  # [B, num_patches, N, D]
-
-            enc = enc + weather_embedding
+        # # 假设天气数据在输入数据的最后 weather_dim 个维度
+        # weather_data = input[..., -self.weather_dim:]
+        # # 检查 weather_data 是否非空
+        # if weather_data.numel() > 0:
+        #     # 对天气数据做分片（与 PatchEmbedding_flow 一致）
+        #     weather_patched = weather_data.squeeze(-1).permute(0, 2, 1)  # [B, N, T]
+        #     weather_patched = weather_patched.unfold(
+        #         dimension=-1,
+        #         size=self.patch_embedding_flow.patch_len,
+        #         step=self.patch_embedding_flow.stride
+        #     )  # [B, N, num_patches, patch_len]
+        #
+        #     # 投影到嵌入空间
+        #     weather_embedding = self.weather_fc(weather_patched)  # [B, N, num_patches, D]
+        #     weather_embedding = weather_embedding.permute(0, 2, 1, 3)  # [B, num_patches, N, D]
+        #
+        #     enc = enc + weather_embedding
 
         # adj
         adj = self.adj_mx_dict[select_dataset].to(self.device)
