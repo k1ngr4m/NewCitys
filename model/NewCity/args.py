@@ -38,6 +38,7 @@ def parse_args(parser, args_base):
     parser.add_argument('--embed_dim', type=int, default=config['model']['embed_dim'])
     parser.add_argument('--skip_dim', type=int, default=config['model']['skip_dim'])
     parser.add_argument('--lape_dim', type=int, default=config['model']['lape_dim'])
+    parser.add_argument('--weather_dim', type=int, default=config['model']['weather_dim'])
 
     parser.add_argument('--geo_num_heads', type=int, default=config['model']['geo_num_heads'])
     parser.add_argument('--sem_num_heads', type=int, default=config['model']['sem_num_heads'])
