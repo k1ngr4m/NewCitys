@@ -85,14 +85,22 @@ class Trainer(object):
         self.model.train()
         total_loss = 0
         step = 0
+        scaler = torch.cuda.amp.GradScaler()  # 添加在循环外
+
         for inputs, targets in self.train_dataloader:
-            inputs, targets = inputs.squeeze(0).to(self.args.device), targets.squeeze(0).to(self.args.device)
-            select_dataset = get_key_from_value(self.num_nodes_dict, inputs.shape[2])
-            out = self.model(inputs, targets, select_dataset, batch_seen=None)
+            with torch.cuda.amp.autocast(enabled=True):
+                inputs, targets = inputs.squeeze(0).to(self.args.device), targets.squeeze(0).to(self.args.device)
+                select_dataset = get_key_from_value(self.num_nodes_dict, inputs.shape[2])
+                out = self.model(inputs, targets, select_dataset, batch_seen=None)
+                self.optimizer.zero_grad()
+                loss_pred = self.loss(out, targets[..., :self.args.output_dim], self.scaler_dict[select_dataset])
+                loss = loss_pred
+                loss.backward()
+
             self.optimizer.zero_grad()
-            loss_pred = self.loss(out, targets[..., :self.args.output_dim], self.scaler_dict[select_dataset])
-            loss = loss_pred
-            loss.backward()
+            scaler.scale(loss).backward()
+            scaler.step(self.optimizer)
+            scaler.update()
 
             # add max grad clipping
             if self.args.grad_norm:
@@ -113,6 +121,10 @@ class Trainer(object):
                 best_model = copy.deepcopy(self.model.state_dict())
                 torch.save(best_model, self.best_path)
                 self.logger.info("Saving current best model to " + self.best_path)
+
+            del inputs, targets, out
+            torch.cuda.empty_cache()  # 强制清空缓存
+
         train_loss = total_loss / len(self.train_dataloader)
         return train_loss
 
