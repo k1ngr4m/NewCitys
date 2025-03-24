@@ -85,22 +85,15 @@ class Trainer(object):
         self.model.train()
         total_loss = 0
         step = 0
-        scaler = torch.cuda.amp.GradScaler()  # 添加在循环外
 
         for inputs, targets in self.train_dataloader:
-            with torch.cuda.amp.autocast(enabled=True):
-                inputs, targets = inputs.squeeze(0).to(self.args.device), targets.squeeze(0).to(self.args.device)
-                select_dataset = get_key_from_value(self.num_nodes_dict, inputs.shape[2])
-                out = self.model(inputs, targets, select_dataset, batch_seen=None)
-                self.optimizer.zero_grad()
-                loss_pred = self.loss(out, targets[..., :self.args.output_dim], self.scaler_dict[select_dataset])
-                loss = loss_pred
-                loss.backward()
-
+            inputs, targets = inputs.squeeze(0).to(self.args.device), targets.squeeze(0).to(self.args.device)
+            select_dataset = get_key_from_value(self.num_nodes_dict, inputs.shape[2])
+            out = self.model(inputs, targets, select_dataset, batch_seen=None)
             self.optimizer.zero_grad()
-            scaler.scale(loss).backward()
-            scaler.step(self.optimizer)
-            scaler.update()
+            loss_pred = self.loss(out, targets[..., :self.args.output_dim], self.scaler_dict[select_dataset])
+            loss = loss_pred
+            loss.backward()
 
             # add max grad clipping
             if self.args.grad_norm:
