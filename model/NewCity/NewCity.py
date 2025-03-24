@@ -351,7 +351,7 @@ class NewCity(nn.Module):
         self.output_window = args.output_window
         self.device = device
         self.far_mask_delta = args.far_mask_delta
-        self.weather_dim = 3
+        self.weather_dim = args.weather_dim
         print(f"weather_dim:{self.weather_dim}")
         # self.weather_fc = nn.Linear(self.weather_dim, self.embed_dim)  # args.weather_dim 是天气数据的维度
 
