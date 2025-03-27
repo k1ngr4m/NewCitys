@@ -1,10 +1,9 @@
 
 import os
 import sys
-from lib.logutil import logger
-file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-logger.info(file_dir)
-sys.path.append(file_dir)
+# file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# logger.info(file_dir)
+# sys.path.append(file_dir)
 
 import torch
 import torch.nn as nn
@@ -16,6 +15,7 @@ from lib.metrics import MAE_torch, MSE_torch, huber_loss
 from lib.Params_pretrain import parse_args
 from lib.Params_predictor import get_predictor_params
 from lib.data_process import define_dataloder
+from lib.logutil import logger
 
 # *************************************************************************#
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
