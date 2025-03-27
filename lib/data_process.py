@@ -482,7 +482,8 @@ def define_dataloder(args):
         )
         if args.real_value == False:
             scaler_data, scaler_day, scaler_week = normalize_dataset(data_train, args.input_base_dim)
-            logger.info(data_train.shape, scaler_data.mean, scaler_data.std)
+            # logger.info(data_train.shape, scaler_data.mean, scaler_data.std)
+            logger.info("data_train.shape: %s, mean: %s, std: %s", data_train.shape, scaler_data.mean, scaler_data.std)
             data_train[..., :args.input_base_dim] = scaler_data.transform(data_train[:, :, :args.input_base_dim])
             data_val[..., :args.input_base_dim] = scaler_data.transform(data_val[:, :, :args.input_base_dim])
             data_test[..., :args.input_base_dim] = scaler_data.transform(data_test[:, :, :args.input_base_dim])
