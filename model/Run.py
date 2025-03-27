@@ -1,6 +1,8 @@
 
 import os
 import sys
+import traceback
+
 file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print(file_dir)
 sys.path.append(file_dir)
@@ -155,5 +157,6 @@ try:
     else:
         raise ValueError
 except Exception as e:
-    logger.info(e)
-    logger.info("Exception caught, exiting gracefully.")
+    logger.info("Exception caught:")
+    logger.info(traceback.format_exc())  # 打印完整的 Traceback
+    logger.info("Exiting gracefully.")
