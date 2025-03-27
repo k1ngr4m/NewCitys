@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
 from functools import partial
-
+from lib.logutil import logger
 
 
 def drop_path(x, drop_prob=0., training=False):
@@ -95,7 +95,7 @@ class DataEmbedding(nn.Module):
         x = self.value_embedding(x[:, :, :, :self.feature_dim])
         x += self.position_encoding(x)
         x = x + tdh + dwh
-        # print(origin_x.shape, lap_mx.shape)
+        # logger.info(origin_x.shape, lap_mx.shape)
         x += self.spatial_embedding(lap_mx.to(self.device))
         x = self.dropout(x)
         return x

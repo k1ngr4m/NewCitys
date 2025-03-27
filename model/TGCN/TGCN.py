@@ -190,7 +190,7 @@ class TGCN(nn.Module):
         """
         inputs = source
         # labels = batch['y']
-        # print(inputs.shape)
+        # logger.info(inputs.shape)
 
         inputs = self.patch_embedding_flow(inputs)
         batch_size, input_window, num_nodes, input_dim = inputs.shape
@@ -205,5 +205,5 @@ class TGCN(nn.Module):
         output = self.output_model(state)  # (batch_size, self.num_nodes, self.output_window * self.output_dim)
         output = output.view(batch_size, self.num_nodes, self.output_window, self.output_dim)
         output = output.permute(0, 2, 1, 3)
-        # print(output.shape)
+        # logger.info(output.shape)
         return output

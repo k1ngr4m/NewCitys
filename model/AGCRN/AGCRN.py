@@ -59,7 +59,7 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('pe', pe)
 
     def forward(self, x):
-        # print(self.pe.shape)
+        # logger.info(self.pe.shape)
         return self.pe[:, :x.size(2)].unsqueeze(1).expand_as(x)
         # return self.pe[:, :x.size(1)].unsqueeze(2).expand_as(x)
 
@@ -116,10 +116,10 @@ class AGCRN(nn.Module):
         #target: B, T_2, N, D
         #supports = F.softmax(F.relu(torch.mm(self.nodevec1, self.nodevec1.transpose(0,1))), dim=1)
 
-        # print(source.shape)
+        # logger.info(source.shape)
         init_state = self.encoder.init_hidden(source.shape[0], self.node_embeddings.shape[0])
         # source = self.Lin_input(source)
-        # print('init_state', init_state.shape)
+        # logger.info('init_state', init_state.shape)
 
         source = self.patch_embedding_flow(source)
 
@@ -130,5 +130,5 @@ class AGCRN(nn.Module):
         output = self.end_conv((output))                         #B, T*C, N, 1
         output = output.squeeze(-1).reshape(-1, self.horizon, self.output_dim, self.node_embeddings.shape[0])
         output = output.permute(0, 1, 3, 2)                             #B, T, N, C
-        # print(output.shape)
+        # logger.info(output.shape)
         return output

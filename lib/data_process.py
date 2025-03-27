@@ -3,7 +3,7 @@ import numpy as np
 import random
 import os
 from torch.utils.data import Dataset, DataLoader, ConcatDataset
-
+from lib.logutil import logger
 def time_add(data, week_start, interval=5, weekday_only=False, holiday_list=None, day_start=0, hour_of_day=24):
     # day and week
     if weekday_only:
@@ -48,7 +48,7 @@ def load_st_dataset(dataset, args):
     if dataset == 'PEMS04':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
         data = np.load(data_path)['data'][:, :, 0]
-        print(data.shape, data[data==0].shape)
+        logger.info(data.shape, data[data==0].shape)
         week_start = 1
         interval = 5
         week_day = 7
@@ -60,8 +60,8 @@ def load_st_dataset(dataset, args):
     elif dataset == 'PEMS08':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
         data = np.load(data_path)['data'][:, :, 0]
-        print(data.shape[0])
-        print(data.shape, data[data==0].shape)
+        logger.info(data.shape[0])
+        logger.info(data.shape, data[data==0].shape)
         week_start = 5
         holiday_list = [4]
         interval = 5
@@ -98,8 +98,8 @@ def load_st_dataset(dataset, args):
     elif dataset == 'CD_DIDI':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
         data = np.load(data_path)['data'][:, :, 0]
-        print(data.shape)
-        print(data[:5])
+        logger.info(data.shape)
+        logger.info(data[:5])
         week_start = 1
         holiday_list = [4]
         interval = 10
@@ -111,7 +111,7 @@ def load_st_dataset(dataset, args):
     elif dataset == 'CD_DIDI_Weather':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
         data = np.load(data_path)['data']
-        print(data.shape)
+        logger.info(data.shape)
         traffic_data = data[:, :, 0]  # 假设第一个特征是交通数据
         temperature_data = data[:, :, 1]  # 后三个特征是天气数据
         precipitation_data = data[:, :, 2]
@@ -123,7 +123,7 @@ def load_st_dataset(dataset, args):
         args.interval = interval
         args.week_day = week_day
         day_data, week_data, holiday_data = time_add(traffic_data, week_start, interval=interval, weekday_only=False, holiday_list=holiday_list)
-        print(traffic_data.shape)
+        logger.info(traffic_data.shape)
         traffic_data = np.expand_dims(traffic_data, axis=-1)
         day_data = np.expand_dims(day_data, axis=-1).astype(int)
         week_data = np.expand_dims(week_data, axis=-1).astype(int)
@@ -133,11 +133,11 @@ def load_st_dataset(dataset, args):
         weather_type_data = np.expand_dims(weather_type_data, axis=-1).astype(int)
         traffic_data = np.concatenate([traffic_data, day_data, week_data], axis=-1)
         weather_data = np.concatenate([traffic_data, temperature_data, precipitation_data, weather_type_data], axis=-1)
-        print(data.shape)
-        print(weather_data.shape)
+        logger.info(data.shape)
+        logger.info(weather_data.shape)
         data = np.concatenate([traffic_data, weather_data], axis=-1)
-        print(data.shape)
-        print('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
+        logger.info(data.shape)
+        logger.info('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
           data[..., 0:1].mean(), np.median(data[..., 0:1]), data.dtype)
         return data
 
@@ -164,7 +164,7 @@ def load_st_dataset(dataset, args):
         args.week_day = week_day
         day_data, week_data, holiday_data = time_add(data, week_start, interval=interval, weekday_only=False,
                                                      holiday_list=holiday_list)
-        print(data.shape)
+        logger.info(data.shape)
     elif dataset == 'TaxiBJ':
         data_path = os.path.join(f'../data/{dataset}/{dataset}.npz')
         data = np.load(data_path)['data'][:, :, 0]
@@ -175,7 +175,7 @@ def load_st_dataset(dataset, args):
         holiday_list = None
         day_data, week_data, holiday_data = time_add(data, week_start, interval=interval, weekday_only=False,
                                                      holiday_list=holiday_list)
-        print(data.shape)
+        logger.info(data.shape)
     # =========== Traffic speed (PEMS) =========== #
     # 2012.03.01 - 2012.06.30
     elif dataset == 'METR_LA':
@@ -308,15 +308,15 @@ def load_st_dataset(dataset, args):
         # raise ValueError
 
     if len(data.shape) == 2:
-        print(data.shape)
+        logger.info(data.shape)
         data = np.expand_dims(data, axis=-1)
         day_data = np.expand_dims(day_data, axis=-1).astype(int)
         week_data = np.expand_dims(week_data, axis=-1).astype(int)
         # holiday_data = np.expand_dims(holiday_data, axis=-1).astype(int)
         data = np.concatenate([data, day_data, week_data], axis=-1)
-        print(data.shape)
+        logger.info(data.shape)
     elif len(data.shape) > 2:
-        print(args.data_type)
+        logger.info(args.data_type)
         if args.data_type == 'crime':
             week_data = np.expand_dims(week_data, axis=-1).astype(int)
             data = np.concatenate([data, week_data], axis=-1)
@@ -327,7 +327,7 @@ def load_st_dataset(dataset, args):
         else:
             raise ValueError
 
-    print('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
+    logger.info('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
           data[..., 0:1].mean(), np.median(data[..., 0:1]), data.dtype)
     return data
 
@@ -380,7 +380,7 @@ def normalize_dataset(data, input_base_dim):
     scaler_data = StandardScaler(mean_data, std_data)
     scaler_day = StandardScaler(mean_day, std_day)
     scaler_week = StandardScaler(mean_week, std_week)
-    print('Normalize the dataset by Standard Normalization')
+    logger.info('Normalize the dataset by Standard Normalization')
 
     return scaler_data, scaler_day, scaler_week
 
@@ -425,18 +425,18 @@ def define_dataloder(args):
     # node_nums = 0
     # tp_nums = 0
     # for dataset_name in args.dataset_use:
-    #     print(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
-    #     # print(sss)
+    #     logger.info(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
+    #     # logger.info(sss)
     #     data = load_st_dataset(dataset_name, args)
     #     node_nums = node_nums + data.shape[1]
     #     tp_nums = tp_nums + data.shape[0]
-    #     print(dataset_name, data.shape)
+    #     logger.info(dataset_name, data.shape)
     #     # num_nodes_dict[dataset_name] = data.shape[1]
     #     # data_train, data_val, data_test = split_data_by_ratio(data, args.val_ratio, args.test_ratio)
-    #     # print('data_train', data_train.shape, data_val.shape, data_test.shape)
+    #     # logger.info('data_train', data_train.shape, data_val.shape, data_test.shape)
     #     # if args.real_value == False:
     #     #     scaler_data, scaler_day, scaler_week = normalize_dataset(data_train, args.input_base_dim)
-    #     #     print(data_train.shape, scaler_data.mean, scaler_data.std)
+    #     #     logger.info(data_train.shape, scaler_data.mean, scaler_data.std)
     #     #     data_train[..., :args.input_base_dim] = scaler_data.transform(data_train[:, :, :args.input_base_dim])
     #     #     data_val[..., :args.input_base_dim] = scaler_data.transform(data_val[:, :, :args.input_base_dim])
     #     #     data_test[..., :args.input_base_dim] = scaler_data.transform(data_test[:, :, :args.input_base_dim])
@@ -455,21 +455,21 @@ def define_dataloder(args):
     #     # dataloder_trn_list.append(datasets_train)
     #     # dataloder_val_list.append(datasets_val)
     #     # dataloder_tst_list.append(datasets_test)
-    # print(tp_nums, node_nums)
-    # print(sss)
+    # logger.info(tp_nums, node_nums)
+    # logger.info(sss)
 
     for dataset_name in args.dataset_use:
-        print(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
-        # print(sss)
+        logger.info(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
+        # logger.info(sss)
         data = load_st_dataset(dataset_name, args)
         # if dataset_name == 'TaxiBJ':
         #     weather_data = load_weather_dataset(dataset_name, args)
         num_nodes_dict[dataset_name] = data.shape[1]
         data_train, data_val, data_test = split_data_by_ratio(data, args.val_ratio, args.test_ratio)
-        print('data_train', data_train.shape, data_val.shape, data_test.shape)
+        logger.info('data_train', data_train.shape, data_val.shape, data_test.shape)
         if args.real_value == False:
             scaler_data, scaler_day, scaler_week = normalize_dataset(data_train, args.input_base_dim)
-            print(data_train.shape, scaler_data.mean, scaler_data.std)
+            logger.info(data_train.shape, scaler_data.mean, scaler_data.std)
             data_train[..., :args.input_base_dim] = scaler_data.transform(data_train[:, :, :args.input_base_dim])
             data_val[..., :args.input_base_dim] = scaler_data.transform(data_val[:, :, :args.input_base_dim])
             data_test[..., :args.input_base_dim] = scaler_data.transform(data_test[:, :, :args.input_base_dim])

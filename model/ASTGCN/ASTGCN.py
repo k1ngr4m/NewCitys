@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import numpy as np
 from scipy.sparse.linalg import eigs
 import math
-
+from lib.logutil import logger
 def scaled_laplacian(weight):
     """
     compute ~L (scaled laplacian matrix)
@@ -271,7 +271,7 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('pe', pe)
 
     def forward(self, x):
-        # print(self.pe.shape)
+        # logger.info(self.pe.shape)
         return self.pe[:, :x.size(2)].unsqueeze(1).expand_as(x)
         # return self.pe[:, :x.size(1)].unsqueeze(2).expand_as(x)
 
@@ -298,25 +298,25 @@ class PatchEmbedding_flow(nn.Module):
 
     def forward(self, x):
         # do patching
-        # print(x.shape)
+        # logger.info(x.shape)
         x = x.squeeze(-1).permute(0, 2, 1)
-        # print('p0', x.shape)
+        # logger.info('p0', x.shape)
         # x = self.padding_patch_layer(x)
-        # print('p1', x.shape)
+        # logger.info('p1', x.shape)
         if x.shape[-1] == 288:
             x = x.unfold(dimension=-1, size=self.patch_len, step=self.stride)
         else:
             gap = 288 // x.shape[-1]
             x = x.unfold(dimension=-1, size=self.patch_len//gap, step=self.stride//gap)
             x = F.pad(x, (0, (self.patch_len - self.patch_len//gap)))
-        # print('p2', x.shape)
+        # logger.info('p2', x.shape)
         # x = torch.reshape(x, (x.shape[0] * x.shape[1], x.shape[2], x.shape[3]))
 
-        # print('p3', x.shape)
+        # logger.info('p3', x.shape)
         # Input encoding
         x = self.value_embedding(x)
         x = x + self.position_encoding(x)
-        # print('p4', x.shape)
+        # logger.info('p4', x.shape)
         x = x.permute(0, 2, 1, 3)
         return x
 
@@ -381,5 +381,5 @@ class ASTGCN(nn.Module):
         output = self.final_conv(x.permute(0, 3, 1, 2)).reshape(x.shape[0], self.num_for_predict, self.dim_out, -1)
         # (b,N,F,T)->(b,T,N,F)-conv<1,F>->(b,c_out*T,N,1)->(b,c_out*T,N)->(b,N,T)
         output = output.transpose(-1, -2)
-        # print('output', output.shape)
+        # logger.info('output', output.shape)
         return output

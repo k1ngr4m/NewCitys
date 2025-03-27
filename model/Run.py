@@ -1,8 +1,9 @@
 
 import os
 import sys
+from lib.logutil import logger
 file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print(file_dir)
+logger.info(file_dir)
 sys.path.append(file_dir)
 
 import torch
@@ -36,13 +37,13 @@ if args.mode !='pretrain':
         if hasattr(args, attr) and hasattr(args_predictor, attr):
             setattr(args, attr, getattr(args_predictor, attr))
     for arg in vars(args):
-        print(arg, ':', getattr(args, arg))
-    print('==========')
+        logger.info(arg, ':', getattr(args, arg))
+    logger.info('==========')
     for arg in vars(args_predictor):
-        print(arg, ':', getattr(args_predictor, arg))
+        logger.info(arg, ':', getattr(args_predictor, arg))
 init_seed(args.seed, args.seed_mode)
 
-print('mode: ', args.mode, '  model: ', args.model, '  dataset: ', args.dataset_use, '  load_pretrain_path: ', args.load_pretrain_path, '  save_pretrain_path: ', args.save_pretrain_path)
+logger.info('mode: ', args.mode, '  model: ', args.model, '  dataset: ', args.dataset_use, '  load_pretrain_path: ', args.load_pretrain_path, '  save_pretrain_path: ', args.save_pretrain_path)
 
 def Mkdir(path):
     if os.path.isdir(path):
@@ -99,15 +100,15 @@ def scaler_huber_loss(mask_value):
 
 if args.loss_func == 'mask_mae':
     loss = scaler_mae_loss(mask_value=args.mape_thresh)
-    print('============================scaler_mae_loss')
+    logger.info('============================scaler_mae_loss')
 elif args.loss_func == 'mask_huber':
     if args.mode != 'pretrain':
         loss = scaler_huber_loss(mask_value=args.mape_thresh)
-        print('============================scaler_huber_loss')
+        logger.info('============================scaler_huber_loss')
     else:
         loss = scaler_mae_loss(mask_value=args.mape_thresh)
-        print('============================scaler_mae_loss')
-    # print(args.model, Mode)
+        logger.info('============================scaler_mae_loss')
+    # logger.info(args.model, Mode)
 elif args.loss_func == 'mae':
     loss = torch.nn.L1Loss()
 elif args.loss_func == 'mse':
@@ -118,7 +119,7 @@ optimizer = torch.optim.Adam(params=model.parameters(), lr=args.lr_init, eps=1.0
 
 #learning rate decay
 if args.lr_decay:
-    print('Applying learning rate decay.')
+    logger.info('Applying learning rate decay.')
     lr_decay_steps = [int(i) for i in list(args.lr_decay_step.split(','))]
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer=optimizer,
                                                         milestones=lr_decay_steps,
@@ -139,7 +140,7 @@ elif args.mode == 'eval':
     else:
         model_weights = {k.replace('module.', ''): v for k, v in torch.load(path).items()}
         model.load_state_dict(model_weights)
-    print("Load saved model")
+    logger.info("Load saved model")
     for param in model.parameters():
         param.requires_grad = False
     for param in model.predictor.linear.parameters():
@@ -148,7 +149,7 @@ elif args.mode == 'eval':
     trainer.multi_train()
 elif args.mode == 'test':
     print_model_parameters(model, only_num=False)
-    print("Load saved model")
+    logger.info("Load saved model")
     trainer.test(model, trainer.args, scaler_dict, test_dataloader, trainer.logger, path=log_dir + '/' + args.load_pretrain_path)
 else:
     raise ValueError

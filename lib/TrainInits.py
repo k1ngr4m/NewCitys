@@ -1,6 +1,7 @@
 import torch
 import random
 import numpy as np
+from lib.logutil import logger
 
 def init_seed(seed, seed_mode):
     '''
@@ -39,17 +40,17 @@ def init_lr_scheduler(optim, opt):
                                                 gamma = opt.lr_scheduler_rate)
 
 def print_model_parameters(model, only_num = True):
-    print('*****************Model Parameter*****************')
+    logger.info('*****************Model Parameter*****************')
     if not only_num:
         for name, param in model.named_parameters():
-            print(name, param.shape, param.requires_grad)
+            logger.info(name, param.shape, param.requires_grad)
     total_num = sum([param.nelement() for param in model.parameters()])
     update_num = sum([param.nelement() for param in model.parameters() if param.requires_grad])
-    print('Total params num: {}, Update params num: {}'.format(total_num, update_num))
-    print('*****************Finish Parameter****************')
+    logger.info('Total params num: {}, Update params num: {}'.format(total_num, update_num))
+    logger.info('*****************Finish Parameter****************')
 
 def get_memory_usage(device):
     allocated_memory = torch.cuda.memory_allocated(device) / (1024*1024.)
     cached_memory = torch.cuda.memory_cached(device) / (1024*1024.)
-    print('Allocated Memory: {:.2f} MB, Cached Memory: {:.2f} MB'.format(allocated_memory, cached_memory))
+    logger.info('Allocated Memory: {:.2f} MB, Cached Memory: {:.2f} MB'.format(allocated_memory, cached_memory))
     return allocated_memory, cached_memory

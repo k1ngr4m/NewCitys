@@ -7,7 +7,7 @@ Why add mask to MAPE and MARE?
 '''
 import numpy as np
 import torch
-
+from lib.logutil import logger
 def MAE_torch(pred, true, mask_value=None):
     if mask_value != None:
         mask = torch.gt(true, mask_value)
@@ -18,7 +18,7 @@ def MAE_torch(pred, true, mask_value=None):
         true_count = None
     mae_loss = torch.abs(true - pred)
 
-    # print(mae_loss[mae_loss>3].shape, mae_loss[mae_loss<1].shape, mae_loss.shape)
+    # logger.info(mae_loss[mae_loss>3].shape, mae_loss[mae_loss<1].shape, mae_loss.shape)
     return torch.mean(mae_loss), true_count
 
 def huber_loss(pred, true, mask_value=None, delta=1.0):
@@ -94,8 +94,8 @@ def MAPE_torch(pred, true, mask_value=None):
         true_count = torch.sum(mask).item()
     else:
         true_count = None
-        # print(true[true<1].shape, true[true<0.0001].shape, true[true==0].shape)
-        # print(true)
+        # logger.info(true[true<1].shape, true[true<0.0001].shape, true[true==0].shape)
+        # logger.info(true)
     return torch.mean(torch.abs(torch.div((true - pred), true))), true_count
 
 def PNBI_torch(pred, true, mask_value=None):
@@ -258,5 +258,5 @@ def SIGIR_Metrics(pred, true, mask1, mask2):
 if __name__ == '__main__':
     pred = torch.Tensor([1, 2, 3,4])
     true = torch.Tensor([2, 1, 4,5])
-    print(All_Metrics(pred, true, None, None))
+    logger.info(All_Metrics(pred, true, None, None))
 

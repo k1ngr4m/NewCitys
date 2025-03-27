@@ -4,7 +4,7 @@ from .attention import TemporalAttention, SpatialAttention
 # from util import reparameterize
 import math
 import torch.nn.functional as F
-
+from lib.logger import get_logger
 def reparameterize(mu, logvar):
     std = torch.exp(0.5 * logvar)
     eps = torch.randn_like(std)
@@ -124,7 +124,7 @@ class STWA(nn.Module):
             z_data = 0
 
         x = self.patch_embedding_flow(x)
-        # print('x1', x.shape)
+        # logger.info('x1', x.shape)
         # x = self.start_fc(x)
         batch_size = x.size(0)
 
@@ -141,7 +141,7 @@ class STWA(nn.Module):
         else:
             out = out.unsqueeze(-1).reshape(batch_size, self.num_nodes, self.horizon, -1).transpose(2, 1)
 
-        # print(out.shape)
+        # logger.info(out.shape)
 
         return out
 
@@ -220,7 +220,7 @@ class ParameterGenerator(nn.Module):
         self.dynamic = dynamic
 
         if self.dynamic:
-            print('Using DYNAMIC')
+            logger.info('Using DYNAMIC')
             self.weight_generator = nn.Sequential(*[
                 nn.Linear(memory_size, 32),
                 nn.ReLU(),
@@ -236,7 +236,7 @@ class ParameterGenerator(nn.Module):
                 nn.Linear(5, output_dim)
             ])
         else:
-            print('Using FC')
+            logger.info('Using FC')
             self.weights = nn.Parameter(torch.rand(input_dim, output_dim), requires_grad=True)
             self.biases = nn.Parameter(torch.rand(input_dim), requires_grad=True)
 

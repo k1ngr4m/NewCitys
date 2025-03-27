@@ -7,7 +7,7 @@ from lib.logger import get_logger
 from lib.metrics import All_Metrics
 from tqdm import tqdm
 from lib.data_process import get_key_from_value
-
+from lib.logutil import logger
 
 class Trainer(object):
     def __init__(self, model, loss, optimizer, train_dataloader, val_dataloader, test_dataloader, scaler_dict,
@@ -29,8 +29,9 @@ class Trainer(object):
         # log
         if os.path.isdir(args.log_dir) == False and not args.debug:
             os.makedirs(args.log_dir, exist_ok=True)
-        self.logger = get_logger(args.log_dir, name=args.model, debug=args.debug)
-        self.logger.info('Experiment log path in: {}'.format(args.log_dir))
+        # self.logger = get_logger(args.log_dir, name=args.model, debug=args.debug)
+        # self.logger.info('Experiment log path in: {}'.format(args.log_dir))
+        self.logger = logger
 
     def multi_train(self):
         best_model = None
@@ -78,7 +79,7 @@ class Trainer(object):
         if self.args.mode != 'pretrain' and self.args.val_ratio > 0:
             self.model.load_state_dict(best_model)
             self.test(self.model, self.args, self.scaler_dict, self.test_dataloader, self.logger)
-        print("Pre-train finish.")
+        logger.info("Pre-train finish.")
 
 
     def multi_train_eps(self):
@@ -172,12 +173,12 @@ class Trainer(object):
                 total_mape_count += mape_count
                 total_batch += len(y_lbl)
                 if args.model == 'OpenCity':
-                    print(total_batch, batch_mae, batch_rmse, batch_mape, total_count, total_mape_count)
+                    logger.info(total_batch, batch_mae, batch_rmse, batch_mape, total_count, total_mape_count)
         mae /= total_count
         rmse = (rmse / total_count) ** 0.5
         mape /= total_mape_count
-        print('last batch', output.shape, y_lbl.shape)
-        print(total_batch, total_count, total_mape_count)
+        logger.info('last batch', output.shape, y_lbl.shape)
+        logger.info(total_batch, total_count, total_mape_count)
 
         logger.info("Average Horizon, MAE: {:.2f}, RMSE: {:.2f}, MAPE: {:.4f}%, CORR:{:.4f}".format(
             mae, rmse, mape * 100, corr))
