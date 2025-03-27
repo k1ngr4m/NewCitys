@@ -42,8 +42,8 @@ if args.mode !='pretrain':
     for arg in vars(args_predictor):
         logger.info(arg, ':', getattr(args_predictor, arg))
 init_seed(args.seed, args.seed_mode)
-
-logger.info('mode: ', args.mode, '  model: ', args.model, '  dataset: ', args.dataset_use, '  load_pretrain_path: ', args.load_pretrain_path, '  save_pretrain_path: ', args.save_pretrain_path)
+logger.info('mode: %s, model: %s, dataset: %s, load_pretrain_path: %s, save_pretrain_path: %s', args.mode, args.model, args.dataset_use, args.load_pretrain_path, args.save_pretrain_path)
+# logger.info('mode: ', args.mode, '  model: ', args.model, '  dataset: ', args.dataset_use, '  load_pretrain_path: ', args.load_pretrain_path, '  save_pretrain_path: ', args.save_pretrain_path)
 
 def Mkdir(path):
     if os.path.isdir(path):

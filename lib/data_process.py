@@ -137,8 +137,10 @@ def load_st_dataset(dataset, args):
         logger.info(weather_data.shape)
         data = np.concatenate([traffic_data, weather_data], axis=-1)
         logger.info(data.shape)
-        logger.info('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
-          data[..., 0:1].mean(), np.median(data[..., 0:1]), data.dtype)
+        # logger.info('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
+        #   data[..., 0:1].mean(), np.median(data[..., 0:1]), data.dtype)
+        logger.info('Load %s Dataset shaped: %s, Max: %s, Min: %s',
+                    dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min())
         return data
 
     # 1 / 1 / 2018 - 4 / 30 / 2018 Monday
@@ -459,7 +461,9 @@ def define_dataloder(args):
     # logger.info(sss)
 
     for dataset_name in args.dataset_use:
-        logger.info(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
+        # logger.info(args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
+        logger.info('Dataset: %s, Name: %s, Val Ratio: %s, Test Ratio: %s',
+                    args.dataset_use, dataset_name, args.val_ratio, args.test_ratio)
         # logger.info(sss)
         data = load_st_dataset(dataset_name, args)
         # if dataset_name == 'TaxiBJ':
