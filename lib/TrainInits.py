@@ -43,7 +43,7 @@ def print_model_parameters(model, only_num = True):
     logger.info('*****************Model Parameter*****************')
     if not only_num:
         for name, param in model.named_parameters():
-            logger.info(name, param.shape, param.requires_grad)
+            logger.info("Parameter: %s, Shape: %s, Requires Grad: %s", name, param.shape, param.requires_grad)
     total_num = sum([param.nelement() for param in model.parameters()])
     update_num = sum([param.nelement() for param in model.parameters() if param.requires_grad])
     logger.info('Total params num: {}, Update params num: {}'.format(total_num, update_num))
