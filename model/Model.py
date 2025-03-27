@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from lib.logutil import logger
 
 class Traffic_model(nn.Module):
     def __init__(self, args, args_predictor):
@@ -63,4 +64,6 @@ class Traffic_model(nn.Module):
             x_predic = self.predictor(source, label, select_dataset)
         else:
             x_predic = self.predictor(source[..., 0:self.input_base_dim], select_dataset)
+        logger.debug(f"Model output shape: {x_predic.shape}")
+        logger.debug(f"Label shape: {label.shape}")
         return x_predic

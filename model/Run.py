@@ -86,6 +86,8 @@ def scaler_mae_loss(mask_value):
         if args.mode == 'pretrain' and mask is not None:
             preds = preds * mask
             labels = labels * mask
+        logger.debug(f"Preds shape: {preds.shape}")
+        logger.debug(f"Labels shape: {labels.shape}")
         mae, mae_loss = MAE_torch(pred=preds, true=labels, mask_value=mask_value)
         return mae
     return loss
