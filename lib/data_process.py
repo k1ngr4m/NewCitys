@@ -329,8 +329,13 @@ def load_st_dataset(dataset, args):
         else:
             raise ValueError
 
-    logger.info('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
-          data[..., 0:1].mean(), np.median(data[..., 0:1]), data.dtype)
+    # logger.info('Load %s Dataset shaped: ' % dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
+    #       data[..., 0:1].mean(), np.median(data[..., 0:1]), data.dtype)
+    logger.info(
+        'Load %s Dataset shaped: %s, Max: %s, Min: %s, Mean: %s, Std: %s',
+        dataset, data.shape, data[..., 0:1].max(), data[..., 0:1].min(),
+        data[..., 0:1].mean(), data[..., 0:1].std()
+    )
     return data
 
 def split_data_by_ratio(data, val_ratio, test_ratio):
@@ -470,7 +475,11 @@ def define_dataloder(args):
         #     weather_data = load_weather_dataset(dataset_name, args)
         num_nodes_dict[dataset_name] = data.shape[1]
         data_train, data_val, data_test = split_data_by_ratio(data, args.val_ratio, args.test_ratio)
-        logger.info('data_train', data_train.shape, data_val.shape, data_test.shape)
+        # logger.info('data_train', data_train.shape, data_val.shape, data_test.shape)
+        logger.info(
+            'Data shapes - Train: %s, Val: %s, Test: %s',
+            data_train.shape, data_val.shape, data_test.shape
+        )
         if args.real_value == False:
             scaler_data, scaler_day, scaler_week = normalize_dataset(data_train, args.input_base_dim)
             logger.info(data_train.shape, scaler_data.mean, scaler_data.std)
