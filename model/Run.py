@@ -159,6 +159,6 @@ try:
     else:
         raise ValueError
 except Exception as e:
-    logger.info("Exception caught:")
+    # logger.info("Exception caught:")
     logger.info(traceback.format_exc())  # 打印完整的 Traceback
-    logger.info("Exiting gracefully.")
+    # logger.info("Exiting gracefully.")
