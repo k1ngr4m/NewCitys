@@ -4,7 +4,7 @@ from .attention import TemporalAttention, SpatialAttention
 # from util import reparameterize
 import math
 import torch.nn.functional as F
-from lib.logger import get_logger
+from lib.logutil import logger
 def reparameterize(mu, logvar):
     std = torch.exp(0.5 * logvar)
     eps = torch.randn_like(std)
