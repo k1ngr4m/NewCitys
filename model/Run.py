@@ -1,9 +1,9 @@
 
 import os
 import sys
-# file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# logger.info(file_dir)
-# sys.path.append(file_dir)
+file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(file_dir)
+sys.path.append(file_dir)
 
 import torch
 import torch.nn as nn
