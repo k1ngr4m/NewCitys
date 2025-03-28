@@ -138,7 +138,7 @@ else:
 try:
     trainer = Trainer(model, loss, optimizer, train_dataloader, val_dataloader, test_dataloader, scaler_dict, args, scheduler=scheduler)
     if args.mode == 'pretrain' or args.mode == 'ori':
-        print_model_parameters(model, only_num=False)
+        # print_model_parameters(model, only_num=False)
         trainer.multi_train()
     elif args.mode == 'eval':
         path = log_dir + '/' + args.load_pretrain_path
@@ -152,10 +152,10 @@ try:
             param.requires_grad = False
         for param in model.predictor.linear.parameters():
             param.requires_grad = True
-        print_model_parameters(model, only_num=False)
+        # print_model_parameters(model, only_num=False)
         trainer.multi_train()
     elif args.mode == 'test':
-        print_model_parameters(model, only_num=False)
+        # print_model_parameters(model, only_num=False)
         logger.info("Load saved model")
         trainer.test(model, trainer.args, scaler_dict, test_dataloader, trainer.logger, path=log_dir + '/' + args.load_pretrain_path)
     else:
