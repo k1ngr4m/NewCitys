@@ -177,8 +177,9 @@ class Trainer(object):
         mae /= total_count
         rmse = (rmse / total_count) ** 0.5
         mape /= total_mape_count
-        logger.info('last batch', output.shape, y_lbl.shape)
-        logger.info(total_batch, total_count, total_mape_count)
-
+        # logger.info('last batch', output.shape, y_lbl.shape)
+        logger.info('last batch %s %s', output.shape, y_lbl.shape)
+        # logger.info(total_batch, total_count, total_mape_count)
+        logger.info('Total batch: %s, Count: %s, MAPE: %s', total_batch, total_count, total_mape_count)
         logger.info("Average Horizon, MAE: {:.2f}, RMSE: {:.2f}, MAPE: {:.4f}%, CORR:{:.4f}".format(
             mae, rmse, mape * 100, corr))
