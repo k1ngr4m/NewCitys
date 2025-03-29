@@ -40,7 +40,10 @@ class LogUtil:
         self.logger = logging.getLogger("logger")
         self.logger.setLevel(logging.DEBUG)
         if not self.logger.handlers:
-            self.log_name = '{}.log'.format(time.strftime("%Y_%m_%d_%H_%M", time.localtime()))
+            east8_tz = timezone(timedelta(hours=8))
+            current_time = datetime.now(east8_tz)
+            self.log_name = f"{current_time.strftime('%Y_%m_%d_%H_%M')}.log"
+            # self.log_name = '{}.log'.format(time.strftime("%Y_%m_%d_%H_%M", time.localtime()))
             self.log_path_file = os.path.join(get_log_path(), self.log_name)
             fh = logging.FileHandler(self.log_path_file, encoding='utf-8', mode='a')
             fh.setLevel(logging.DEBUG)
