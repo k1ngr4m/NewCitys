@@ -8,6 +8,7 @@ from lib.metrics import All_Metrics
 from tqdm import tqdm
 from lib.data_process import get_key_from_value
 from lib.logutil import logger
+from lib.pushdeer import pushdeer
 
 class Trainer(object):
     def __init__(self, model, loss, optimizer, train_dataloader, val_dataloader, test_dataloader, scaler_dict,
@@ -183,3 +184,4 @@ class Trainer(object):
         logger.info('Total batch: %s, Count: %s, MAPE: %s', total_batch, total_count, total_mape_count)
         logger.info("Average Horizon, MAE: {:.2f}, RMSE: {:.2f}, MAPE: {:.4f}%, CORR:{:.4f}".format(
             mae, rmse, mape * 100, corr))
+        pushdeer.send_text(f"Average Horizon, MAE: {mae:.2f}, RMSE: {rmse:.2f}, MAPE: {mape * 100:.4f}%, CORR:{corr:.4f}")
