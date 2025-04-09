@@ -6,7 +6,6 @@ import torch.nn.functional as F
 import torch.nn.init as init
 from functools import partial
 
-
 def drop_path(x, drop_prob=0., training=False):
     if drop_prob == 0. or not training:
         return x
@@ -59,30 +58,28 @@ class PositionalEncoding(nn.Module):
         return self.pe[:, :x.size(2)].unsqueeze(1).expand_as(x)
 
 class PatchEmbedding_flow(nn.Module):
-
-    def __init__(self, d_model, patch_len, stride, padding, his, num_feas):
+    def __init__(self, d_model, patch_len, stride, padding, his):
         super(PatchEmbedding_flow, self).__init__()
+        # Patching
         self.patch_len = patch_len
         self.stride = stride
         self.his = his
-        self.num_feas = num_feas
-        self.value_embedding = nn.Linear(patch_len * num_feas, d_model)  # 输入维度对齐
+
+        self.value_embedding = nn.Linear(patch_len, d_model, bias=False)
         self.position_encoding = PositionalEncoding(d_model)
 
     def forward(self, x):
-        bs, time_steps, num_nodes, num_feas = x.size()
-        x = x.permute(0, 2, 1, 3)  # [bs, num_nodes, time_steps, num_feas]
-        if self.his == x.shape[2]:
-            x = x.unfold(dimension=2, size=self.patch_len, step=self.stride)
+        # do patching
+        x = x.squeeze(-1).permute(0, 2, 1)
+        if self.his == x.shape[-1]:
+            x = x.unfold(dimension=-1, size=self.patch_len, step=self.stride)
         else:
-            gap = self.his // x.shape[2]
-            x = x.unfold(dimension=2, size=self.patch_len//gap, step=self.stride//gap)
-            x = F.pad(x, (0, 0, 0, self.patch_len - self.patch_len//gap))
-        x = x.contiguous().view(bs * num_nodes, x.size(2), -1)
-        x = self.value_embedding(x)  # [bs*num_nodes, num_patch, d_model]
-        x = x.view(bs, num_nodes, -1, self.value_embedding.out_features)
+            gap = self.his // x.shape[-1]
+            x = x.unfold(dimension=-1, size=self.patch_len//gap, step=self.stride//gap)
+            x = F.pad(x, (0, (self.patch_len - self.patch_len//gap)))
+        x = self.value_embedding(x)
         x = x + self.position_encoding(x)
-        x = x.permute(0, 2, 1, 3)  # [bs, num_patch, num_nodes, d_model]
+        x = x.permute(0, 2, 1, 3)
         return x
 
 class PatchEmbedding_time(nn.Module):
@@ -354,6 +351,10 @@ class NewCity(nn.Module):
         self.output_window = args.output_window
         self.device = device
         self.far_mask_delta = args.far_mask_delta
+        self.weather_dim = args.weather_dim
+        print(f"weather_dim:{self.weather_dim}")
+        # self.weather_fc = nn.Linear(self.weather_dim, self.embed_dim)  # args.weather_dim 是天气数据的维度
+
 
         self.geo_mask_dict = {}
         for i, data_graph in enumerate(dataset_use):
@@ -364,13 +365,7 @@ class NewCity(nn.Module):
         self.sem_mask = None
 
         self.patch_embedding_flow = PatchEmbedding_flow(
-            d_model=args.embed_dim,
-            patch_len=12,
-            stride=12,
-            padding = None,
-            his=args.input_window,
-            num_feas=6  # 使用数据预处理中定义的维度
-        )
+            self.embed_dim, patch_len=12, stride=12, padding=0, his=args.input_window)
         self.patch_embedding_time = PatchEmbedding_time(
             self.embed_dim, patch_len=12, stride=12, padding=0, his=args.input_window)
         self.spatial_embedding = LaplacianPE(self.lape_dim, self.embed_dim)
@@ -379,20 +374,18 @@ class NewCity(nn.Module):
         self.encoder_blocks = nn.ModuleList([
             STEncoderBlock(
                 dim=self.embed_dim, s_attn_size=self.s_attn_size, t_attn_size=self.t_attn_size,
-                geo_num_heads=self.geo_num_heads, sem_num_heads=self.sem_num_heads,
-                tc_num_heads=self.tc_num_heads, t_num_heads=self.t_num_heads,
-                mlp_ratio=self.mlp_ratio, qkv_bias=self.qkv_bias,
-                drop=self.drop, attn_drop=self.attn_drop,
-                drop_path=self.drop_path, device=self.device,
-                type_ln=self.type_ln
-            ) for _ in range(self.enc_depth)
+                geo_num_heads=self.geo_num_heads, sem_num_heads=self.sem_num_heads, tc_num_heads=self.tc_num_heads, t_num_heads=self.t_num_heads,
+                mlp_ratio=self.mlp_ratio, qkv_bias=self.qkv_bias, drop=self.drop, attn_drop=self.attn_drop, drop_path=enc_dpr[i], act_layer=nn.GELU,
+                device=self.device, type_ln=self.type_ln, output_dim=self.output_dim,
+            ) for i in range(self.enc_depth)
         ])
 
         self.flatten = nn.Flatten(start_dim=-2)
         self.linear = nn.Linear(24*self.skip_dim, self.output_window)
+        self.weather_fc = nn.Linear(self.weather_dim * self.patch_embedding_flow.patch_len, args.embed_dim)
 
 
-    def forward(self, input, lbls, select_dataset, external_features=None):
+    def forward(self, input, lbls, select_dataset):
 
         bs, time_steps, num_nodes, num_feas = input.size()
         x = input
@@ -411,15 +404,57 @@ class NewCity(nn.Module):
         stdev = torch.sqrt(torch.var(x_in, dim=1, keepdim=True, unbiased=False)+ 1e-5).detach()
         x_in /= stdev
 
+        # 在归一化后添加数据检查
+        # print("x_in mean:", x_in.mean().item(), "x_in std:", x_in.std().item())
         # Patch Embedding
-        enc = self.patch_embedding_flow(input)
+        enc = self.patch_embedding_flow(x_in)
+
+
+        # 假设天气数据在输入数据的最后 weather_dim 个维度
+        weather_data = input[..., -self.weather_dim:]
+        # print(f"Weather data shape before squeeze: {weather_data.shape}")  # 打印天气数据的形状，用于调试
+
+        if self.weather_dim > 0:
+            # 调整维度顺序并分片
+            B, T, N, W = weather_data.size()
+            # 转换为 [B, N, W, T] 并合并批次和节点
+            weather_data = weather_data.permute(0, 2, 3, 1).reshape(B * N, W, T)
+
+            # 分片参数
+            patch_len = self.patch_embedding_flow.patch_len
+            stride = self.patch_embedding_flow.stride
+
+            # 在时间维度上进行分片
+            weather_patched = weather_data.unfold(
+                dimension=-1,
+                size=patch_len,
+                step=stride
+            )  # [B*N, W, num_patches, patch_len]
+
+            num_patches = weather_patched.shape[-2]
+            # 调整形状并分离批次和节点
+            weather_patched = weather_patched.reshape(B, N, W, num_patches, patch_len)
+            # 合并天气维度和分片长度，并调整维度顺序
+            weather_patched = weather_patched.permute(0, 3, 1, 2, 4)  # [B, num_patches, N, W, patch_len]
+            weather_patched = weather_patched.reshape(B * num_patches * N, -1)  # 展平最后三个维度
+
+            # 投影到嵌入空间
+            weather_embedding = self.weather_fc(weather_patched)
+            # 调整为与enc匹配的形状 [B, num_patches, N, embed_dim]
+            weather_embedding = weather_embedding.reshape(B, num_patches, N, -1)
+
+            # print(f"enc shape: {enc.shape}, weather_embedding shape: {weather_embedding.shape}")
+
+            # 确保enc的维度匹配并相加
+            # enc = enc + weather_embedding.permute(0, 2, 1, 3)  # 调整维度顺序为 [B, N, num_patches, D]
+
+            enc = enc + weather_embedding
         # adj
         adj = self.adj_mx_dict[select_dataset].to(self.device)
 
         # Spatio-Temporal Dependencies Modeling
-        for encoder_block in self.encoder_blocks:
-            enc = encoder_block(enc, enc, enc, feas_all_his, feas_all_pre, adj,
-                                self.geo_mask_dict[select_dataset].to(self.device), None)
+        for i, encoder_block in enumerate(self.encoder_blocks):
+            enc = encoder_block(enc, enc, enc, feas_all_his, feas_all_pre, adj, self.geo_mask_dict[select_dataset].to(self.device), self.sem_mask)
 
         # Prediction head
         skip = enc.permute(0, 2, 3, 1).contiguous()
