@@ -55,6 +55,9 @@ def parse_args(parser, args_base):
     parser.add_argument('--type_ln', type=str, default=config['model']['type_ln'])
     parser.add_argument('--type_short_path', type=str, default=config['model']['type_short_path'])
     parser.add_argument('--far_mask_delta', type=int, default=config['model']['far_mask_delta'])
+
+    parser.add_argument('--data_usage_ratio', type=float, default=1, help='portion of data to use')
+
     # train
     parser.add_argument('--seed', type=int, default=config['train']['seed'])
     parser.add_argument('--seed_mode', type=eval, default=config['train']['seed_mode'])

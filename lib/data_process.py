@@ -338,8 +338,10 @@ def load_st_dataset(dataset, args):
     )
     return data
 
-def split_data_by_ratio(data, val_ratio, test_ratio):
+def split_data_by_ratio(data, val_ratio, test_ratio, data_usage_ratio=1):
     data_len = data.shape[0]
+    data = data[:int(data_len * data_usage_ratio)]  # 截取部分数据
+
     if test_ratio == 0:
         test_data = data[:0]
         val_data = data[-int(data_len * (test_ratio + val_ratio)):-int(data_len * test_ratio)]
