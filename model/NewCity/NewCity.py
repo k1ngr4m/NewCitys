@@ -153,7 +153,6 @@ class GAT(nn.Module):
         self.out_dim = out_dim
         self.alpha = alpha
         self.head_dim = out_dim // num_heads
-        assert self.head_dim * num_heads == out_dim, "头数须能整除输出维度"
 
         # 投影矩阵
         self.W = nn.Linear(in_dim, num_heads * self.head_dim, bias=False)
@@ -241,7 +240,7 @@ class TemporalSelfAttention(nn.Module):
         self.tc_v_conv = nn.Linear(dim, dim, bias=qkv_bias)
         self.tc_attn_drop = nn.Dropout(attn_drop)
 
-        # self.GCN = GCN(dim, dim, proj_drop, alpha=0.05)
+        self.GCN = GCN(dim, dim, proj_drop, alpha=0.05)
         self.GAT = GAT(dim, dim, proj_drop, alpha=0.05, num_heads=4)
         self.act = nn.GELU()
 
@@ -285,9 +284,9 @@ class TemporalSelfAttention(nn.Module):
         t_x = (t_attn @ t_v).transpose(2, 3).reshape(B, N, T_q, D).transpose(1, 2)
 
         t_x = self.norm_tatt2(t_x + tc_x)
-        # gcn_out = self.GCN(t_x, adj)
-        gcn_out = self.GAT(t_x, adj)
-        x = self.proj_drop(gcn_out)
+        gcn_out = self.GCN(t_x, adj)
+        gat_out = self.GAT(t_x, adj)
+        x = self.proj_drop(gat_out)
         return x
 
 
@@ -319,6 +318,44 @@ class STEncoderBlock(nn.Module):
             x = x + self.drop_path(self.mlp(self.norm2(x)))
         return x
 
+
+class MultiHeadCrossAttention(nn.Module):
+    def __init__(self, d_traffic, d_weather, d_h, num_heads):
+        super().__init__()
+        self.num_heads = num_heads
+        self.d_h = d_h
+
+        # 交通特征投影（Query）
+        self.W_q = nn.Linear(d_traffic, d_h * num_heads)
+        # 气象特征投影（Key/Value）
+        self.W_k = nn.Linear(d_weather, d_h * num_heads)
+        self.W_v = nn.Linear(d_weather, d_h * num_heads)
+        # 输出投影
+        self.W_o = nn.Linear(d_h * num_heads, d_traffic)
+
+    def forward(self, F_traffic, F_weather):
+        # 输入: F_traffic [batch, seq_len, d_traffic], F_weather [batch, seq_len, d_weather]
+        # 生成Q/K/V
+        Q = self.W_q(F_traffic)  # [batch, seq_len, num_heads * d_h]
+        K = self.W_k(F_weather)
+        V = self.W_v(F_weather)
+
+        # 分割多头
+        Q = Q.view(-1, Q.size(1), self.num_heads, self.d_h).transpose(1, 2)
+        K = K.view(-1, K.size(1), self.num_heads, self.d_h).transpose(1, 2)
+        V = V.view(-1, V.size(1), self.num_heads, self.d_h).transpose(1, 2)
+
+        # 计算注意力权重
+        attn_scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.d_h ** 0.5)
+        attn_weights = torch.softmax(attn_scores, dim=-1)
+
+        # 加权聚合Value
+        attn_output = torch.matmul(attn_weights, V)  # [batch, num_heads, seq_len, d_h]
+        attn_output = attn_output.transpose(1, 2).contiguous().view(-1, attn_output.size(2), self.num_heads * self.d_h)
+
+        # 输出投影
+        output = self.W_o(attn_output)  # [batch, seq_len, d_traffic]
+        return output
 
 class NewCity(nn.Module):
     def __init__(self, args, dataset_use, device, dim_in):

@@ -4,6 +4,11 @@ import random
 import os
 from torch.utils.data import Dataset, DataLoader, ConcatDataset
 from lib.logutil import logger
+import pandas as pd
+from scipy.interpolate import BSpline, make_interp_spline
+from sklearn.linear_model import LinearRegression
+
+
 def time_add(data, week_start, interval=5, weekday_only=False, holiday_list=None, day_start=0, hour_of_day=24):
     # day and week
     if weekday_only:
@@ -533,3 +538,64 @@ def get_key_from_value(d, value):
             return key
     return None
 
+
+def interpolate_meteorological_data(hourly_weather, traffic_timestamps):
+    """
+    将小时级气象数据插值到分钟级交通时间戳，并关联至交通网络节点
+
+    参数：
+    - hourly_weather: DataFrame, 列包括时间戳（小时级）和气象特征（如温度、湿度）
+    - traffic_timestamps: 分钟级交通数据的时间戳数组
+
+    返回：
+    - z_t: 插值后的分钟级气象数据（与交通时间戳对齐）
+    """
+
+    # --- 1. 时间戳对齐与基函数插值 ---
+    # 将小时级时间戳转换为数值形式（例如Unix时间戳）
+    t_hourly = pd.to_datetime(hourly_weather['timestamp']).view('int64') // 1e9  # 转换为秒级时间戳
+    t_minutely = pd.to_datetime(traffic_timestamps).view('int64') // 1e9
+
+    # --- 2. 基函数选择与系数计算（以B样条为例） ---
+    # 定义基函数参数
+    k = 3  # 三次样条（阶数k=3）
+    n = 5  # 基函数数量n+1=6
+    knots = np.linspace(t_hourly.min(), t_hourly.max(), n + k + 1)  # B样条节点
+
+    # 构建基函数矩阵
+    B = np.zeros((len(t_hourly), n + 1))
+    for i in range(n + 1):
+        B[:, i] = BSpline.basis_element(knots[i:i + k + 1], ext=2)(t_hourly)
+
+    # 拟合插值系数a_i（最小二乘法）
+    model = LinearRegression(fit_intercept=False)
+    model.fit(B, hourly_weather['temperature'].values)
+    a_i = model.coef_  # 插值系数
+
+    # --- 3. 计算插值后的分钟级气象数据z_t ---
+    z_t = np.zeros(len(t_minutely))
+    for idx, t in enumerate(t_minutely):
+        # 计算每个分钟级时间戳的基函数值
+        B_t = np.array([BSpline.basis_element(knots[i:i + k + 1], ext=2)(t) for i in range(n + 1)])
+        # 加权求和：z_t = Σ a_i * B_{i,k}(t)
+        z_t[idx] = np.dot(a_i, B_t)
+
+    return z_t
+
+
+# --- 示例用法 ---
+if __name__ == "__main__":
+    # 模拟小时级气象数据（时间戳间隔1小时）
+    hourly_weather = pd.DataFrame({
+        'timestamp': pd.date_range('2023-01-01 00:00', periods=24, freq='H'),
+        'temperature': np.random.uniform(20, 30, 24)
+    })
+
+    # 模拟分钟级交通数据时间戳（间隔5分钟）
+    traffic_timestamps = pd.date_range('2023-01-01 00:00', periods=288, freq='5T')
+
+    # 执行插值
+    z_t = interpolate_meteorological_data(hourly_weather, traffic_timestamps)
+
+    print("插值后的分钟级气象数据示例:")
+    print(z_t[:10])  # 打印前10个插值结果
