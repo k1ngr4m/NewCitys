@@ -286,7 +286,7 @@ class TemporalSelfAttention(nn.Module):
         t_x = self.norm_tatt2(t_x + tc_x)
         gcn_out = self.GCN(t_x, adj)
         gat_out = self.GAT(t_x, adj)
-        x = self.proj_drop(gat_out)
+        x = self.proj_drop(gat_out+gcn_out)
         return x
 
 
@@ -484,8 +484,9 @@ class NewCity(nn.Module):
 
             # 确保enc的维度匹配并相加
             # enc = enc + weather_embedding.permute(0, 2, 1, 3)  # 调整维度顺序为 [B, N, num_patches, D]
-
-            enc = enc + weather_embedding
+            # 生成门控权重（使用Sigmoid）
+            gate_weight = torch.sigmoid(self.gate_fc(torch.cat([enc, weather_embedding], dim=-1)))  # [B, T, N, D]
+            enc = enc + gate_weight * weather_embedding
         # adj
         adj = self.adj_mx_dict[select_dataset].to(self.device)
 
