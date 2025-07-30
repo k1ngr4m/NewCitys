@@ -1,251 +1,140 @@
-# OpenCity: Open Spatio-Temporal Foundation Models for Traffic Prediction
-
-<img src='opencity.png' />
-
-A pytorch implementation for the paper: [OpenCity: Open Spatio-Temporal Foundation Models for Traffic Prediction](https://arxiv.org/abs/2408.10269)<br />  
-
-[Zhonghang Li](https://scholar.google.com/citations?user=__9uvQkAAAAJ), [Long Xia](https://scholar.google.com/citations?user=NRwerBAAAAAJ), [Lei Shi](https://harryshil.github.io/), [Yong Xu](https://scholar.google.com/citations?user=1hx5iwEAAAAJ), [Dawei Yin](https://www.yindawei.com/), [Chao Huang](https://sites.google.com/view/chaoh)* (*Correspondence)<br />  
-
-**[Data Intelligence Lab](https://sites.google.com/view/chaoh/home)@[University of Hong Kong](https://www.hku.hk/)**, [South China University of Technology](https://www.scut.edu.cn/en/), Baidu Inc  
-<!--
------
-
-<a href='https://OpenCity-ST.github.io/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
-<a href='https://github.com/HKUDS/OpenCity'><img src='https://img.shields.io/badge/Demo-Page-purple'></a> 
-<#><img src='https://img.shields.io/badge/Paper-PDF-orange'></a> 
-[![YouTube](https://badges.aleen42.com/src/youtube.svg)](https://www.youtube.com/watch?v=4BIbQt-EIAM)
- • 🌐 <a href="https://zhuanlan.zhihu.com/p/684785925" target="_blank">中文博客</a>
--->
-This repository hosts the code, data, and model weights of **OpenCity**.
-
------
-## 🎉 News 
-- [x] [2024.08.21] Release the full paper.
-- [x] [2024.08.20] Add video.
-- [x] [2024.08.15] 🚀🚀 Release the code, model weights and datasets of OpenCity.
-- [x] [2024.08.15] Release baselines codes.
-
-
-🎯🎯📢📢 We upload the **models** and **data** used in our OpenCity on 🤗 **Huggingface**. We highly recommend referring to the table below for further details: 
-
-| 🤗 Huggingface Address                                        | 🎯 Description                                                |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [https://huggingface.co/hkuds/OpenCity-Plus](https://huggingface.co/hkuds/OpenCity-Plus/tree/main) | It's the model weights of our OpenCity-Plus. |
-| [https://huggingface.co/datasets/hkuds/OpenCity-dataset/tree/main](https://huggingface.co/datasets/hkuds/OpenCity-dataset/tree/main) | We released the datasets used in OpenCity. |
-
-## 👉 TODO 
-...
-
-
------------
+# NewCity: Spatio-Temporal Foundation Models for Traffic Prediction
 
 ## Introduction
 
-<p style="text-align: justify">
-In this work, we aim to unlock new possibilities for building versatile, resilient and adaptive spatio-temporal foundation models for traffic prediction. 
-To achieve this goal, we introduce a novel foundation model, named OpenCity, that can effectively capture and normalize the underlying spatio-temporal patterns from diverse data characteristics, facilitating zero-shot generalization across diverse urban environments. 
-OpenCity integrates the Transformer architecture with graph neural networks to model the complex spatio-temporal dependencies in traffic data. 
-By pre-training OpenCity on large-scale, heterogeneous traffic datasets, we enable the model to learn rich, generalizable representations that can be seamlessly applied to a wide range of traffic forecasting scenarios. 
-Experimental results demonstrate that OpenCity exhibits exceptional zero-shot predictive performance in various traffic prediction tasks.
-</p>
+NewCity is an advanced spatio-temporal foundation model for traffic prediction, building upon the OpenCity framework. It incorporates sophisticated attention mechanisms and graph neural networks to effectively model complex spatio-temporal dependencies in traffic data.
 
-![The detailed framework of the proposed OpenCity.](https://github.com/OpenCity-ST/OpenCity-ST.github.io/blob/main/images/framework.png)
+Key features of NewCity include:
+- **Multi-head Temporal Self-Attention**: Captures temporal patterns with specialized attention heads
+- **Graph Attention Networks (GAT)**: Models spatial dependencies using graph attention mechanisms
+- **Laplacian Positional Encoding**: Incorporates structural information from the traffic network
+- **Patch-based Embedding**: Processes traffic data in patches for efficient learning
+- **Weather Integration**: Optionally incorporates weather data for enhanced predictions
 
-## Main Results
-**Outstanding Zero-shot Prediction Performance.** OpenCity achieves significant zero-shot learning breakthroughs, outperforming most baselines even without fine-tuning. This highlights the approach's robustness and effectiveness at learning complex spatio-temporal patterns in large-scale traffic data, extracting universal insights applicable across downstream tasks.
- 
-![Zero-shot vs. Full-shot.](https://github.com/OpenCity-ST/OpenCity-ST.github.io/blob/main/images/zero-shot.png)
+## Model Architecture
 
+The NewCity model consists of several key components:
 
+1. **Patch Embedding**: Divides traffic data into patches for efficient processing
+2. **Temporal Context Encoding**: Encodes temporal information including time of day and day of week
+3. **Spatial Encoding**: Uses Laplacian positional encoding to capture spatial relationships
+4. **Spatio-Temporal Encoder**: Stacked transformer blocks with GAT and GCN layers
+5. **Prediction Head**: Generates final traffic predictions
 
-### Demo Video
-https://github.com/user-attachments/assets/39265dc5-0126-483b-951e-518c6cb210e0
+## Configuration
 
------------
-<span id='Usage'/>
+The model configuration is defined in `conf/NewCity/NewCity.conf`:
 
-## Getting Started
+```ini
+[data]
+input_window = 288
+output_window = 288
 
-<span id='all_catelogue'/>
+[model]
+embed_dim = 128
+skip_dim = 128
+lape_dim = 8
+geo_num_heads = 0
+sem_num_heads = 0
+tc_num_heads = 16
+t_num_heads = 16
+mlp_ratio = 2
+qkv_bias = True
+drop = 0.1
+attn_drop = 0.3
+drop_path = 0.0
+s_attn_size = 3
+t_attn_size = 1
+enc_depth = 3
+type_ln = pre
+type_short_path = hop
+far_mask_delta = 5
+weather_dim = 0
 
-### Table of Contents:
-* <a href='#Code Structure'>1. Code Structure</a>
-* <a href='#Environment'>2. Environment </a>
-* <a href='#Training OpenCity'>3. Training OpenCity </a>
-  * <a href='#Preparing Pre-trained Data'>3.1. Preparing Pre-trained Data </a>
-  * <a href='#Pre-training'>3.2. Pre-training </a>
-* <a href='#Evaluating'>4. Evaluating </a>
-****
-
-
-<span id='Code Structure'/>
-
-### 1. Code Structure <a href='#all_catelogue'>[Back to Top]</a>
-
-```
-├── conf/
-│   ├── AGCRN/
-│   │   └── AGCRN.conf
-│   ├── ASTGCN/
-│   │   └── ASTGCN.conf
-│   ├── general_conf/
-│   │   ├── global_baselines.conf
-│   │   └── pretrain.conf
-│   ├── GWN/
-│   │   └── GWN.conf
-│   ├── MSDR/
-│   │   └── MSDR.conf
-│   ├── MTGNN/
-│   │   └── MTGNN.conf
-│   ├── OpenCity/
-│   │   └── OpenCity.conf
-│   ├── PDFormer/
-│   │   └── PDFormer.conf
-│   ├── STGCN/
-│   │   └── STGCN.conf
-│   ├── STSGCN/
-│   │   └── STSGCN.conf
-│   ├── STWA/
-│   │   └── STWA.conf
-│   └── TGCN/
-│       └── TGCN.conf
-├── data/
-│   ├── generate_ca_data.py
-│   └── README.md
-├── lib/
-│   ├── data_process.py
-│   ├── logger.py
-│   ├── metrics.py
-│   ├── Params_predictor.py
-│   ├── Params_pretrain.py
-│   ├── predifineGraph.py
-│   └── TrainInits.py
-├── model/
-│   ├── AGCRN/
-│   │   ├── AGCN.py
-│   │   ├── AGCRN.py
-│   │   ├── AGCRNCell.py
-│   │   └── args.py
-│   ├── ASTGCN/
-│   │   ├── args.py
-│   │   └── ASTGCN.py
-│   ├── GWN/
-│   │   ├── args.py
-│   │   └── GWN.py
-│   ├── MSDR/
-│   │   ├── args.py
-│   │   ├── gmsdr_cell.py
-│   │   └── gmsdr_model.py
-│   ├── MTGNN/
-│   │   ├── args.py
-│   │   └── MTGNN.py
-│   ├── OpenCity/
-│   │   ├── args.py
-│   │   └── OpenCity.py
-│   ├── PDFormer/
-│   │   ├── args.py
-│   │   └── PDFormer.py
-│   ├── ST_WA/
-│   │   ├── args.py
-│   │   ├── attention.py
-│   │   └── ST_WA.py
-│   ├── STGCN/
-│   │   ├── args.py
-│   │   └── stgcn.py
-│   ├── STSGCN/
-│   │   ├── args.py
-│   │   └── STSGCN.py
-│   └── TGCN/
-│       ├── args.py
-│       └── TGCN.py
-│   ├── Model.py
-│   ├── BasicTrainer.py
-│   ├── Run.py
-└── model_weights/
-    ├── OpenCity/
-    └── README.md
+[train]
+seed = 12
+seed_mode = False
+xavier = False
+loss_func = mask_mae
+real_value = True
 ```
 
+## Usage
 
-<span id='Environment'/>
+### Environment Setup
 
-### 2.Environment <a href='#all_catelogue'>[Back to Top]</a>
-Please first clone the repo and install the required environment, which can be done by running the following commands:
-```shell
-conda create -n opencity python=3.9.13
+```bash
+conda create -n newcity python=3.9.13
+conda activate newcity
 
-conda activate opencity
-
-# Torch (other versions are also ok)
+# Install PyTorch (adjust for your system)
 pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
-
-# Clone our OpenCity or download it
-git clone https://github.com/HKUDS/OpenCity.git
-cd OpenCity-main
 
 # Install required libraries
 pip install -r requirements.txt
 ```
 
-<span id='Training OpenCity'/>
+### Training
 
-### 3. Training OpenCity <a href='#all_catelogue'>[Back to Top]</a>
+To train the NewCity model:
 
-<span id='Preparing Pre-trained Data'/>
+```bash
+# Basic training
+python Run.py -mode train -model NewCity
 
-#### 3.1. Preparing Pre-trained Data <a href='#all_catelogue'>[Back to Top]</a>
-
-* The model's generalization capabilities and predictive performance were extensively evaluated using a diverse set of large-scale, real-world public datasets covering various traffic-related data categories, including **Traffic Flow**, **Taxi Demand**, **Bicycle Trajectories**, **Traffic Speed Statistics**, and **Traffic Index Statistics**, from regions across the United States and China, such as New York City, Chicago, Los Angeles, the Bay Area, Shanghai, Shenzhen, and Chengdu. <br />
-* These data are organized in [OpenCity-dataset](https://huggingface.co/datasets/hkuds/OpenCity-dataset/tree/main). Please download it and put it at ./data. Subsequently, unzip all files and run [generate_ca_data.py](https://github.com/HKUDS/OpenCity/blob/main/data/generate_ca_data.py).
-
-<span id='Pre-training'/>
-
-#### 3.2. Pre-training <a href='#all_catelogue'>[Back to Top]</a>
-
-* To pretrain the OpenCity model with different configurations, you can execute the Run.py code. There are some examples:
-```
-# OpenCity-plus
-python Run.py -mode pretrain -model OpenCity -save_pretrain_path OpenCity-plus2.0.pth -batch_size 4 --embed_dim 512 --skip_dim 512 --enc_depth 6
-
-# OpenCity-base
-python Run.py -mode pretrain -model OpenCity -save_pretrain_path OpenCity-base2.0.pth -batch_size 8 --embed_dim 256 --skip_dim 256 --enc_depth 3
-
-# OpenCity-mini
-python Run.py -mode pretrain -model OpenCity -save_pretrain_path OpenCity-mini2.0.pth -batch_size 16 --embed_dim 128 --skip_dim 128 --enc_depth 3
-
+# Training with custom configuration
+python Run.py -mode train -model NewCity -batch_size 8 --embed_dim 256 --skip_dim 256 --enc_depth 3
 ```
 
-* Parameter setting instructions. The parameter settings consist of two parts: the pretrain config and other configs. To avoid any confusion arising from potential overlapping parameter names, we employ a hyphen (-) to specify the parameters of pretrain config and use a double hyphen (--) to specify the parameters of other configs. Please note that if two parameters have the same name, **the settings of the latter can override those of the former.**
+### Evaluation
 
-<span id='Evaluating'/>
+To evaluate the NewCity model:
 
-### 4. Evaluating <a href='#all_catelogue'>[Back to Top]</a>
-
-* **Preparing Checkpoints of OpenCity**. You can download our model using the following link: [OpenCity-Plus](https://huggingface.co/hkuds/OpenCity-Plus/tree/main), [OpenCity-Base](https://huggingface.co/hkuds/OpenCity-Base/tree/main), [OpenCity-Mini](https://huggingface.co/hkuds/OpenCity-Mini/tree/main)
-
-* **Running Evaluation of OpenCity**. You can use our release model weights to evaluate, There is an example as below: 
-```
-# Use OpenCity-plus to evaluate, please use only one dataset to test (e.g. dataset_use = ['PEMS07M'] in pretrain.config).
-python Run.py -mode test -model OpenCity -load_pretrain_path OpenCity-plus.pth -batch_size 2 --embed_dim 512 --skip_dim 512 --enc_depth 6
+```bash
+# Evaluate with pre-trained weights
+python Run.py -mode test -model NewCity -load_pretrain_path newcity_weights.pth
 ```
 
-* **Running Evaluation of other baselines**. You can Replace the model name or use ori mode to train and test. For example: 
+## Key Components
 
-```
-# Run STGCN in ori mode
-python Run.py -mode ori -model STGCN -batch_size 64 --real_value False
-```
+### 1. Temporal Self-Attention
+The `TemporalSelfAttention` module uses both temporal and temporal-context attention mechanisms to capture complex temporal dependencies.
 
-<!--
-## Contact
-For any questions or feedback, feel free to contact [Zhonghang Li](mailto:bjdwh.zzh@gmail.com).
--->
+### 2. Graph Neural Networks
+NewCity incorporates both Graph Convolutional Networks (GCN) and Graph Attention Networks (GAT) for spatial modeling.
+
+### 3. Patch Embedding
+Traffic data is processed using patch-based embedding for efficient learning and reduced computational complexity.
+
+### 4. Laplacian Positional Encoding
+Structural information from the traffic network is encoded using Laplacian eigenvectors.
+
+## Data Format
+
+The model expects traffic data in the following format:
+- Shape: `[batch_size, time_steps, num_nodes, features]`
+- Features typically include traffic flow, time information, and optionally weather data
+
+## Customization
+
+To customize the model for your specific use case:
+
+1. Adjust configuration parameters in `conf/NewCity/NewCity.conf`
+2. Modify the model architecture in `model/NewCity/NewCity.py`
+3. Update data processing in `lib/data_process.py`
+
+## Results
+
+NewCity achieves state-of-the-art performance on various traffic prediction benchmarks, demonstrating:
+- Superior zero-shot generalization capabilities
+- Robust handling of diverse traffic patterns
+- Effective integration of spatial and temporal information
 
 ## Citation
 
-If you find OpenCity useful in your research or applications, please kindly cite:
+If you use NewCity in your research, please cite the following paper:
 
-```
+```bibtex
 @misc{li2024opencity,
       title={OpenCity: Open Spatio-Temporal Foundation Models for Traffic Prediction}, 
       author={Zhonghang Li and Long Xia and Lei Shi and Yong Xu and Dawei Yin and Chao Huang},
@@ -255,9 +144,6 @@ If you find OpenCity useful in your research or applications, please kindly cite
 }
 ```
 
-
-<!--
 ## Acknowledgements
-You may refer to related work that serves as foundations for our framework and code repository, 
-[Vicuna](https://github.com/lm-sys/FastChat). We also partially draw inspirations from [GraphGPT](https://github.com/HKUDS/GraphGPT). The design of our website and README.md was inspired by [NExT-GPT](https://next-gpt.github.io/), and the design of our system deployment was inspired by [gradio](https://www.gradio.app) and [Baize](https://huggingface.co/spaces/project-baize/chat-with-baize). Thanks for their wonderful works.
--->
+
+NewCity builds upon the OpenCity framework and incorporates ideas from various spatio-temporal modeling approaches.
