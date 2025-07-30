@@ -5,10 +5,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
 from functools import partial
-from transformers import GPT2Model
-from peft import LoraConfig, get_peft_model
 from typing import Optional, Tuple, Union
 from dataclasses import dataclass
+
+from peft import get_peft_model, LoraConfig
+from transformers import GPT2Model
+
 
 @dataclass
 class BaseModelOutputWithPastAndCrossAttentions:
@@ -252,9 +254,9 @@ class TemporalEmbedding(nn.Module):
         return tem_emb
 
 class PFA(nn.Module):
-    def __init__(self, device="cuda:0", gpt_layers=6, U=1, dropout_rate=0.0):
+    def __init__(self, device="cuda:0", gpt_layers=6, U=1, dropout_rate=0.0, gpt_model_path="llm-model/gpt2"):
         super(PFA, self).__init__()
-        self.gpt2 = GPT2Model.from_pretrained("gpt2", attn_implementation="eager",
+        self.gpt2 = GPT2Model.from_pretrained(gpt_model_path, attn_implementation="eager",
                                               output_attentions=True, output_hidden_states=True)
         
         self.gpt2.h = self.gpt2.h[:gpt_layers]
@@ -558,7 +560,9 @@ class NewCityPlus(nn.Module):
         self.spatial_embedding = LaplacianPE(self.lape_dim, self.embed_dim)
         
         # ST-LLM-Plus特性：节点嵌入
-        self.node_emb = nn.Parameter(torch.empty(args.num_nodes_dict.get('NYC_TAXI', 263), self.embed_dim))
+        # 从邻接矩阵获取节点数
+        nyc_nodes = self.adj_mx_dict.get('NYC_TAXI', torch.eye(263)).shape[0]
+        self.node_emb = nn.Parameter(torch.empty(nyc_nodes, self.embed_dim))
         nn.init.xavier_uniform_(self.node_emb)
         
         # ST-LLM-Plus特性：时间嵌入
@@ -575,7 +579,7 @@ class NewCityPlus(nn.Module):
         ])
 
         # ST-LLM-Plus特性：GPT2模型
-        self.gpt = PFA(device=self.device, gpt_layers=self.llm_layer, U=self.U, dropout_rate=self.drop)
+        self.gpt = PFA(device=self.device, gpt_layers=self.llm_layer, U=self.U, dropout_rate=self.drop, gpt_model_path=getattr(args, 'gpt_model_path', "llm-model/gpt2"))
         
         # ST-LLM-Plus特性：输入层和回归层
         self.in_layer = nn.Conv2d(self.embed_dim*3, 768, kernel_size=(1, 1))  # 3个嵌入：流量、时间、节点

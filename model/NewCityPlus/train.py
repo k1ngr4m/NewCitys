@@ -209,6 +209,8 @@ def evaluate_model(model, test_loader, device):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--config', type=str, default='./conf/NewCityPlus/NewCityPlus_NYC_TAXI.conf', 
+                        help='配置文件路径')
     parser.add_argument('--data_path', type=str, default='./data/NYC_TAXI/NYC_TAXI.npz', 
                         help='NYC_TAXI数据文件路径')
     parser.add_argument('--device', type=str, default='cuda:0' if torch.cuda.is_available() else 'cpu', 
@@ -217,6 +219,10 @@ def main():
     parser.add_argument('--learning_rate', type=float, default=0.001, help='学习率')
     parser.add_argument('--epochs', type=int, default=50, help='训练轮数')
     parser.add_argument('--patience', type=int, default=10, help='早停耐心值')
+    
+    # 添加gpt_model_path参数
+    parser.add_argument('--gpt_model_path', type=str, default='llm-model/gpt2', 
+                        help='GPT-2模型路径')
     
     args = parser.parse_args()
     
@@ -242,8 +248,11 @@ def main():
     model_args = Args()
     
     # 解析模型参数
-    parser = argparse.ArgumentParser()
-    args_predictor = parse_args(parser, model_args)
+    config_parser = argparse.ArgumentParser()
+    args_predictor = parse_args(config_parser, model_args)
+    
+    # 设置GPT-2模型路径
+    args_predictor.gpt_model_path = args.gpt_model_path
     
     # 创建模型
     print('Creating NewCityPlus model...')
