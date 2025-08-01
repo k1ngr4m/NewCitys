@@ -27,9 +27,25 @@ def load_rel_2(adj_mx, args, dataset):
 
 def parse_args(parser, args_base):
     # get configuration
-    config_file = '../conf/NewCity/NewCity.conf'
+    config_file = './conf/NewCity/NewCity.conf'
     config = configparser.ConfigParser()
     config.read(config_file)
+    
+    # 检查配置文件是否成功读取
+    if not config.sections():
+        # 尝试其他可能的路径
+        possible_paths = [
+            '../conf/NewCity/NewCity.conf',
+            'conf/NewCity/NewCity.conf',
+            './conf/NewCity/NewCity.conf'
+        ]
+        for path in possible_paths:
+            if os.path.exists(path):
+                config_file = path
+                config.read(config_file)
+                break
+        else:
+            raise FileNotFoundError("Configuration file not found")
 
     # data
     parser.add_argument('--input_window', type=int, default=config['data']['input_window'])
@@ -74,7 +90,7 @@ def parse_args(parser, args_base):
     lpls_dict = {}
     adj_mx_dict = {}
     for dataset_select in (args_base.dataset_use):
-        args_predictor.filepath = '../data/' + dataset_select +'/'
+        args_predictor.filepath = './data/' + dataset_select +'/'
         args_predictor.filename = dataset_select
         if dataset_select == 'PEMS08' or dataset_select == 'PEMS04' or dataset_select == 'PEMS07' or dataset_select == 'TWF2020':
             A, Distance = get_adjacency_matrix(
@@ -82,7 +98,22 @@ def parse_args(parser, args_base):
                 num_of_vertices=args_base.num_nodes_dict[dataset_select])
             A = A + np.eye(A.shape[0])
         else:
-            A = np.load(args_predictor.filepath + f'{dataset_select}_rn_adj.npy')
+            adj_file_path = args_predictor.filepath + f'{dataset_select}_rn_adj.npy'
+            print(f"Loading adjacency matrix from: {adj_file_path}")
+            if not os.path.exists(adj_file_path):
+                # 尝试其他可能的路径
+                possible_paths = [
+                    f'../data/{dataset_select}/{dataset_select}_rn_adj.npy',
+                    f'data/{dataset_select}/{dataset_select}_rn_adj.npy',
+                    f'./data/{dataset_select}/{dataset_select}_rn_adj.npy'
+                ]
+                for path in possible_paths:
+                    if os.path.exists(path):
+                        adj_file_path = path
+                        break
+                else:
+                    raise FileNotFoundError(f"Adjacency matrix file not found: {adj_file_path}")
+            A = np.load(adj_file_path)
         sh_mx_dict[dataset_select] = torch.FloatTensor(load_rel_2(A, args_predictor, dataset_select))
         lpls_dict[dataset_select] = torch.FloatTensor(cal_lape(copy.deepcopy(A)))
         d = np.sum(A, axis=1)

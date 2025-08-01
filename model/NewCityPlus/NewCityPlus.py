@@ -256,8 +256,15 @@ class TemporalEmbedding(nn.Module):
 class PFA(nn.Module):
     def __init__(self, device="cuda:0", gpt_layers=6, U=1, dropout_rate=0.0, gpt_model_path="llm-model/gpt2"):
         super(PFA, self).__init__()
-        self.gpt2 = GPT2Model.from_pretrained(gpt_model_path, attn_implementation="eager",
-                                              output_attentions=True, output_hidden_states=True)
+        try:
+            # 首先尝试使用本地模型
+            self.gpt2 = GPT2Model.from_pretrained(gpt_model_path, attn_implementation="eager",
+                                                  output_attentions=True, output_hidden_states=True)
+        except Exception as e:
+            print(f"加载GPT-2模型失败: {e}")
+            # 如果指定路径加载失败，尝试使用默认的gpt2模型
+            self.gpt2 = GPT2Model.from_pretrained("gpt2", attn_implementation="eager",
+                                                  output_attentions=True, output_hidden_states=True)
         
         self.gpt2.h = self.gpt2.h[:gpt_layers]
         self.U = U
