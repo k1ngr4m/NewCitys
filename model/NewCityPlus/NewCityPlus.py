@@ -254,17 +254,21 @@ class TemporalEmbedding(nn.Module):
         return tem_emb
 
 class PFA(nn.Module):
-    def __init__(self, device="cuda:0", gpt_layers=6, U=1, dropout_rate=0.0, gpt_model_path="llm-model/gpt2"):
+    def __init__(self, device="cuda", gpt_layers=6, U=1, dropout_rate=0.0, gpt_model_path="llm-model\gpt2"):
         super(PFA, self).__init__()
         try:
-            # 首先尝试使用本地模型
-            self.gpt2 = GPT2Model.from_pretrained(gpt_model_path, attn_implementation="eager",
-                                                  output_attentions=True, output_hidden_states=True)
+            self.gpt2 = GPT2Model.from_pretrained(gpt_model_path, 
+                                                  attn_implementation="eager",
+                                                  output_attentions=True, 
+                                                  output_hidden_states=True,
+                                                  local_files_only=True, 
+                                                  trust_remote_code=True)
+            print("GPT-2模型加载成功!")
         except Exception as e:
-            print(f"加载GPT-2模型失败: {e}")
-            # 如果指定路径加载失败，尝试使用默认的gpt2模型
+            print(f"加载本地GPT-2模型失败: {e}")
             self.gpt2 = GPT2Model.from_pretrained("gpt2", attn_implementation="eager",
                                                   output_attentions=True, output_hidden_states=True)
+            print("从Hugging Face加载GPT-2模型成功!")
         
         self.gpt2.h = self.gpt2.h[:gpt_layers]
         self.U = U
@@ -282,6 +286,9 @@ class PFA(nn.Module):
         )
 
         self.gpt2 = get_peft_model(self.gpt2, self.lora_config)
+        
+        # 将模型移动到指定设备
+        self.gpt2 = self.gpt2.to(self.device)
 
         for layer_index, layer in enumerate(self.gpt2.h):
             for name, param in layer.named_parameters():
@@ -586,7 +593,7 @@ class NewCityPlus(nn.Module):
         ])
 
         # ST-LLM-Plus特性：GPT2模型
-        self.gpt = PFA(device=self.device, gpt_layers=self.llm_layer, U=self.U, dropout_rate=self.drop, gpt_model_path=getattr(args, 'gpt_model_path', "llm-model/gpt2"))
+        self.gpt = PFA(device=self.device, gpt_layers=self.llm_layer, U=self.U, dropout_rate=self.drop, gpt_model_path="llm-model\gpt2")
         
         # ST-LLM-Plus特性：输入层和回归层
         self.in_layer = nn.Conv2d(self.embed_dim*3, 768, kernel_size=(1, 1))  # 3个嵌入：流量、时间、节点

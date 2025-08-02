@@ -11,7 +11,7 @@ import torch
 import copy
 
 def load_rel_2(adj_mx, args, dataset):
-    directory = f'../data/NewCity/{dataset}'
+    directory = f'../data/NewCityPlus/{dataset}'
     if not os.path.exists(directory):
         os.makedirs(directory)
     filename = f'{dataset}_sh_mx.npy'
@@ -27,25 +27,9 @@ def load_rel_2(adj_mx, args, dataset):
 
 def parse_args(parser, args_base):
     # get configuration
-    config_file = './conf/NewCity/NewCity.conf'
+    config_file = './conf/NewCityPlus/NewCityPlus.conf'
     config = configparser.ConfigParser()
     config.read(config_file)
-    
-    # 检查配置文件是否成功读取
-    if not config.sections():
-        # 尝试其他可能的路径
-        possible_paths = [
-            '../conf/NewCity/NewCity.conf',
-            'conf/NewCity/NewCity.conf',
-            './conf/NewCity/NewCity.conf'
-        ]
-        for path in possible_paths:
-            if os.path.exists(path):
-                config_file = path
-                config.read(config_file)
-                break
-        else:
-            raise FileNotFoundError("Configuration file not found")
 
     # data
     parser.add_argument('--input_window', type=int, default=config['data']['input_window'])
@@ -90,7 +74,7 @@ def parse_args(parser, args_base):
     lpls_dict = {}
     adj_mx_dict = {}
     for dataset_select in (args_base.dataset_use):
-        args_predictor.filepath = './data/' + dataset_select +'/'
+        args_predictor.filepath = '../data/' + dataset_select +'/'
         args_predictor.filename = dataset_select
         if dataset_select == 'PEMS08' or dataset_select == 'PEMS04' or dataset_select == 'PEMS07' or dataset_select == 'TWF2020':
             A, Distance = get_adjacency_matrix(

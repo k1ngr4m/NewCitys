@@ -60,6 +60,9 @@ def get_predictor_params(args):
     elif args.model == 'NewCity':
         from model.NewCity.args import parse_args
         args_predictor = parse_args(parser_pred, args)
+    elif args.model == 'NewCityPlus':
+        from model.NewCity.args import parse_args
+        args_predictor = parse_args(parser_pred, args)
     else:
         raise ValueError
 
