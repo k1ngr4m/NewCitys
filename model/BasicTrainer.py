@@ -173,7 +173,7 @@ class Trainer(object):
                 total_count += mae_count
                 total_mape_count += mape_count
                 total_batch += len(y_lbl)
-                if args.model == 'OpenCity' or args.model == 'NewCity' or args.model == 'NewCityPlus':
+                if args.model == 'OpenCity':
                     logger.info(total_batch, batch_mae, batch_rmse, batch_mape, total_count, total_mape_count)
         mae /= total_count
         rmse = (rmse / total_count) ** 0.5
