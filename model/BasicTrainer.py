@@ -173,7 +173,7 @@ class Trainer(object):
                 total_count += mae_count
                 total_mape_count += mape_count
                 total_batch += len(y_lbl)
-                if args.model == 'OpenCity':
+                if args.model == 'OpenCity' or args.model == 'NewCity' or args.model == 'NewCityPlus':
                     logger.info(total_batch, batch_mae, batch_rmse, batch_mape, total_count, total_mape_count)
         mae /= total_count
         rmse = (rmse / total_count) ** 0.5
@@ -184,4 +184,4 @@ class Trainer(object):
         logger.info('Total batch: %s, Count: %s, MAPE: %s', total_batch, total_count, total_mape_count)
         logger.info("Average Horizon, MAE: {:.2f}, RMSE: {:.2f}, MAPE: {:.4f}%, CORR:{:.4f}".format(
             mae, rmse, mape * 100, corr))
-        pushdeer.send_text(f"Average Horizon, MAE: {mae:.2f}, RMSE: {rmse:.2f}, MAPE: {mape * 100:.4f}%, CORR:{corr:.4f}")
+        pushdeer.send_text(f"model：{args.model}.Average Horizon, MAE: {mae:.2f}, RMSE: {rmse:.2f}, MAPE: {mape * 100:.4f}%, CORR:{corr:.4f}")
