@@ -104,8 +104,8 @@ class PatchEmbedding_time(nn.Module):
         self.his = his
         self.minute_size = 1440 + 1
         self.daytime_embedding = nn.Embedding(self.minute_size, d_model//2)
-        weekday_size = 7 + 1
-        self.weekday_embedding = nn.Embedding(weekday_size, d_model//2)
+        self.weekday_size = 7 + 1
+        self.weekday_embedding = nn.Embedding(self.weekday_size, d_model//2)
 
     def forward(self, x):
         # do patching
@@ -122,6 +122,15 @@ class PatchEmbedding_time(nn.Module):
         x_dwh = x[:, :, 1, :, 0]
         x_tdp = x[:, :, 2, :, 0]
         x_dwp = x[:, :, 3, :, 0]
+
+        # 确保索引在嵌入层的有效范围内
+        # 对于daytime_embedding，索引应在[0, minute_size-1]范围内
+        x_tdh = torch.clamp(x_tdh, 0, self.minute_size - 1)
+        x_tdp = torch.clamp(x_tdp, 0, self.minute_size - 1)
+        
+        # 对于weekday_embedding，索引应在[0, self.weekday_size-1]范围内
+        x_dwh = torch.clamp(x_dwh, 0, self.weekday_size - 1)
+        x_dwp = torch.clamp(x_dwp, 0, self.weekday_size - 1)
 
         x_tdh = self.daytime_embedding(x_tdh)
         x_dwh = self.weekday_embedding(x_dwh)
@@ -239,15 +248,19 @@ class TemporalEmbedding(nn.Module):
 
     def forward(self, x):
         day_emb = x[..., 1]
-        time_day = self.time_day[
-            (day_emb[:, -1, :] * self.time).type(torch.LongTensor)
-        ]
+        # 确保索引在有效范围内
+        day_indices = (day_emb[:, -1, :] * self.time).type(torch.LongTensor)
+        # 添加边界检查
+        day_indices = torch.clamp(day_indices, 0, self.time_day.shape[0] - 1)
+        time_day = self.time_day[day_indices]
         time_day = time_day.transpose(1, 2).unsqueeze(-1)
 
         week_emb = x[..., 2]
-        time_week = self.time_week[
-            (week_emb[:, -1, :]).type(torch.LongTensor)
-        ]
+        # 确保索引在有效范围内
+        week_indices = (week_emb[:, -1, :]).type(torch.LongTensor)
+        # 添加边界检查
+        week_indices = torch.clamp(week_indices, 0, self.time_week.shape[0] - 1)
+        time_week = self.time_week[week_indices]
         time_week = time_week.transpose(1, 2).unsqueeze(-1)
 
         tem_emb = time_day + time_week
@@ -374,9 +387,9 @@ class PFA(nn.Module):
             )
             hidden_states = outputs[0]
 
-            if use_cache:
+            if use_cache and len(outputs) > 1:
                 presents = presents + (outputs[1],)
-            if output_attentions:
+            if output_attentions and len(outputs) > 2:
                 all_self_attentions = all_self_attentions + (outputs[2],)
         
         hidden_states = self.gpt2.ln_f(hidden_states)
@@ -403,9 +416,28 @@ class PFA(nn.Module):
             adjacency_matrix: adjacency matrix used as an attention mask
                               [batch_size, sequence_length, sequence_length]
         """
-        batch_size =  x.shape[0]
-        num_heads =  self.gpt2.config.n_head
-        adjacency_matrix = adjacency_matrix.unsqueeze(0).repeat(batch_size, 1, 1)
+        # 处理输入张量的维度
+        if x.dim() == 4:
+            # 如果是4D张量，需要reshape为3D
+            batch_size, seq_len, hidden_dim, extra_dim = x.shape
+            x = x.reshape(batch_size, seq_len, -1)  # 合并最后两个维度
+            batch_size, seq_len, hidden_dim = x.shape
+        elif x.dim() == 3:
+            batch_size, seq_len, hidden_dim = x.shape
+        else:
+            raise ValueError(f"Unexpected input dimension: {x.dim()}")
+            
+        num_nodes = adjacency_matrix.shape[0]  # 获取节点数
+        
+        # 确保邻接矩阵维度与输入匹配
+        if adjacency_matrix.dim() == 2:
+            # 如果是2D矩阵，扩展为3D
+            adjacency_matrix = adjacency_matrix.unsqueeze(0).repeat(batch_size, 1, 1)
+        elif adjacency_matrix.shape[0] != batch_size:
+            # 如果batch_size不匹配，调整大小
+            adjacency_matrix = adjacency_matrix.unsqueeze(0).repeat(batch_size, 1, 1)
+            
+        num_heads = self.gpt2.config.n_head
         adjacency_matrix = adjacency_matrix.unsqueeze(1).repeat(1, num_heads, 1, 1)
 
         attention_mask = adjacency_matrix.to(self.device).float()
@@ -574,8 +606,9 @@ class NewCityPlus(nn.Module):
         self.spatial_embedding = LaplacianPE(self.lape_dim, self.embed_dim)
         
         # ST-LLM-Plus特性：节点嵌入
-        # 从邻接矩阵获取节点数
-        nyc_nodes = self.adj_mx_dict.get('NYC_TAXI', torch.eye(263)).shape[0]
+        # 从邻接矩阵获取节点数，使用第一个数据集的节点数
+        first_dataset = list(self.adj_mx_dict.keys())[0] if self.adj_mx_dict else 'NYC_TAXI'
+        nyc_nodes = self.adj_mx_dict.get(first_dataset, torch.eye(263)).shape[0]
         self.node_emb = nn.Parameter(torch.empty(nyc_nodes, self.embed_dim))
         nn.init.xavier_uniform_(self.node_emb)
         
@@ -660,9 +693,23 @@ class NewCityPlus(nn.Module):
             enc = enc + weather_embedding
             
         # ST-LLM-Plus特性：添加节点嵌入和时间嵌入
+        # 确保节点嵌入维度与当前数据集匹配
+        current_nodes = self.adj_mx_dict[select_dataset].shape[0]
+        if current_nodes != self.node_emb.shape[0]:
+            print(f"Warning: Node count mismatch. Expected: {self.node_emb.shape[0]}, Got: {current_nodes}")
+            # 如果节点数不匹配，使用部分嵌入或创建新的嵌入
+            if current_nodes < self.node_emb.shape[0]:
+                node_embedding = self.node_emb[:current_nodes]
+            else:
+                # 扩展嵌入以匹配节点数
+                repeat_times = (current_nodes + self.node_emb.shape[0] - 1) // self.node_emb.shape[0]
+                node_embedding = self.node_emb.repeat(repeat_times, 1)[:current_nodes]
+        else:
+            node_embedding = self.node_emb
+            
         node_emb = []
         node_emb.append(
-            self.node_emb.unsqueeze(0)
+            node_embedding.unsqueeze(0)
             .expand(bs, -1, -1)
             .transpose(1, 2)
             .unsqueeze(-1)
@@ -672,22 +719,34 @@ class NewCityPlus(nn.Module):
         tem_emb = self.Temb(input.permute(0, 3, 2, 1))
         
         # 合并所有嵌入
-        data_st = torch.cat([enc.permute(0, 3, 2, 1)] + [tem_emb] + node_emb, dim=1)
+        # 调整tem_emb和node_emb的维度以匹配enc的维度
+        enc_permuted = enc.permute(0, 3, 2, 1)  # [batch, features, nodes, time]
+        tem_emb_expanded = tem_emb.expand(-1, -1, -1, enc_permuted.shape[3])  # Expand to match time dimension
+        node_emb_expanded = node_emb[0].expand(-1, -1, -1, enc_permuted.shape[3])  # Expand to match time dimension
+        
+        data_st = torch.cat([enc_permuted, tem_emb_expanded, node_emb_expanded], dim=1)
         data_st = self.in_layer(data_st)
         data_st = F.leaky_relu(data_st)
         data_st = data_st.permute(0, 2, 1, 3).squeeze(-1)
         
+        # 确保输出形状正确，调整为GPT-2期望的形状 [batch_size, sequence_length, hidden_dim]
+        # 通过平均时间维度来实现
+        data_st = data_st.mean(dim=3)  # [batch, nodes, features, time] -> [batch, nodes, features]
+        
         # 使用GPT2处理
         adj = self.adj_mx_dict[select_dataset].to(self.device)
+        # print(f"GPT input shape: {data_st.shape}, Adjacency matrix shape: {adj.shape}")
         outputs = self.gpt(data_st, adj)
         
         # 回归层
-        outputs = outputs.permute(0, 2, 1).unsqueeze(-1)
-        outputs = self.regression_layer(outputs)
+        outputs = outputs.permute(0, 2, 1).unsqueeze(-1)  # [batch, features, nodes] -> [batch, nodes, features, 1]
+        outputs = self.regression_layer(outputs)  # [batch, nodes, features, 1] -> [batch, output_window, nodes, 1]
 
         # 保持与NewCity相同的输出格式
-        skip = outputs.permute(0, 3, 2, 1)
-        skip = skip[:, :time_steps, :, :]
+        skip = outputs.permute(0, 1, 3, 2)  # [batch, output_window, 1, nodes] -> [batch, output_window, 1, nodes]
+        skip = skip[:, :time_steps, :, :]  # 只取需要的时间步
+        skip = skip.squeeze(2)  # [batch, time_steps, nodes]
+        skip = skip.unsqueeze(-1)  # [batch, time_steps, nodes, 1]
 
         # DeIN
         skip = skip * stdev
