@@ -5,6 +5,7 @@ from typing import Dict
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.utils import parametrizations
 
 _SEMANTIC_UTILS_PATH = os.path.join(os.path.dirname(__file__), "semantic_utils.py")
 _SEMANTIC_SPEC = importlib.util.spec_from_file_location("sa_mgstfn_semantic_utils", _SEMANTIC_UTILS_PATH)
@@ -218,6 +219,17 @@ class DecompositionRefiner(nn.Module):
         return z_inv, z_spe, combined, reconstructed
 
 
+class OrthogonalDomainMapper(nn.Module):
+    def __init__(self, raw_dim: int, traffic_dim: int):
+        super().__init__()
+        self.projection = nn.Linear(raw_dim, traffic_dim)
+        nn.init.orthogonal_(self.projection.weight)
+        parametrizations.orthogonal(self.projection, "weight")
+
+    def forward(self, semantic_embedding: torch.Tensor) -> torch.Tensor:
+        return F.relu(self.projection(semantic_embedding))
+
+
 class SAMGSTFN(nn.Module):
     def __init__(self, args, dataset_use, device, dim_in: int, dim_out: int):
         super().__init__()
@@ -256,13 +268,8 @@ class SAMGSTFN(nn.Module):
             stride=self.patch_stride,
             input_window=self.input_window,
         )
-        self.semantic_domain_mapper = nn.Sequential(
-            nn.Linear(args.semantic_raw_dim, self.semantic_dim),
-            nn.ReLU(),
-            nn.Linear(self.semantic_dim, self.embed_dim),
-            nn.ReLU(),
-        )
-        self.semantic_feature_proj = nn.Linear(self.embed_dim, self.embed_dim)
+        self.semantic_domain_mapper = OrthogonalDomainMapper(args.semantic_raw_dim, self.semantic_dim)
+        self.semantic_feature_proj = nn.Linear(self.semantic_dim, self.embed_dim)
         self.encoder_layers = nn.ModuleList([
             TimeAwareMultiGraphFusion(
                 embed_dim=self.embed_dim,
