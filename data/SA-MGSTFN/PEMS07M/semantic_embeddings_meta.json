@@ -1,0 +1,7 @@
+{
+  "cache_version": 2,
+  "model_name": "distilbert-base-uncased",
+  "max_length": 128,
+  "text_count": 228,
+  "texts_sha256": "43e4b4d75affe108e23c28630d5a9af081293d8ac65f30bc1b2235839d8ae657"
+}

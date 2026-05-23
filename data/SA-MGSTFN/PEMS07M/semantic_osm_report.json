@@ -1,0 +1,19 @@
+{
+  "dataset": "PEMS07M",
+  "source": {
+    "cache_version": 2,
+    "osm_enabled": true,
+    "osm_endpoint": "https://overpass-api.de/api/interpreter",
+    "osm_radius": 300,
+    "osm_output_limit": 50,
+    "osm_timeout": 60,
+    "osm_max_retries": 2,
+    "osm_log_api_calls": true
+  },
+  "status_counts": {
+    "ok": 201,
+    "empty": 27
+  },
+  "error_count": 0,
+  "sample_errors": []
+}

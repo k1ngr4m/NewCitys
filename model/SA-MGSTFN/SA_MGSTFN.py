@@ -291,6 +291,11 @@ class SAMGSTFN(nn.Module):
                 radius=args.osm_radius,
                 endpoint=args.osm_endpoint,
                 timeout=args.osm_timeout,
+                output_limit=args.osm_output_limit,
+                max_retries=args.osm_max_retries,
+                retry_backoff=args.osm_retry_backoff,
+                rate_limit_interval=args.osm_rate_limit_interval,
+                log_api_calls=args.osm_log_api_calls,
                 force_refresh=args.semantic_force_refresh,
                 disable_osm=args.semantic_disable_osm,
             )
