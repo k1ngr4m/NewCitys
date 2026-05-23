@@ -21,7 +21,7 @@ from lib.logutil import logger
 
 # *************************************************************************#
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-num_nodes_dict = {'PEMS04': 307, 'PEMS08': 170, 'PEMS07': 883, 'CD_DIDI': 524, 'SZ_DIDI': 627,
+num_nodes_dict = {'PEMS03': 358, 'PEMS04': 307, 'PEMS08': 170, 'PEMS07': 883, 'CD_DIDI': 524, 'SZ_DIDI': 627,
                   'METR_LA': 207, 'PEMS_BAY': 325, 'PEMS07M': 228, 'NYC_TAXI': 263, 'CHI_TAXI': 77, 'NYC_BIKE-3': 540,
                   'CAD3': 480, 'CAD4-1': 621, 'CAD4-2': 610, 'CAD4-3': 593, 'CAD4-4': 528, 'CAD5': 211,
                   'CAD7-1': 666, 'CAD7-2': 634, 'CAD7-3': 559, 'CAD8-1': 510, 'CAD8-2': 512, 'CAD12-1': 453, 'CAD12-2': 500,

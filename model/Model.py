@@ -1,6 +1,15 @@
 import torch
 import torch.nn as nn
+import importlib.util
+import os
 from lib.logutil import logger
+
+
+def _load_module_from_path(module_name, file_path):
+    spec = importlib.util.spec_from_file_location(module_name, file_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 class Traffic_model(nn.Module):
     def __init__(self, args, args_predictor):
@@ -57,6 +66,10 @@ class Traffic_model(nn.Module):
         elif self.model == 'NewCityPlus':
             from model.NewCityPlus.NewCityPlus import NewCityPlus
             self.predictor = NewCityPlus(args_predictor, args.dataset_use, args.device, dim_in)
+        elif self.model == 'SA-MGSTFN':
+            module_path = os.path.join(os.path.dirname(__file__), 'SA-MGSTFN', 'SA_MGSTFN.py')
+            module = _load_module_from_path('sa_mgstfn_model', module_path)
+            self.predictor = module.SAMGSTFN(args_predictor, args.dataset_use, args.device, dim_in, dim_out)
         else:
             raise ValueError(f"Unknown model: {self.model}")
 
@@ -67,6 +80,8 @@ class Traffic_model(nn.Module):
             x_predic = self.predictor(source, label, select_dataset)
         elif self.model == 'NewCityPlus':
             x_predic = self.predictor(source, label, select_dataset)
+        elif self.model == 'SA-MGSTFN':
+            x_predic = self.predictor(source[..., 0:self.input_base_dim + self.input_extra_dim], select_dataset)
         else:
             x_predic = self.predictor(source[..., 0:self.input_base_dim], select_dataset)
         # logger.debug(f"Model output shape: {x_predic.shape}")

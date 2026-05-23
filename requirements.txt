@@ -5,3 +5,6 @@ scipy
 tqdm
 tslearn
 pypushdeer
+requests
+tokenizers
+transformers

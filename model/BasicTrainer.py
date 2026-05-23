@@ -94,7 +94,14 @@ class Trainer(object):
             out = self.model(inputs, targets, select_dataset, batch_seen=None)
             self.optimizer.zero_grad()
             loss_pred = self.loss(out, targets[..., :self.args.output_dim], self.scaler_dict[select_dataset])
-            loss = loss_pred
+            auxiliary_loss = getattr(self.model, 'auxiliary_loss', None)
+            if auxiliary_loss is None and hasattr(self.model, 'predictor'):
+                auxiliary_loss = getattr(self.model.predictor, 'auxiliary_loss', None)
+            if auxiliary_loss is None and hasattr(self.model, 'module'):
+                auxiliary_loss = getattr(self.model.module, 'auxiliary_loss', None)
+            if auxiliary_loss is None and hasattr(self.model, 'module') and hasattr(self.model.module, 'predictor'):
+                auxiliary_loss = getattr(self.model.module.predictor, 'auxiliary_loss', None)
+            loss = loss_pred + auxiliary_loss if auxiliary_loss is not None else loss_pred
             loss.backward()
 
             # add max grad clipping

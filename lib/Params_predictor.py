@@ -1,5 +1,14 @@
 import argparse
 import configparser
+import importlib.util
+import os
+
+
+def _load_module_from_path(module_name, file_path):
+    spec = importlib.util.spec_from_file_location(module_name, file_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 def get_predictor_params(args):
     # get the based paras of predictors
@@ -63,6 +72,11 @@ def get_predictor_params(args):
     elif args.model == 'NewCityPlus':
         from model.NewCity.args import parse_args
         args_predictor = parse_args(parser_pred, args)
+    elif args.model == 'SA-MGSTFN':
+        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        module_path = os.path.join(root_dir, 'model', 'SA-MGSTFN', 'args.py')
+        module = _load_module_from_path('sa_mgstfn_args', module_path)
+        args_predictor = module.parse_args(parser_pred, args)
     else:
         raise ValueError
 
