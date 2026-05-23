@@ -1,0 +1,1145 @@
+{
+  "dataset": "PEMS07M",
+  "nodes": [
+    {
+      "order": 0,
+      "node_id": "700000",
+      "text": "Traffic sensor 700000 is located at latitude 34.051355, longitude -118.161145. Metadata: ID 700000; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 0. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 1,
+      "node_id": "700001",
+      "text": "Traffic sensor 700001 is located at latitude 34.042993, longitude -118.158927. Metadata: ID 700001; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 1. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 2,
+      "node_id": "700002",
+      "text": "Traffic sensor 700002 is located at latitude 34.076931, longitude -118.161153. Metadata: ID 700002; District 7; County Los Angeles; Fwy I405-E; Lanes 3; Type Ramp; Direction E; ID2 2. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 3,
+      "node_id": "700003",
+      "text": "Traffic sensor 700003 is located at latitude 34.068897, longitude -118.16464. Metadata: ID 700003; District 7; County Los Angeles; Fwy US101-W; Lanes 3; Type Ramp; Direction W; ID2 3. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 4,
+      "node_id": "700004",
+      "text": "Traffic sensor 700004 is located at latitude 34.076123, longitude -118.158306. Metadata: ID 700004; District 7; County Los Angeles; Fwy SR60-N; Lanes 4; Type Ramp; Direction N; ID2 4. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 5,
+      "node_id": "700005",
+      "text": "Traffic sensor 700005 is located at latitude 34.088175, longitude -118.153709. Metadata: ID 700005; District 7; County Los Angeles; Fwy SR91-S; Lanes 3; Type Ramp; Direction S; ID2 5. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 6,
+      "node_id": "700006",
+      "text": "Traffic sensor 700006 is located at latitude 34.096021, longitude -118.153527. Metadata: ID 700006; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 6. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 7,
+      "node_id": "700007",
+      "text": "Traffic sensor 700007 is located at latitude 34.10242, longitude -118.153585. Metadata: ID 700007; District 7; County Los Angeles; Fwy SR710-W; Lanes 5; Type Ramp; Direction W; ID2 7. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 8,
+      "node_id": "700008",
+      "text": "Traffic sensor 700008 is located at latitude 34.102842, longitude -118.159093. Metadata: ID 700008; District 7; County Los Angeles; Fwy I5-N; Lanes 5; Type Ramp; Direction N; ID2 8. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 9,
+      "node_id": "700009",
+      "text": "Traffic sensor 700009 is located at latitude 34.120402, longitude -118.148374. Metadata: ID 700009; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 9. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 10,
+      "node_id": "700010",
+      "text": "Traffic sensor 700010 is located at latitude 34.122902, longitude -118.16228. Metadata: ID 700010; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 10. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 11,
+      "node_id": "700011",
+      "text": "Traffic sensor 700011 is located at latitude 34.125866, longitude -118.158703. Metadata: ID 700011; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 11. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 12,
+      "node_id": "700012",
+      "text": "Traffic sensor 700012 is located at latitude 34.146336, longitude -118.164822. Metadata: ID 700012; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 12. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 13,
+      "node_id": "700013",
+      "text": "Traffic sensor 700013 is located at latitude 34.143871, longitude -118.165462. Metadata: ID 700013; District 7; County Los Angeles; Fwy SR91-S; Lanes 2; Type Ramp; Direction S; ID2 13. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 14,
+      "node_id": "700014",
+      "text": "Traffic sensor 700014 is located at latitude 34.14978, longitude -118.168027. Metadata: ID 700014; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 14. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 15,
+      "node_id": "700015",
+      "text": "Traffic sensor 700015 is located at latitude 34.151345, longitude -118.164824. Metadata: ID 700015; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 15. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 16,
+      "node_id": "700016",
+      "text": "Traffic sensor 700016 is located at latitude 34.160982, longitude -118.178498. Metadata: ID 700016; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 16. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 17,
+      "node_id": "700017",
+      "text": "Traffic sensor 700017 is located at latitude 34.16819, longitude -118.177523. Metadata: ID 700017; District 7; County Los Angeles; Fwy I10-S; Lanes 5; Type Ramp; Direction S; ID2 17. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 18,
+      "node_id": "700018",
+      "text": "Traffic sensor 700018 is located at latitude 34.165042, longitude -118.191521. Metadata: ID 700018; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 18. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 19,
+      "node_id": "700019",
+      "text": "Traffic sensor 700019 is located at latitude 34.175374, longitude -118.188811. Metadata: ID 700019; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 19. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 20,
+      "node_id": "700020",
+      "text": "Traffic sensor 700020 is located at latitude 34.151131, longitude -118.191681. Metadata: ID 700020; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 20. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 21,
+      "node_id": "700021",
+      "text": "Traffic sensor 700021 is located at latitude 34.174783, longitude -118.19873. Metadata: ID 700021; District 7; County Los Angeles; Fwy SR91-S; Lanes 5; Type Ramp; Direction S; ID2 21. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 22,
+      "node_id": "700022",
+      "text": "Traffic sensor 700022 is located at latitude 34.163949, longitude -118.203084. Metadata: ID 700022; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 22. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 23,
+      "node_id": "700023",
+      "text": "Traffic sensor 700023 is located at latitude 34.15491, longitude -118.202526. Metadata: ID 700023; District 7; County Los Angeles; Fwy SR710-W; Lanes 5; Type Ramp; Direction W; ID2 23. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 24,
+      "node_id": "700024",
+      "text": "Traffic sensor 700024 is located at latitude 34.161288, longitude -118.214035. Metadata: ID 700024; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 24. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 25,
+      "node_id": "700025",
+      "text": "Traffic sensor 700025 is located at latitude 34.166337, longitude -118.216263. Metadata: ID 700025; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 25. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 26,
+      "node_id": "700026",
+      "text": "Traffic sensor 700026 is located at latitude 34.146612, longitude -118.214992. Metadata: ID 700026; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 26. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 27,
+      "node_id": "700027",
+      "text": "Traffic sensor 700027 is located at latitude 34.156402, longitude -118.232567. Metadata: ID 700027; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 27. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 28,
+      "node_id": "700028",
+      "text": "Traffic sensor 700028 is located at latitude 34.145933, longitude -118.228263. Metadata: ID 700028; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 28. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 29,
+      "node_id": "700029",
+      "text": "Traffic sensor 700029 is located at latitude 34.145483, longitude -118.25441. Metadata: ID 700029; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 29. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 30,
+      "node_id": "700030",
+      "text": "Traffic sensor 700030 is located at latitude 34.13638, longitude -118.263102. Metadata: ID 700030; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 30. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 31,
+      "node_id": "700031",
+      "text": "Traffic sensor 700031 is located at latitude 34.1321, longitude -118.264679. Metadata: ID 700031; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 31. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 32,
+      "node_id": "700032",
+      "text": "Traffic sensor 700032 is located at latitude 34.113702, longitude -118.274046. Metadata: ID 700032; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 32. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 33,
+      "node_id": "700033",
+      "text": "Traffic sensor 700033 is located at latitude 34.101277, longitude -118.285517. Metadata: ID 700033; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 33. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 34,
+      "node_id": "700034",
+      "text": "Traffic sensor 700034 is located at latitude 34.105987, longitude -118.290357. Metadata: ID 700034; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 34. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 35,
+      "node_id": "700035",
+      "text": "Traffic sensor 700035 is located at latitude 34.09304, longitude -118.300098. Metadata: ID 700035; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 35. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 36,
+      "node_id": "700036",
+      "text": "Traffic sensor 700036 is located at latitude 34.082224, longitude -118.302702. Metadata: ID 700036; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 36. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 37,
+      "node_id": "700037",
+      "text": "Traffic sensor 700037 is located at latitude 34.064812, longitude -118.306699. Metadata: ID 700037; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 37. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 38,
+      "node_id": "700038",
+      "text": "Traffic sensor 700038 is located at latitude 34.051046, longitude -118.316453. Metadata: ID 700038; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 38. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 39,
+      "node_id": "700039",
+      "text": "Traffic sensor 700039 is located at latitude 34.033166, longitude -118.335343. Metadata: ID 700039; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 39. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 40,
+      "node_id": "700040",
+      "text": "Traffic sensor 700040 is located at latitude 34.025578, longitude -118.332399. Metadata: ID 700040; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 40. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 41,
+      "node_id": "700041",
+      "text": "Traffic sensor 700041 is located at latitude 34.018537, longitude -118.335952. Metadata: ID 700041; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 41. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 42,
+      "node_id": "700042",
+      "text": "Traffic sensor 700042 is located at latitude 34.006003, longitude -118.343141. Metadata: ID 700042; District 7; County Los Angeles; Fwy I405-E; Lanes 3; Type Ramp; Direction E; ID2 42. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 43,
+      "node_id": "700043",
+      "text": "Traffic sensor 700043 is located at latitude 33.994344, longitude -118.353241. Metadata: ID 700043; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 43. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 44,
+      "node_id": "700044",
+      "text": "Traffic sensor 700044 is located at latitude 33.976183, longitude -118.345414. Metadata: ID 700044; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 44. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 45,
+      "node_id": "700045",
+      "text": "Traffic sensor 700045 is located at latitude 33.963498, longitude -118.364965. Metadata: ID 700045; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 45. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 46,
+      "node_id": "700046",
+      "text": "Traffic sensor 700046 is located at latitude 33.946868, longitude -118.364157. Metadata: ID 700046; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 46. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 47,
+      "node_id": "700047",
+      "text": "Traffic sensor 700047 is located at latitude 33.935985, longitude -118.383385. Metadata: ID 700047; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 47. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 48,
+      "node_id": "700048",
+      "text": "Traffic sensor 700048 is located at latitude 33.941565, longitude -118.378522. Metadata: ID 700048; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 48. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 49,
+      "node_id": "700049",
+      "text": "Traffic sensor 700049 is located at latitude 33.912897, longitude -118.40262. Metadata: ID 700049; District 7; County Los Angeles; Fwy I10-S; Lanes 3; Type Ramp; Direction S; ID2 49. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 50,
+      "node_id": "700050",
+      "text": "Traffic sensor 700050 is located at latitude 33.917379, longitude -118.392922. Metadata: ID 700050; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 50. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 51,
+      "node_id": "700051",
+      "text": "Traffic sensor 700051 is located at latitude 33.912138, longitude -118.405713. Metadata: ID 700051; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 51. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 52,
+      "node_id": "700052",
+      "text": "Traffic sensor 700052 is located at latitude 33.911499, longitude -118.408212. Metadata: ID 700052; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 52. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 53,
+      "node_id": "700053",
+      "text": "Traffic sensor 700053 is located at latitude 33.893969, longitude -118.404847. Metadata: ID 700053; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 53. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 54,
+      "node_id": "700054",
+      "text": "Traffic sensor 700054 is located at latitude 33.892703, longitude -118.415456. Metadata: ID 700054; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 54. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 55,
+      "node_id": "700055",
+      "text": "Traffic sensor 700055 is located at latitude 33.885266, longitude -118.402912. Metadata: ID 700055; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 55. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 56,
+      "node_id": "700056",
+      "text": "Traffic sensor 700056 is located at latitude 33.879697, longitude -118.404564. Metadata: ID 700056; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 56. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 57,
+      "node_id": "700057",
+      "text": "Traffic sensor 700057 is located at latitude 33.87509, longitude -118.411134. Metadata: ID 700057; District 7; County Los Angeles; Fwy I10-S; Lanes 5; Type Ramp; Direction S; ID2 57. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 58,
+      "node_id": "700058",
+      "text": "Traffic sensor 700058 is located at latitude 33.877479, longitude -118.424842. Metadata: ID 700058; District 7; County Los Angeles; Fwy I405-E; Lanes 3; Type Ramp; Direction E; ID2 58. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 59,
+      "node_id": "700059",
+      "text": "Traffic sensor 700059 is located at latitude 33.875467, longitude -118.422272. Metadata: ID 700059; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 59. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 60,
+      "node_id": "700060",
+      "text": "Traffic sensor 700060 is located at latitude 33.883707, longitude -118.415378. Metadata: ID 700060; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 60. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 61,
+      "node_id": "700061",
+      "text": "Traffic sensor 700061 is located at latitude 33.880126, longitude -118.423095. Metadata: ID 700061; District 7; County Los Angeles; Fwy SR91-S; Lanes 5; Type Ramp; Direction S; ID2 61. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 62,
+      "node_id": "700062",
+      "text": "Traffic sensor 700062 is located at latitude 33.889516, longitude -118.420043. Metadata: ID 700062; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 62. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 63,
+      "node_id": "700063",
+      "text": "Traffic sensor 700063 is located at latitude 33.898523, longitude -118.424929. Metadata: ID 700063; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 63. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 64,
+      "node_id": "700064",
+      "text": "Traffic sensor 700064 is located at latitude 33.903925, longitude -118.425111. Metadata: ID 700064; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 64. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 65,
+      "node_id": "700065",
+      "text": "Traffic sensor 700065 is located at latitude 33.895746, longitude -118.412427. Metadata: ID 700065; District 7; County Los Angeles; Fwy I10-S; Lanes 3; Type Ramp; Direction S; ID2 65. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 66,
+      "node_id": "700066",
+      "text": "Traffic sensor 700066 is located at latitude 33.913058, longitude -118.40789. Metadata: ID 700066; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 66. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 67,
+      "node_id": "700067",
+      "text": "Traffic sensor 700067 is located at latitude 33.924586, longitude -118.410616. Metadata: ID 700067; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 67. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 68,
+      "node_id": "700068",
+      "text": "Traffic sensor 700068 is located at latitude 33.922949, longitude -118.400706. Metadata: ID 700068; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 68. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 69,
+      "node_id": "700069",
+      "text": "Traffic sensor 700069 is located at latitude 33.943318, longitude -118.39707. Metadata: ID 700069; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 69. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 70,
+      "node_id": "700070",
+      "text": "Traffic sensor 700070 is located at latitude 33.94067, longitude -118.391472. Metadata: ID 700070; District 7; County Los Angeles; Fwy SR110-E; Lanes 4; Type Ramp; Direction E; ID2 70. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 71,
+      "node_id": "700071",
+      "text": "Traffic sensor 700071 is located at latitude 33.9709, longitude -118.38211. Metadata: ID 700071; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 71. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 72,
+      "node_id": "700072",
+      "text": "Traffic sensor 700072 is located at latitude 33.979856, longitude -118.384096. Metadata: ID 700072; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 72. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 73,
+      "node_id": "700073",
+      "text": "Traffic sensor 700073 is located at latitude 34.005691, longitude -118.370411. Metadata: ID 700073; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 73. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 74,
+      "node_id": "700074",
+      "text": "Traffic sensor 700074 is located at latitude 34.019547, longitude -118.358571. Metadata: ID 700074; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 74. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 75,
+      "node_id": "700075",
+      "text": "Traffic sensor 700075 is located at latitude 34.0259, longitude -118.362782. Metadata: ID 700075; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 75. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 76,
+      "node_id": "700076",
+      "text": "Traffic sensor 700076 is located at latitude 34.052193, longitude -118.334407. Metadata: ID 700076; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 76. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 77,
+      "node_id": "700077",
+      "text": "Traffic sensor 700077 is located at latitude 34.065699, longitude -118.340355. Metadata: ID 700077; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 77. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 78,
+      "node_id": "700078",
+      "text": "Traffic sensor 700078 is located at latitude 34.08702, longitude -118.339929. Metadata: ID 700078; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 78. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 79,
+      "node_id": "700079",
+      "text": "Traffic sensor 700079 is located at latitude 34.095928, longitude -118.332874. Metadata: ID 700079; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 79. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 80,
+      "node_id": "700080",
+      "text": "Traffic sensor 700080 is located at latitude 34.111802, longitude -118.306077. Metadata: ID 700080; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 80. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 81,
+      "node_id": "700081",
+      "text": "Traffic sensor 700081 is located at latitude 34.131338, longitude -118.295182. Metadata: ID 700081; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 81. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 82,
+      "node_id": "700082",
+      "text": "Traffic sensor 700082 is located at latitude 34.152301, longitude -118.287866. Metadata: ID 700082; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 82. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 83,
+      "node_id": "700083",
+      "text": "Traffic sensor 700083 is located at latitude 34.17944, longitude -118.2803. Metadata: ID 700083; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 83. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 84,
+      "node_id": "700084",
+      "text": "Traffic sensor 700084 is located at latitude 34.177711, longitude -118.263374. Metadata: ID 700084; District 7; County Los Angeles; Fwy SR60-N; Lanes 4; Type Ramp; Direction N; ID2 84. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 85,
+      "node_id": "700085",
+      "text": "Traffic sensor 700085 is located at latitude 34.199402, longitude -118.244417. Metadata: ID 700085; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 85. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 86,
+      "node_id": "700086",
+      "text": "Traffic sensor 700086 is located at latitude 34.223336, longitude -118.241834. Metadata: ID 700086; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 86. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 87,
+      "node_id": "700087",
+      "text": "Traffic sensor 700087 is located at latitude 34.235173, longitude -118.220686. Metadata: ID 700087; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 87. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 88,
+      "node_id": "700088",
+      "text": "Traffic sensor 700088 is located at latitude 34.237608, longitude -118.205756. Metadata: ID 700088; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 88. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 89,
+      "node_id": "700089",
+      "text": "Traffic sensor 700089 is located at latitude 34.259934, longitude -118.197626. Metadata: ID 700089; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 89. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 90,
+      "node_id": "700090",
+      "text": "Traffic sensor 700090 is located at latitude 34.267561, longitude -118.178488. Metadata: ID 700090; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Ramp; Direction E; ID2 90. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 91,
+      "node_id": "700091",
+      "text": "Traffic sensor 700091 is located at latitude 34.266087, longitude -118.170106. Metadata: ID 700091; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 91. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 92,
+      "node_id": "700092",
+      "text": "Traffic sensor 700092 is located at latitude 34.27498, longitude -118.165523. Metadata: ID 700092; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 92. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 93,
+      "node_id": "700093",
+      "text": "Traffic sensor 700093 is located at latitude 34.288613, longitude -118.157053. Metadata: ID 700093; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 93. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 94,
+      "node_id": "700094",
+      "text": "Traffic sensor 700094 is located at latitude 34.291838, longitude -118.130847. Metadata: ID 700094; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 94. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 95,
+      "node_id": "700095",
+      "text": "Traffic sensor 700095 is located at latitude 34.296812, longitude -118.116209. Metadata: ID 700095; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 95. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 96,
+      "node_id": "700096",
+      "text": "Traffic sensor 700096 is located at latitude 34.291434, longitude -118.119397. Metadata: ID 700096; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 96. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 97,
+      "node_id": "700097",
+      "text": "Traffic sensor 700097 is located at latitude 34.28958, longitude -118.10745. Metadata: ID 700097; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 97. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 98,
+      "node_id": "700098",
+      "text": "Traffic sensor 700098 is located at latitude 34.289543, longitude -118.08776. Metadata: ID 700098; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 98. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 99,
+      "node_id": "700099",
+      "text": "Traffic sensor 700099 is located at latitude 34.285875, longitude -118.080313. Metadata: ID 700099; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 99. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 100,
+      "node_id": "700100",
+      "text": "Traffic sensor 700100 is located at latitude 34.280335, longitude -118.058458. Metadata: ID 700100; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 100. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 101,
+      "node_id": "700101",
+      "text": "Traffic sensor 700101 is located at latitude 34.257574, longitude -118.045964. Metadata: ID 700101; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 101. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 102,
+      "node_id": "700102",
+      "text": "Traffic sensor 700102 is located at latitude 34.254735, longitude -118.046752. Metadata: ID 700102; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 102. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 103,
+      "node_id": "700103",
+      "text": "Traffic sensor 700103 is located at latitude 34.253892, longitude -118.038278. Metadata: ID 700103; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 103. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 104,
+      "node_id": "700104",
+      "text": "Traffic sensor 700104 is located at latitude 34.237957, longitude -118.040608. Metadata: ID 700104; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 104. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 105,
+      "node_id": "700105",
+      "text": "Traffic sensor 700105 is located at latitude 34.218493, longitude -118.017147. Metadata: ID 700105; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 105. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 106,
+      "node_id": "700106",
+      "text": "Traffic sensor 700106 is located at latitude 34.214007, longitude -118.013313. Metadata: ID 700106; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 106. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 107,
+      "node_id": "700107",
+      "text": "Traffic sensor 700107 is located at latitude 34.191334, longitude -118.0171. Metadata: ID 700107; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 107. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 108,
+      "node_id": "700108",
+      "text": "Traffic sensor 700108 is located at latitude 34.17524, longitude -117.992309. Metadata: ID 700108; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 108. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 109,
+      "node_id": "700109",
+      "text": "Traffic sensor 700109 is located at latitude 34.1479, longitude -117.988686. Metadata: ID 700109; District 7; County Los Angeles; Fwy SR91-S; Lanes 5; Type Ramp; Direction S; ID2 109. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 110,
+      "node_id": "700110",
+      "text": "Traffic sensor 700110 is located at latitude 34.140456, longitude -117.975752. Metadata: ID 700110; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 110. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 111,
+      "node_id": "700111",
+      "text": "Traffic sensor 700111 is located at latitude 34.122393, longitude -117.975395. Metadata: ID 700111; District 7; County Los Angeles; Fwy SR710-W; Lanes 3; Type Ramp; Direction W; ID2 111. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 112,
+      "node_id": "700112",
+      "text": "Traffic sensor 700112 is located at latitude 34.101413, longitude -117.97055. Metadata: ID 700112; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 112. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 113,
+      "node_id": "700113",
+      "text": "Traffic sensor 700113 is located at latitude 34.085603, longitude -117.977773. Metadata: ID 700113; District 7; County Los Angeles; Fwy I10-S; Lanes 3; Type Ramp; Direction S; ID2 113. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 114,
+      "node_id": "700114",
+      "text": "Traffic sensor 700114 is located at latitude 34.05179, longitude -117.97667. Metadata: ID 700114; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 114. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 115,
+      "node_id": "700115",
+      "text": "Traffic sensor 700115 is located at latitude 34.024591, longitude -117.961463. Metadata: ID 700115; District 7; County Los Angeles; Fwy US101-W; Lanes 3; Type Ramp; Direction W; ID2 115. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 116,
+      "node_id": "700116",
+      "text": "Traffic sensor 700116 is located at latitude 34.002053, longitude -117.977556. Metadata: ID 700116; District 7; County Los Angeles; Fwy SR60-N; Lanes 4; Type Ramp; Direction N; ID2 116. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 117,
+      "node_id": "700117",
+      "text": "Traffic sensor 700117 is located at latitude 33.980067, longitude -117.973813. Metadata: ID 700117; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 117. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 118,
+      "node_id": "700118",
+      "text": "Traffic sensor 700118 is located at latitude 33.968489, longitude -117.966233. Metadata: ID 700118; District 7; County Los Angeles; Fwy SR110-E; Lanes 4; Type Ramp; Direction E; ID2 118. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 119,
+      "node_id": "700119",
+      "text": "Traffic sensor 700119 is located at latitude 33.95089, longitude -117.979315. Metadata: ID 700119; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 119. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 120,
+      "node_id": "700120",
+      "text": "Traffic sensor 700120 is located at latitude 33.924004, longitude -117.979591. Metadata: ID 700120; District 7; County Los Angeles; Fwy I5-N; Lanes 5; Type Ramp; Direction N; ID2 120. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 121,
+      "node_id": "700121",
+      "text": "Traffic sensor 700121 is located at latitude 33.902021, longitude -117.982907. Metadata: ID 700121; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 121. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 122,
+      "node_id": "700122",
+      "text": "Traffic sensor 700122 is located at latitude 33.870988, longitude -117.991906. Metadata: ID 700122; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 122. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 123,
+      "node_id": "700123",
+      "text": "Traffic sensor 700123 is located at latitude 33.860088, longitude -117.994059. Metadata: ID 700123; District 7; County Los Angeles; Fwy US101-W; Lanes 4; Type Ramp; Direction W; ID2 123. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 124,
+      "node_id": "700124",
+      "text": "Traffic sensor 700124 is located at latitude 33.839442, longitude -117.989557. Metadata: ID 700124; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 124. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 125,
+      "node_id": "700125",
+      "text": "Traffic sensor 700125 is located at latitude 33.836594, longitude -118.000539. Metadata: ID 700125; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 125. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 126,
+      "node_id": "700126",
+      "text": "Traffic sensor 700126 is located at latitude 33.809729, longitude -118.022117. Metadata: ID 700126; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 126. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 127,
+      "node_id": "700127",
+      "text": "Traffic sensor 700127 is located at latitude 33.79533, longitude -118.01664. Metadata: ID 700127; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 127. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 128,
+      "node_id": "700128",
+      "text": "Traffic sensor 700128 is located at latitude 33.785725, longitude -118.040893. Metadata: ID 700128; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 128. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 129,
+      "node_id": "700129",
+      "text": "Traffic sensor 700129 is located at latitude 33.76033, longitude -118.04078. Metadata: ID 700129; District 7; County Los Angeles; Fwy I10-S; Lanes 5; Type Ramp; Direction S; ID2 129. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 130,
+      "node_id": "700130",
+      "text": "Traffic sensor 700130 is located at latitude 33.769835, longitude -118.060048. Metadata: ID 700130; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 130. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 131,
+      "node_id": "700131",
+      "text": "Traffic sensor 700131 is located at latitude 33.768665, longitude -118.062848. Metadata: ID 700131; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 131. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 132,
+      "node_id": "700132",
+      "text": "Traffic sensor 700132 is located at latitude 33.745576, longitude -118.062938. Metadata: ID 700132; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 132. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 133,
+      "node_id": "700133",
+      "text": "Traffic sensor 700133 is located at latitude 33.756639, longitude -118.092897. Metadata: ID 700133; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 133. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 134,
+      "node_id": "700134",
+      "text": "Traffic sensor 700134 is located at latitude 33.754293, longitude -118.100416. Metadata: ID 700134; District 7; County Los Angeles; Fwy SR110-E; Lanes 4; Type Ramp; Direction E; ID2 134. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 135,
+      "node_id": "700135",
+      "text": "Traffic sensor 700135 is located at latitude 33.756818, longitude -118.113857. Metadata: ID 700135; District 7; County Los Angeles; Fwy SR710-W; Lanes 2; Type Ramp; Direction W; ID2 135. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 136,
+      "node_id": "700136",
+      "text": "Traffic sensor 700136 is located at latitude 33.758175, longitude -118.143774. Metadata: ID 700136; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 136. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 137,
+      "node_id": "700137",
+      "text": "Traffic sensor 700137 is located at latitude 33.765727, longitude -118.155913. Metadata: ID 700137; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 137. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 138,
+      "node_id": "700138",
+      "text": "Traffic sensor 700138 is located at latitude 33.769031, longitude -118.160077. Metadata: ID 700138; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 138. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 139,
+      "node_id": "700139",
+      "text": "Traffic sensor 700139 is located at latitude 33.784686, longitude -118.184699. Metadata: ID 700139; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 139. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 140,
+      "node_id": "700140",
+      "text": "Traffic sensor 700140 is located at latitude 33.787889, longitude -118.198307. Metadata: ID 700140; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 140. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 141,
+      "node_id": "700141",
+      "text": "Traffic sensor 700141 is located at latitude 33.798499, longitude -118.224796. Metadata: ID 700141; District 7; County Los Angeles; Fwy SR91-S; Lanes 3; Type Ramp; Direction S; ID2 141. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 142,
+      "node_id": "700142",
+      "text": "Traffic sensor 700142 is located at latitude 33.81913, longitude -118.241336. Metadata: ID 700142; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 142. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 143,
+      "node_id": "700143",
+      "text": "Traffic sensor 700143 is located at latitude 33.822769, longitude -118.25031. Metadata: ID 700143; District 7; County Los Angeles; Fwy SR710-W; Lanes 3; Type Ramp; Direction W; ID2 143. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 144,
+      "node_id": "700144",
+      "text": "Traffic sensor 700144 is located at latitude 33.850551, longitude -118.279715. Metadata: ID 700144; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 144. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 145,
+      "node_id": "700145",
+      "text": "Traffic sensor 700145 is located at latitude 33.876057, longitude -118.28088. Metadata: ID 700145; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 145. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 146,
+      "node_id": "700146",
+      "text": "Traffic sensor 700146 is located at latitude 33.901273, longitude -118.313668. Metadata: ID 700146; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 146. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 147,
+      "node_id": "700147",
+      "text": "Traffic sensor 700147 is located at latitude 33.92981, longitude -118.317271. Metadata: ID 700147; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 147. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 148,
+      "node_id": "700148",
+      "text": "Traffic sensor 700148 is located at latitude 33.940106, longitude -118.337455. Metadata: ID 700148; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 148. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 149,
+      "node_id": "700149",
+      "text": "Traffic sensor 700149 is located at latitude 33.973025, longitude -118.368086. Metadata: ID 700149; District 7; County Los Angeles; Fwy SR91-S; Lanes 5; Type Ramp; Direction S; ID2 149. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 150,
+      "node_id": "700150",
+      "text": "Traffic sensor 700150 is located at latitude 34.00935, longitude -118.366713. Metadata: ID 700150; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 150. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 151,
+      "node_id": "700151",
+      "text": "Traffic sensor 700151 is located at latitude 34.026704, longitude -118.392146. Metadata: ID 700151; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 151. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 152,
+      "node_id": "700152",
+      "text": "Traffic sensor 700152 is located at latitude 34.039105, longitude -118.408084. Metadata: ID 700152; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 152. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 153,
+      "node_id": "700153",
+      "text": "Traffic sensor 700153 is located at latitude 34.079064, longitude -118.42042. Metadata: ID 700153; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 153. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 154,
+      "node_id": "700154",
+      "text": "Traffic sensor 700154 is located at latitude 34.110173, longitude -118.433439. Metadata: ID 700154; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 154. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 155,
+      "node_id": "700155",
+      "text": "Traffic sensor 700155 is located at latitude 34.141745, longitude -118.453521. Metadata: ID 700155; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 155. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 156,
+      "node_id": "700156",
+      "text": "Traffic sensor 700156 is located at latitude 34.168933, longitude -118.475018. Metadata: ID 700156; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 156. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 157,
+      "node_id": "700157",
+      "text": "Traffic sensor 700157 is located at latitude 34.185556, longitude -118.490354. Metadata: ID 700157; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 157. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 158,
+      "node_id": "700158",
+      "text": "Traffic sensor 700158 is located at latitude 34.209649, longitude -118.5103. Metadata: ID 700158; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 158. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 159,
+      "node_id": "700159",
+      "text": "Traffic sensor 700159 is located at latitude 34.243749, longitude -118.510636. Metadata: ID 700159; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 159. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 160,
+      "node_id": "700160",
+      "text": "Traffic sensor 700160 is located at latitude 34.265737, longitude -118.521962. Metadata: ID 700160; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 160. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 161,
+      "node_id": "700161",
+      "text": "Traffic sensor 700161 is located at latitude 34.286817, longitude -118.536052. Metadata: ID 700161; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 161. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 162,
+      "node_id": "700162",
+      "text": "Traffic sensor 700162 is located at latitude 34.319203, longitude -118.559604. Metadata: ID 700162; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Ramp; Direction E; ID2 162. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 163,
+      "node_id": "700163",
+      "text": "Traffic sensor 700163 is located at latitude 34.321143, longitude -118.563194. Metadata: ID 700163; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 163. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 164,
+      "node_id": "700164",
+      "text": "Traffic sensor 700164 is located at latitude 34.354134, longitude -118.577708. Metadata: ID 700164; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 164. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 165,
+      "node_id": "700165",
+      "text": "Traffic sensor 700165 is located at latitude 34.364789, longitude -118.569003. Metadata: ID 700165; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 165. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 166,
+      "node_id": "700166",
+      "text": "Traffic sensor 700166 is located at latitude 34.379966, longitude -118.58698. Metadata: ID 700166; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 166. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 167,
+      "node_id": "700167",
+      "text": "Traffic sensor 700167 is located at latitude 34.393236, longitude -118.593141. Metadata: ID 700167; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 167. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 168,
+      "node_id": "700168",
+      "text": "Traffic sensor 700168 is located at latitude 34.401365, longitude -118.623725. Metadata: ID 700168; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 168. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 169,
+      "node_id": "700169",
+      "text": "Traffic sensor 700169 is located at latitude 34.403743, longitude -118.60578. Metadata: ID 700169; District 7; County Los Angeles; Fwy I10-S; Lanes 5; Type Ramp; Direction S; ID2 169. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 170,
+      "node_id": "700170",
+      "text": "Traffic sensor 700170 is located at latitude 34.422499, longitude -118.601297. Metadata: ID 700170; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 170. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 171,
+      "node_id": "700171",
+      "text": "Traffic sensor 700171 is located at latitude 34.41286, longitude -118.608025. Metadata: ID 700171; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 171. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 172,
+      "node_id": "700172",
+      "text": "Traffic sensor 700172 is located at latitude 34.424431, longitude -118.601801. Metadata: ID 700172; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 172. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 173,
+      "node_id": "700173",
+      "text": "Traffic sensor 700173 is located at latitude 34.421129, longitude -118.612737. Metadata: ID 700173; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 173. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 174,
+      "node_id": "700174",
+      "text": "Traffic sensor 700174 is located at latitude 34.420395, longitude -118.615627. Metadata: ID 700174; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 174. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 175,
+      "node_id": "700175",
+      "text": "Traffic sensor 700175 is located at latitude 34.400296, longitude -118.607362. Metadata: ID 700175; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 175. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 176,
+      "node_id": "700176",
+      "text": "Traffic sensor 700176 is located at latitude 34.390146, longitude -118.605639. Metadata: ID 700176; District 7; County Los Angeles; Fwy I5-N; Lanes 3; Type Ramp; Direction N; ID2 176. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 177,
+      "node_id": "700177",
+      "text": "Traffic sensor 700177 is located at latitude 34.376339, longitude -118.591208. Metadata: ID 700177; District 7; County Los Angeles; Fwy I10-S; Lanes 5; Type Ramp; Direction S; ID2 177. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 178,
+      "node_id": "700178",
+      "text": "Traffic sensor 700178 is located at latitude 34.367662, longitude -118.585016. Metadata: ID 700178; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 178. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 179,
+      "node_id": "700179",
+      "text": "Traffic sensor 700179 is located at latitude 34.353856, longitude -118.58866. Metadata: ID 700179; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 179. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 180,
+      "node_id": "700180",
+      "text": "Traffic sensor 700180 is located at latitude 34.33739, longitude -118.579514. Metadata: ID 700180; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 180. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 181,
+      "node_id": "700181",
+      "text": "Traffic sensor 700181 is located at latitude 34.310108, longitude -118.573411. Metadata: ID 700181; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 181. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 182,
+      "node_id": "700182",
+      "text": "Traffic sensor 700182 is located at latitude 34.286297, longitude -118.558694. Metadata: ID 700182; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 182. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 183,
+      "node_id": "700183",
+      "text": "Traffic sensor 700183 is located at latitude 34.255103, longitude -118.56912. Metadata: ID 700183; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 183. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 184,
+      "node_id": "700184",
+      "text": "Traffic sensor 700184 is located at latitude 34.232944, longitude -118.535448. Metadata: ID 700184; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 184. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 185,
+      "node_id": "700185",
+      "text": "Traffic sensor 700185 is located at latitude 34.21588, longitude -118.52534. Metadata: ID 700185; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 185. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 186,
+      "node_id": "700186",
+      "text": "Traffic sensor 700186 is located at latitude 34.19112, longitude -118.507526. Metadata: ID 700186; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 186. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 187,
+      "node_id": "700187",
+      "text": "Traffic sensor 700187 is located at latitude 34.164638, longitude -118.492404. Metadata: ID 700187; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 187. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 188,
+      "node_id": "700188",
+      "text": "Traffic sensor 700188 is located at latitude 34.117148, longitude -118.479085. Metadata: ID 700188; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 188. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 189,
+      "node_id": "700189",
+      "text": "Traffic sensor 700189 is located at latitude 34.088651, longitude -118.461331. Metadata: ID 700189; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 189. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 190,
+      "node_id": "700190",
+      "text": "Traffic sensor 700190 is located at latitude 34.058395, longitude -118.448965. Metadata: ID 700190; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 190. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 191,
+      "node_id": "700191",
+      "text": "Traffic sensor 700191 is located at latitude 34.017804, longitude -118.43018. Metadata: ID 700191; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 191. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 192,
+      "node_id": "700192",
+      "text": "Traffic sensor 700192 is located at latitude 33.984478, longitude -118.40862. Metadata: ID 700192; District 7; County Los Angeles; Fwy I5-N; Lanes 3; Type Ramp; Direction N; ID2 192. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 193,
+      "node_id": "700193",
+      "text": "Traffic sensor 700193 is located at latitude 33.946414, longitude -118.379809. Metadata: ID 700193; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 193. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 194,
+      "node_id": "700194",
+      "text": "Traffic sensor 700194 is located at latitude 33.921735, longitude -118.365673. Metadata: ID 700194; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Ramp; Direction E; ID2 194. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 195,
+      "node_id": "700195",
+      "text": "Traffic sensor 700195 is located at latitude 33.891863, longitude -118.333618. Metadata: ID 700195; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 195. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 196,
+      "node_id": "700196",
+      "text": "Traffic sensor 700196 is located at latitude 33.861389, longitude -118.321385. Metadata: ID 700196; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 196. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 197,
+      "node_id": "700197",
+      "text": "Traffic sensor 700197 is located at latitude 33.828016, longitude -118.30803. Metadata: ID 700197; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 197. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 198,
+      "node_id": "700198",
+      "text": "Traffic sensor 700198 is located at latitude 33.797227, longitude -118.279814. Metadata: ID 700198; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 198. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 199,
+      "node_id": "700199",
+      "text": "Traffic sensor 700199 is located at latitude 33.773966, longitude -118.255607. Metadata: ID 700199; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 199. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 200,
+      "node_id": "700200",
+      "text": "Traffic sensor 700200 is located at latitude 33.737945, longitude -118.234443. Metadata: ID 700200; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 200. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 201,
+      "node_id": "700201",
+      "text": "Traffic sensor 700201 is located at latitude 33.73135, longitude -118.21941. Metadata: ID 700201; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 201. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 202,
+      "node_id": "700202",
+      "text": "Traffic sensor 700202 is located at latitude 33.701871, longitude -118.188868. Metadata: ID 700202; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Ramp; Direction E; ID2 202. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 203,
+      "node_id": "700203",
+      "text": "Traffic sensor 700203 is located at latitude 33.685187, longitude -118.161664. Metadata: ID 700203; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 203. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 204,
+      "node_id": "700204",
+      "text": "Traffic sensor 700204 is located at latitude 33.661695, longitude -118.136985. Metadata: ID 700204; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 204. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 205,
+      "node_id": "700205",
+      "text": "Traffic sensor 700205 is located at latitude 33.649224, longitude -118.130969. Metadata: ID 700205; District 7; County Los Angeles; Fwy SR91-S; Lanes 5; Type Ramp; Direction S; ID2 205. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 206,
+      "node_id": "700206",
+      "text": "Traffic sensor 700206 is located at latitude 33.62543, longitude -118.090327. Metadata: ID 700206; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 206. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 207,
+      "node_id": "700207",
+      "text": "Traffic sensor 700207 is located at latitude 33.629547, longitude -118.059764. Metadata: ID 700207; District 7; County Los Angeles; Fwy SR710-W; Lanes 5; Type Ramp; Direction W; ID2 207. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 208,
+      "node_id": "700208",
+      "text": "Traffic sensor 700208 is located at latitude 33.629252, longitude -118.0524. Metadata: ID 700208; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 208. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 209,
+      "node_id": "700209",
+      "text": "Traffic sensor 700209 is located at latitude 33.614801, longitude -118.017727. Metadata: ID 700209; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 209. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 210,
+      "node_id": "700210",
+      "text": "Traffic sensor 700210 is located at latitude 33.61064, longitude -118.002418. Metadata: ID 700210; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 210. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 211,
+      "node_id": "700211",
+      "text": "Traffic sensor 700211 is located at latitude 33.626214, longitude -117.986807. Metadata: ID 700211; District 7; County Los Angeles; Fwy US101-W; Lanes 4; Type Ramp; Direction W; ID2 211. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 212,
+      "node_id": "700212",
+      "text": "Traffic sensor 700212 is located at latitude 33.635392, longitude -117.96975. Metadata: ID 700212; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 212. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 213,
+      "node_id": "700213",
+      "text": "Traffic sensor 700213 is located at latitude 33.641456, longitude -117.943496. Metadata: ID 700213; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 213. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 214,
+      "node_id": "700214",
+      "text": "Traffic sensor 700214 is located at latitude 33.655656, longitude -117.930538. Metadata: ID 700214; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 214. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 215,
+      "node_id": "700215",
+      "text": "Traffic sensor 700215 is located at latitude 33.667009, longitude -117.910196. Metadata: ID 700215; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 215. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 216,
+      "node_id": "700216",
+      "text": "Traffic sensor 700216 is located at latitude 33.685831, longitude -117.905928. Metadata: ID 700216; District 7; County Los Angeles; Fwy I5-N; Lanes 5; Type Ramp; Direction N; ID2 216. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 217,
+      "node_id": "700217",
+      "text": "Traffic sensor 700217 is located at latitude 33.706538, longitude -117.874343. Metadata: ID 700217; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 217. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 218,
+      "node_id": "700218",
+      "text": "Traffic sensor 700218 is located at latitude 33.73067, longitude -117.860489. Metadata: ID 700218; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 218. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 219,
+      "node_id": "700219",
+      "text": "Traffic sensor 700219 is located at latitude 33.745529, longitude -117.85789. Metadata: ID 700219; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 219. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 220,
+      "node_id": "700220",
+      "text": "Traffic sensor 700220 is located at latitude 33.776767, longitude -117.851218. Metadata: ID 700220; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 220. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 221,
+      "node_id": "700221",
+      "text": "Traffic sensor 700221 is located at latitude 33.805979, longitude -117.823587. Metadata: ID 700221; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 221. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 222,
+      "node_id": "700222",
+      "text": "Traffic sensor 700222 is located at latitude 33.835626, longitude -117.814251. Metadata: ID 700222; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 222. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 223,
+      "node_id": "700223",
+      "text": "Traffic sensor 700223 is located at latitude 33.867152, longitude -117.805806. Metadata: ID 700223; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 223. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 224,
+      "node_id": "700224",
+      "text": "Traffic sensor 700224 is located at latitude 33.911725, longitude -117.802502. Metadata: ID 700224; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 224. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 225,
+      "node_id": "700225",
+      "text": "Traffic sensor 700225 is located at latitude 33.945881, longitude -117.783225. Metadata: ID 700225; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 225. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 226,
+      "node_id": "700226",
+      "text": "Traffic sensor 700226 is located at latitude 33.973703, longitude -117.79652. Metadata: ID 700226; District 7; County Los Angeles; Fwy I405-E; Lanes 2; Type Ramp; Direction E; ID2 226. Road context is inferred from topology when OSM data is unavailable."
+    },
+    {
+      "order": 227,
+      "node_id": "700227",
+      "text": "Traffic sensor 700227 is located at latitude 34.011002, longitude -117.781768. Metadata: ID 700227; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 227. Road context is inferred from topology when OSM data is unavailable."
+    }
+  ]
+}

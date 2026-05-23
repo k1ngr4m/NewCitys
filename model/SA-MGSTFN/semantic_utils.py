@@ -24,7 +24,7 @@ def _first_existing_column(columns: Iterable[str], candidates: Iterable[str], ro
 
 def _clean_text(text: str) -> str:
     text = re.sub(r"<[^>]+>", " ", str(text))
-    text = re.sub(r"[^0-9A-Za-z,.;:()_\\-/ ]+", " ", text)
+    text = re.sub(r"[^0-9A-Za-z,.;:()_/\\ -]+", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
@@ -82,9 +82,19 @@ def _query_overpass(lat: float, lon: float, radius: int, endpoint: str, timeout:
     );
     out tags center 50;
     """
-    response = requests.post(endpoint, data={"data": query}, timeout=timeout + 10)
-    response.raise_for_status()
-    payload = response.json()
+    headers = {
+        "User-Agent": "SA-MGSTFN-NewCitys/1.0 (semantic preprocessing; contact: local)",
+        "Accept": "application/json",
+    }
+    try:
+        response = requests.post(endpoint, data={"data": query}, headers=headers, timeout=timeout + 10)
+        if response.status_code != 200:
+            return []
+        payload = response.json()
+    except requests.RequestException:
+        return []
+    except ValueError:
+        return []
     return payload.get("elements", [])
 
 
@@ -139,14 +149,17 @@ def build_or_load_semantic_texts(
             text = fallback_text
         else:
             elements = _query_overpass(float(row[lat_col]), float(row[lon_col]), radius, endpoint, timeout)
-            summary = _summarize_osm_elements(elements)
-            text = (
-                f"Traffic sensor {node_id} is located at latitude {row[lat_col]}, longitude {row[lon_col]}. "
-                f"Nearby road classes: {summary['road_classes']}. "
-                f"Nearby POI types: {summary['poi_types']}. "
-                f"Nearby land use: {summary['landuse']}. "
-                f"{fallback_text}"
-            )
+            if elements:
+                summary = _summarize_osm_elements(elements)
+                text = (
+                    f"Traffic sensor {node_id} is located at latitude {row[lat_col]}, longitude {row[lon_col]}. "
+                    f"Nearby road classes: {summary['road_classes']}. "
+                    f"Nearby POI types: {summary['poi_types']}. "
+                    f"Nearby land use: {summary['landuse']}. "
+                    f"{fallback_text}"
+                )
+            else:
+                text = fallback_text
             time.sleep(0.2)
 
         nodes.append({"order": int(order), "node_id": node_id, "text": _clean_text(text)})

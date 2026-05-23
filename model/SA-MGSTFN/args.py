@@ -1,4 +1,5 @@
-﻿import argparse
+import argparse
+import ast
 import configparser
 import copy
 import os
@@ -16,6 +17,18 @@ def _as_bool(value):
     if isinstance(value, bool):
         return value
     return str(value).lower() in {"1", "true", "yes", "y"}
+
+
+def _normalize_dataset_use(dataset_use):
+    if isinstance(dataset_use, str):
+        parsed = ast.literal_eval(dataset_use)
+        return parsed if isinstance(parsed, list) else [parsed]
+    if isinstance(dataset_use, list):
+        if dataset_use and all(isinstance(item, str) and len(item) == 1 for item in dataset_use):
+            parsed = ast.literal_eval("".join(dataset_use))
+            return parsed if isinstance(parsed, list) else [parsed]
+        return dataset_use
+    return list(dataset_use)
 
 
 def _load_physical_adjacency(dataset, args_base):
@@ -91,6 +104,8 @@ def parse_args(parser: argparse.ArgumentParser, args_base):
     parser.add_argument("--semantic_force_refresh", type=_as_bool, default=config.getboolean("model", "semantic_force_refresh"))
     parser.add_argument("--semantic_disable_osm", type=_as_bool, default=config.getboolean("model", "semantic_disable_osm"))
 
+    parser.set_defaults(batch_size=config.getint("train", "batch_size"))
+    parser.set_defaults(epochs=config.getint("train", "epochs"))
     parser.add_argument("--seed", type=int, default=config.getint("train", "seed"))
     parser.add_argument("--seed_mode", type=_as_bool, default=config.getboolean("train", "seed_mode"))
     parser.add_argument("--xavier", type=_as_bool, default=config.getboolean("train", "xavier"))
@@ -98,10 +113,13 @@ def parse_args(parser: argparse.ArgumentParser, args_base):
     parser.set_defaults(real_value=config.getboolean("train", "real_value"))
     parser.add_argument("--lambda_orth", type=float, default=config.getfloat("train", "lambda_orth"))
     parser.add_argument("--lambda_recon", type=float, default=config.getfloat("train", "lambda_recon"))
+    parser.set_defaults(load_pretrain_path=config.get("train", "load_pretrain_path"))
+    parser.set_defaults(save_pretrain_path=config.get("train", "save_pretrain_path"))
 
     args_predictor, _ = parser.parse_known_args()
     args_predictor.his = args_predictor.input_window
     args_predictor.pred = args_predictor.output_window
+    args_base.dataset_use = _normalize_dataset_use(args_base.dataset_use)
     args_base.his = args_predictor.input_window
     args_base.pred = args_predictor.output_window
 
