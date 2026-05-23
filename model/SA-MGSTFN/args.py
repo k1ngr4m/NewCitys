@@ -85,6 +85,8 @@ def parse_args(parser: argparse.ArgumentParser, args_base):
     parser.add_argument("--embed_dim", type=int, default=config.getint("model", "embed_dim"))
     parser.add_argument("--semantic_dim", type=int, default=config.getint("model", "semantic_dim"))
     parser.add_argument("--semantic_raw_dim", type=int, default=config.getint("model", "semantic_raw_dim"))
+    parser.add_argument("--patch_len", type=int, default=config.getint("model", "patch_len"))
+    parser.add_argument("--patch_stride", type=int, default=config.getint("model", "patch_stride"))
     parser.add_argument("--num_heads", type=int, default=config.getint("model", "num_heads"))
     parser.add_argument("--num_layers", type=int, default=config.getint("model", "num_layers"))
     parser.add_argument("--mlp_ratio", type=int, default=config.getint("model", "mlp_ratio"))

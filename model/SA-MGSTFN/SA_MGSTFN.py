@@ -26,6 +26,41 @@ class PositionalEncoding(nn.Module):
         return self.encoding[:, :x.size(1)].expand(x.size(0), -1, x.size(2), -1)
 
 
+class PatchEmbedding(nn.Module):
+    def __init__(self, input_dim: int, embed_dim: int, patch_len: int, stride: int, input_window: int):
+        super().__init__()
+        self.input_dim = input_dim
+        self.patch_len = patch_len
+        self.stride = stride
+        self.input_window = input_window
+        padded_window = max(input_window, patch_len)
+        self.num_patches = max((padded_window - patch_len) // stride + 1, 1)
+        self.value_embedding = nn.Linear(input_dim * patch_len, embed_dim)
+        self.position_encoding = PositionalEncoding(embed_dim)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        batch_size, time_steps, num_nodes, input_dim = x.shape
+        if input_dim != self.input_dim:
+            raise ValueError(f"Expected input dim {self.input_dim}, got {input_dim}.")
+
+        patch_len = self.patch_len
+        stride = self.stride
+        if time_steps != self.input_window:
+            scale = max(self.input_window // max(time_steps, 1), 1)
+            patch_len = max(self.patch_len // scale, 1)
+            stride = max(self.stride // scale, 1)
+
+        if time_steps < patch_len:
+            x = F.pad(x, (0, 0, 0, 0, patch_len - time_steps, 0))
+
+        patches = x.permute(0, 2, 3, 1).unfold(dimension=-1, size=patch_len, step=stride)
+        if patch_len != self.patch_len:
+            patches = F.pad(patches, (0, self.patch_len - patch_len))
+        patches = patches.permute(0, 3, 1, 2, 4).reshape(batch_size, -1, num_nodes, self.input_dim * self.patch_len)
+        embedded = self.value_embedding(patches)
+        return embedded + self.position_encoding(embedded)
+
+
 class TemporalContext(nn.Module):
     def __init__(self, embed_dim: int):
         super().__init__()
@@ -45,6 +80,31 @@ class TemporalContext(nn.Module):
         return self.proj(torch.cat([self.day_embedding(day), self.week_embedding(week)], dim=-1))
 
 
+class PatchTemporalContext(nn.Module):
+    def __init__(self, embed_dim: int, patch_len: int, stride: int, input_window: int):
+        super().__init__()
+        self.temporal_context = TemporalContext(embed_dim)
+        self.patch_len = patch_len
+        self.stride = stride
+        self.input_window = input_window
+
+    def forward(self, x: torch.Tensor, output_dim: int) -> torch.Tensor:
+        context = self.temporal_context(x, output_dim)
+        time_steps = context.size(1)
+        patch_len = self.patch_len
+        stride = self.stride
+        if time_steps != self.input_window:
+            scale = max(self.input_window // max(time_steps, 1), 1)
+            patch_len = max(self.patch_len // scale, 1)
+            stride = max(self.stride // scale, 1)
+
+        if time_steps < patch_len:
+            context = F.pad(context, (0, 0, 0, 0, patch_len - time_steps, 0))
+
+        patches = context.permute(0, 2, 3, 1).unfold(dimension=-1, size=patch_len, step=stride)
+        return patches.mean(dim=-1).permute(0, 3, 1, 2)
+
+
 class GraphAttention(nn.Module):
     def __init__(self, embed_dim: int, num_heads: int, attn_drop: float, drop: float):
         super().__init__()
@@ -53,26 +113,29 @@ class GraphAttention(nn.Module):
         self.embed_dim = embed_dim
         self.num_heads = num_heads
         self.head_dim = embed_dim // num_heads
-        self.scale = self.head_dim ** -0.5
-        self.q_proj = nn.Linear(embed_dim, embed_dim)
-        self.k_proj = nn.Linear(embed_dim, embed_dim)
-        self.v_proj = nn.Linear(embed_dim, embed_dim)
+        self.feature_proj = nn.Linear(embed_dim, embed_dim, bias=False)
+        self.attn_src = nn.Parameter(torch.empty(num_heads, self.head_dim))
+        self.attn_dst = nn.Parameter(torch.empty(num_heads, self.head_dim))
+        self.leaky_relu = nn.LeakyReLU(0.2)
         self.out_proj = nn.Linear(embed_dim, embed_dim)
         self.attn_drop = nn.Dropout(attn_drop)
         self.drop = nn.Dropout(drop)
+        nn.init.xavier_uniform_(self.attn_src)
+        nn.init.xavier_uniform_(self.attn_dst)
 
     def forward(self, x: torch.Tensor, adjacency: torch.Tensor) -> torch.Tensor:
         batch_size, time_steps, num_nodes, _ = x.shape
         flat_x = x.reshape(batch_size * time_steps, num_nodes, self.embed_dim)
-        query = self.q_proj(flat_x).view(batch_size * time_steps, num_nodes, self.num_heads, self.head_dim).transpose(1, 2)
-        key = self.k_proj(flat_x).view(batch_size * time_steps, num_nodes, self.num_heads, self.head_dim).transpose(1, 2)
-        value = self.v_proj(flat_x).view(batch_size * time_steps, num_nodes, self.num_heads, self.head_dim).transpose(1, 2)
+        projected = self.feature_proj(flat_x).view(batch_size * time_steps, num_nodes, self.num_heads, self.head_dim)
+        projected = projected.transpose(1, 2)
 
-        scores = torch.matmul(query, key.transpose(-2, -1)) * self.scale
+        source_scores = torch.sum(projected * self.attn_src.unsqueeze(0).unsqueeze(2), dim=-1)
+        target_scores = torch.sum(projected * self.attn_dst.unsqueeze(0).unsqueeze(2), dim=-1)
+        scores = self.leaky_relu(source_scores.unsqueeze(-1) + target_scores.unsqueeze(-2))
         mask = adjacency.to(dtype=torch.bool, device=x.device).unsqueeze(0).unsqueeze(0)
         scores = scores.masked_fill(~mask, -1e9)
         attention = self.attn_drop(torch.softmax(scores, dim=-1))
-        out = torch.matmul(attention, value).transpose(1, 2).reshape(batch_size * time_steps, num_nodes, self.embed_dim)
+        out = torch.matmul(attention, projected).transpose(1, 2).reshape(batch_size * time_steps, num_nodes, self.embed_dim)
         out = self.drop(self.out_proj(out))
         return out.view(batch_size, time_steps, num_nodes, self.embed_dim)
 
@@ -155,6 +218,8 @@ class SAMGSTFN(nn.Module):
         self.embed_dim = args.embed_dim
         self.semantic_dim = args.semantic_dim
         self.semantic_threshold = args.semantic_threshold
+        self.patch_len = args.patch_len
+        self.patch_stride = args.patch_stride
         self.flow_topk = args.flow_topk
         self.lambda_orth = args.lambda_orth
         self.lambda_recon = args.lambda_recon
@@ -166,9 +231,19 @@ class SAMGSTFN(nn.Module):
         self.raw_adj_mx_dict = args.raw_adj_mx_dict
         self.semantic_embedding_dict = nn.ParameterDict()
 
-        self.input_proj = nn.Linear(dim_in, self.embed_dim)
-        self.position_encoding = PositionalEncoding(self.embed_dim)
-        self.temporal_context = TemporalContext(self.embed_dim)
+        self.patch_embedding = PatchEmbedding(
+            input_dim=dim_in,
+            embed_dim=self.embed_dim,
+            patch_len=self.patch_len,
+            stride=self.patch_stride,
+            input_window=self.input_window,
+        )
+        self.temporal_context = PatchTemporalContext(
+            embed_dim=self.embed_dim,
+            patch_len=self.patch_len,
+            stride=self.patch_stride,
+            input_window=self.input_window,
+        )
         self.semantic_domain_mapper = nn.Sequential(
             nn.Linear(args.semantic_raw_dim, self.semantic_dim),
             nn.ReLU(),
@@ -193,7 +268,7 @@ class SAMGSTFN(nn.Module):
             nn.Dropout(args.drop),
             nn.Linear(self.embed_dim, self.output_dim),
         )
-        self.horizon_proj = nn.Linear(self.input_window, self.output_window)
+        self.horizon_proj = nn.Linear(self.patch_embedding.num_patches, self.output_window)
 
         self._load_semantic_embeddings(args)
 
@@ -268,7 +343,7 @@ class SAMGSTFN(nn.Module):
         stdev = torch.sqrt(torch.var(centered, dim=1, keepdim=True, unbiased=False) + 1e-5).detach()
         normalized = centered / stdev
 
-        encoded = self.input_proj(normalized) + self.position_encoding(normalized)
+        encoded = self.patch_embedding(normalized)
         time_context = self.temporal_context(source, self.output_dim)
         semantic_raw = self.semantic_embedding_dict[select_dataset].to(self.device)
         semantic_context = self.semantic_feature_proj(self.semantic_domain_mapper(semantic_raw)).unsqueeze(0).unsqueeze(0)
