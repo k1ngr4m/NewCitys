@@ -105,6 +105,17 @@ class PatchTemporalContext(nn.Module):
         return patches.mean(dim=-1).permute(0, 3, 1, 2)
 
 
+class RMSNorm(nn.Module):
+    def __init__(self, embed_dim: int, eps: float = 1e-6):
+        super().__init__()
+        self.weight = nn.Parameter(torch.ones(embed_dim))
+        self.eps = eps
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        rms = torch.rsqrt(x.pow(2).mean(dim=-1, keepdim=True) + self.eps)
+        return x * rms * self.weight
+
+
 class GraphAttention(nn.Module):
     def __init__(self, embed_dim: int, num_heads: int, attn_drop: float, drop: float):
         super().__init__()
@@ -154,8 +165,8 @@ class TimeAwareMultiGraphFusion(nn.Module):
             nn.Linear(embed_dim, 3),
         )
         hidden_dim = embed_dim * mlp_ratio
-        self.norm1 = nn.LayerNorm(embed_dim)
-        self.norm2 = nn.LayerNorm(embed_dim)
+        self.norm1 = RMSNorm(embed_dim)
+        self.norm2 = RMSNorm(embed_dim)
         self.ffn = nn.Sequential(
             nn.Linear(embed_dim, hidden_dim),
             nn.GELU(),
@@ -231,7 +242,6 @@ class SAMGSTFN(nn.Module):
         self.adj_mx_dict = args.adj_mx_dict
         self.raw_adj_mx_dict = args.raw_adj_mx_dict
         self.semantic_embedding_dict = nn.ParameterDict()
-        self.semantic_adj_dict = nn.ParameterDict()
 
         self.patch_embedding = PatchEmbedding(
             input_dim=dim_in,
@@ -301,10 +311,6 @@ class SAMGSTFN(nn.Module):
                 )
             semantic_embeddings = torch.FloatTensor(embeddings)
             self.semantic_embedding_dict[dataset] = nn.Parameter(semantic_embeddings, requires_grad=False)
-            self.semantic_adj_dict[dataset] = nn.Parameter(
-                self._build_static_semantic_adjacency(semantic_embeddings),
-                requires_grad=False,
-            )
 
     @staticmethod
     def _normalize_adjacency(adjacency: torch.Tensor) -> torch.Tensor:
@@ -313,10 +319,10 @@ class SAMGSTFN(nn.Module):
         degree_inv_sqrt = torch.rsqrt(degree)
         return degree_inv_sqrt.unsqueeze(-1) * adjacency * degree_inv_sqrt.unsqueeze(0)
 
-    def _build_static_semantic_adjacency(self, semantic_embeddings: torch.Tensor) -> torch.Tensor:
-        semantic_features = F.normalize(semantic_embeddings, p=2, dim=-1)
+    def _build_semantic_adjacency(self, semantic_features: torch.Tensor) -> torch.Tensor:
+        semantic_features = F.normalize(semantic_features, p=2, dim=-1)
         similarity = torch.matmul(semantic_features, semantic_features.transpose(0, 1)).clamp_min(0.0)
-        semantic_adj = torch.where(similarity >= self.semantic_threshold, similarity, torch.zeros_like(similarity))
+        semantic_adj = torch.where(similarity > self.semantic_threshold, similarity, torch.zeros_like(similarity))
         semantic_adj = semantic_adj + torch.eye(semantic_adj.size(0), device=semantic_adj.device)
         return self._normalize_adjacency(semantic_adj)
 
@@ -324,8 +330,8 @@ class SAMGSTFN(nn.Module):
         semantic_raw = self.semantic_embedding_dict[select_dataset].to(self.device)
         return self.semantic_domain_mapper(semantic_raw)
 
-    def _semantic_adjacency(self, select_dataset: str) -> torch.Tensor:
-        return self.semantic_adj_dict[select_dataset].to(self.device)
+    def _semantic_adjacency(self, semantic_features: torch.Tensor) -> torch.Tensor:
+        return self._build_semantic_adjacency(semantic_features)
 
     def _flow_adjacency(self, source: torch.Tensor) -> torch.Tensor:
         traffic = source[..., :self.input_base_dim].mean(dim=(0, -1)).transpose(0, 1)
@@ -361,12 +367,13 @@ class SAMGSTFN(nn.Module):
 
         encoded = self.patch_embedding(normalized)
         time_context = self.temporal_context(source, self.output_dim)
-        semantic_context = self.semantic_feature_proj(self._semantic_features(select_dataset)).unsqueeze(0).unsqueeze(0)
+        semantic_features = self._semantic_features(select_dataset)
+        semantic_context = self.semantic_feature_proj(semantic_features).unsqueeze(0).unsqueeze(0)
         encoded = encoded + semantic_context
 
         physical_adj = self.adj_mx_dict[select_dataset].to(self.device)
         flow_adj = self._flow_adjacency(source)
-        semantic_adj = self._semantic_adjacency(select_dataset)
+        semantic_adj = self._semantic_adjacency(semantic_features)
 
         for layer in self.encoder_layers:
             encoded = layer(encoded, time_context, physical_adj, flow_adj, semantic_adj)
