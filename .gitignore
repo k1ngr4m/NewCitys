@@ -1,0 +1,35 @@
+# Python cache and local tooling
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# IDE and local assistant state
+.idea/
+.claude/
+
+# Logs
+log/
+*.log
+
+# Generated datasets and data archives
+data.zip
+data/**/*.npz
+data/**/*.npy
+data/**/*.h5
+data/**/*.csv
+data/processed/
+data/CD_DIDI_Weather/temp.py
+data/TaxiBJ/*.txt
+data/TaxiBJ/ReadMe.md
+
+# Generated visual outputs
+draw/*.png
+
+# Model downloads, checkpoints, and trained weights
+model/llm-model/
+model_weights/
