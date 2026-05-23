@@ -129,7 +129,6 @@ class GraphAttention(nn.Module):
         self.attn_src = nn.Parameter(torch.empty(num_heads, self.head_dim))
         self.attn_dst = nn.Parameter(torch.empty(num_heads, self.head_dim))
         self.leaky_relu = nn.LeakyReLU(0.2)
-        self.out_proj = nn.Linear(embed_dim, embed_dim)
         self.attn_drop = nn.Dropout(attn_drop)
         self.drop = nn.Dropout(drop)
         nn.init.xavier_uniform_(self.attn_src)
@@ -149,8 +148,9 @@ class GraphAttention(nn.Module):
         scores = scores + torch.log(edge_weight.clamp_min(1e-12))
         scores = scores.masked_fill(~mask, -1e9)
         attention = self.attn_drop(torch.softmax(scores, dim=-1))
-        out = torch.matmul(attention, projected).transpose(1, 2).reshape(batch_size * time_steps, num_nodes, self.embed_dim)
-        out = self.drop(self.out_proj(out))
+        out = torch.matmul(attention, projected)
+        out = F.gelu(out).transpose(1, 2).reshape(batch_size * time_steps, num_nodes, self.embed_dim)
+        out = self.drop(out)
         return out.view(batch_size, time_steps, num_nodes, self.embed_dim)
 
 
@@ -165,16 +165,7 @@ class TimeAwareMultiGraphFusion(nn.Module):
             nn.GELU(),
             nn.Linear(embed_dim, 3),
         )
-        hidden_dim = embed_dim * mlp_ratio
-        self.norm1 = RMSNorm(embed_dim)
-        self.norm2 = RMSNorm(embed_dim)
-        self.ffn = nn.Sequential(
-            nn.Linear(embed_dim, hidden_dim),
-            nn.GELU(),
-            nn.Dropout(drop),
-            nn.Linear(hidden_dim, embed_dim),
-            nn.Dropout(drop),
-        )
+        self.norm = RMSNorm(embed_dim)
 
     def forward(
         self,
@@ -184,14 +175,12 @@ class TimeAwareMultiGraphFusion(nn.Module):
         flow_adj: torch.Tensor,
         semantic_adj: torch.Tensor,
     ) -> torch.Tensor:
-        norm_x = self.norm1(x)
-        phy = self.phy_gat(norm_x, physical_adj)
-        flow = self.flow_gat(norm_x, flow_adj)
-        sem = self.sem_gat(norm_x, semantic_adj)
+        phy = self.phy_gat(x, physical_adj)
+        flow = self.flow_gat(x, flow_adj)
+        sem = self.sem_gat(x, semantic_adj)
         weights = torch.softmax(self.fusion_gate(time_context), dim=-1).unsqueeze(-1)
         fused = weights[..., 0, :] * phy + weights[..., 1, :] * flow + weights[..., 2, :] * sem
-        x = x + fused
-        return x + self.ffn(self.norm2(x))
+        return self.norm(fused + x)
 
 
 class DecompositionRefiner(nn.Module):
@@ -209,13 +198,13 @@ class DecompositionRefiner(nn.Module):
             nn.Dropout(drop),
             nn.Linear(embed_dim, embed_dim),
         )
-        self.reconstruct = nn.Linear(embed_dim * 2, embed_dim)
+        self.reconstruct = nn.Linear(embed_dim, embed_dim)
 
     def forward(self, x: torch.Tensor, time_context: torch.Tensor):
         z_inv = self.inv_encoder(torch.cat([x, time_context], dim=-1))
         z_spe = self.spe_encoder(x)
         combined = torch.cat([z_inv, z_spe], dim=-1)
-        reconstructed = self.reconstruct(combined)
+        reconstructed = self.reconstruct(z_inv + z_spe)
         return z_inv, z_spe, combined, reconstructed
 
 
@@ -253,6 +242,7 @@ class SAMGSTFN(nn.Module):
 
         self.adj_mx_dict = args.adj_mx_dict
         self.raw_adj_mx_dict = args.raw_adj_mx_dict
+        self.semantic_adjacency_buffer_names = {}
         self.semantic_embedding_dict = nn.ParameterDict()
 
         self.patch_embedding = PatchEmbedding(
@@ -290,6 +280,7 @@ class SAMGSTFN(nn.Module):
         self.horizon_proj = nn.Linear(self.patch_embedding.num_patches, self.output_window)
 
         self._load_semantic_embeddings(args)
+        self._init_static_semantic_adjacencies()
 
     def _load_semantic_embeddings(self, args):
         for dataset in self.dataset_use:
@@ -320,6 +311,21 @@ class SAMGSTFN(nn.Module):
             self.semantic_embedding_dict[dataset] = nn.Parameter(semantic_embeddings, requires_grad=False)
 
     @staticmethod
+    def _buffer_name(prefix: str, dataset: str) -> str:
+        safe_dataset = "".join(character if character.isalnum() else "_" for character in dataset)
+        return f"{prefix}_{safe_dataset}"
+
+    def _init_static_semantic_adjacencies(self):
+        for dataset in self.dataset_use:
+            with torch.no_grad():
+                semantic_raw = self.semantic_embedding_dict[dataset]
+                semantic_features = self.semantic_domain_mapper(semantic_raw)
+                semantic_adjacency = self._build_semantic_adjacency(semantic_features)
+            buffer_name = self._buffer_name("semantic_adj", dataset)
+            self.register_buffer(buffer_name, semantic_adjacency)
+            self.semantic_adjacency_buffer_names[dataset] = buffer_name
+
+    @staticmethod
     def _normalize_adjacency(adjacency: torch.Tensor) -> torch.Tensor:
         adjacency = adjacency.float()
         degree = adjacency.sum(dim=-1).clamp_min(1e-6)
@@ -337,8 +343,9 @@ class SAMGSTFN(nn.Module):
         semantic_raw = self.semantic_embedding_dict[select_dataset].to(self.device)
         return self.semantic_domain_mapper(semantic_raw)
 
-    def _semantic_adjacency(self, semantic_features: torch.Tensor) -> torch.Tensor:
-        return self._build_semantic_adjacency(semantic_features)
+    def _semantic_adjacency(self, select_dataset: str) -> torch.Tensor:
+        buffer_name = self.semantic_adjacency_buffer_names[select_dataset]
+        return getattr(self, buffer_name)
 
     def _flow_adjacency(self, source: torch.Tensor) -> torch.Tensor:
         traffic = source[..., :self.input_base_dim].mean(dim=(0, -1)).transpose(0, 1)
@@ -380,7 +387,7 @@ class SAMGSTFN(nn.Module):
 
         physical_adj = self.adj_mx_dict[select_dataset].to(self.device)
         flow_adj = self._flow_adjacency(source)
-        semantic_adj = self._semantic_adjacency(semantic_features)
+        semantic_adj = self._semantic_adjacency(select_dataset)
 
         for layer in self.encoder_layers:
             encoded = layer(encoded, time_context, physical_adj, flow_adj, semantic_adj)
