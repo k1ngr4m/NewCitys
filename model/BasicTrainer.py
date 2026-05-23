@@ -76,6 +76,9 @@ class Trainer(object):
                     self.logger.info('*********************************Current best model saved!')
                     # self.test(self.model, self.args, self.scaler_dict, self.test_dataloader, self.logger)
                     best_model = copy.deepcopy(self.model.state_dict())
+                    os.makedirs(self.args.log_dir, exist_ok=True)
+                    torch.save(best_model, self.best_path)
+                    self.logger.info("Saving current best model to " + self.best_path)
         # test
         if self.args.mode != 'pretrain' and self.args.val_ratio > 0:
             self.model.load_state_dict(best_model)
