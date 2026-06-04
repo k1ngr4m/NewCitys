@@ -89,13 +89,13 @@ def generate_smooth_large_deviation():
 x, y_gt, y_ours, y_baseline = generate_smooth_large_deviation()
 
 plt.figure(figsize=(10, 4.5), dpi=100)
-plt.plot(x, y_gt, color='black', linewidth=2.5, label='Ground Truth', zorder=3)
-plt.plot(x, y_ours, color='#C00000', linestyle='--', linewidth=3.0, label='SA-MGSTFN (Ours)', zorder=2)
-plt.plot(x, y_baseline, color='gray', linestyle=':', linewidth=2.2, label='MSTDFN (Baseline)', zorder=1)
+plt.plot(x, y_gt, color='black', linewidth=2.5, label='真实流量', zorder=3)
+plt.plot(x, y_ours, color='#C00000', linestyle='--', linewidth=3.0, label='本方法', zorder=2)
+# plt.plot(x, y_baseline, color='gray', linestyle=':', linewidth=2.2, label='MSTDFN (Baseline)', zorder=1)
 
 # plt.title('(a) 真实流量与预测流量对比', fontsize=15, y=1.02)
-plt.ylabel('Traffic Flow', fontsize=13)
-plt.xlabel('Time', fontsize=13)
+plt.ylabel('交通流量', fontsize=13)
+plt.xlabel('时间', fontsize=13)
 
 plt.xticks([0, 30, 60, 90, 120, 150, 180],
            ['17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00'], fontsize=12)

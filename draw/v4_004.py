@@ -40,19 +40,19 @@ fig, ax = plt.subplots(figsize=(10, 6), dpi=100)
 im = ax.imshow(data, cmap='jet', aspect='auto', interpolation='nearest')
 
 # 4. 设置坐标轴
-# Y轴: Node 1 到 Node 10
+# Y轴: 节点 1 到 节点 10
 ax.set_yticks(np.arange(10))
-ax.set_yticklabels([f'Node {i+1}' for i in range(10)], fontsize=10)
-ax.set_ylabel('Node', fontsize=12)
+ax.set_yticklabels([f'节点 {i+1}' for i in range(10)], fontsize=10)
+ax.set_ylabel('节点', fontsize=12)
 
-# X轴: 根据原图显示特定的标签 (Node 1, 4, 6, 8, 10)
+# X轴: 根据原图显示特定的标签 (节点 1, 4, 6, 8, 10)
 xticks_indices = [0, 3, 5, 7, 9]
-xticks_labels = ['Node 1', 'Node 4', 'Node 6', 'Node 8', 'Node 10']
+xticks_labels = ['节点 1', '节点 4', '节点 6', '节点 8', '节点 10']
 ax.set_xticks(xticks_indices)
 ax.set_xticklabels(xticks_labels, fontsize=10)
-ax.set_xlabel('Node index', fontsize=12)
+ax.set_xlabel('节点索引', fontsize=12)
 # 标题
-ax.set_title('(d) 语义注意力热力图 ($A_{sem}$) (Semantic Attention Heatmap)', fontsize=13, pad=15)
+# ax.set_title('(d) 语义注意力热力图 ($A_{sem}$)', fontsize=13, pad=15)
 # 5. 添加颜色条 (Colorbar)
 cbar = plt.colorbar(im, ax=ax)
 cbar.ax.tick_params(labelsize=10)
@@ -62,24 +62,24 @@ cbar.ax.tick_params(labelsize=10)
 # 添加圆圈高亮关键点
 circle = patches.Circle((target_col, target_row), radius=0.6, linewidth=1.5, edgecolor='black', facecolor='none')
 ax.add_patch(circle)
-
-# 添加箭头和说明文字
-text_str = (
-    "高语义关联\n"
-    "Node 2 & Node 8\n"
-    "(e.g., 购物中心,\n5km apart)"
-)
+#
+# # 添加箭头和说明文字
+# text_str = (
+#     "高语义关联\n"
+#     "Node 2 & Node 8\n"
+#     "(e.g., 购物中心,\n5km apart)"
+# )
 
 # xy是箭头尖端坐标，xytext是文字坐标
-ax.annotate(
-    text_str,
-    xy=(target_col + 0.6, target_row),      # 箭头指向圆圈右侧
-    xytext=(target_col + 3.5, target_row + 3),  # 文字放在右下方
-    arrowprops=dict(facecolor='black', arrowstyle='->', lw=1.5),
-    fontsize=10,
-    ha='left',
-    va='top'
-)
+# ax.annotate(
+#     text_str,
+#     xy=(target_col + 0.6, target_row),      # 箭头指向圆圈右侧
+#     xytext=(target_col + 3.5, target_row + 3),  # 文字放在右下方
+#     arrowprops=dict(facecolor='black', arrowstyle='->', lw=1.5),
+#     fontsize=10,
+#     ha='left',
+#     va='top'
+# )
 
 # 7. 调整布局并保存
 plt.tight_layout()

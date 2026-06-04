@@ -33,10 +33,10 @@ ax.fill_between(x, y, color=fill_color, alpha=0.5)
 # === 修改部分结束 ===
 
 # --- 4. 设置坐标轴 ---
-ax.set_xlabel("Time", fontsize=12)
+ax.set_xlabel("时间", fontsize=12)
 ax.set_xlim(0, 180)
 
-ax.set_ylabel(r"$Z_{inv}$ Value", fontsize=12)
+ax.set_ylabel(r"固有模式特征$Z_{inv}$ 值", fontsize=12)
 ax.set_ylim(-0.05, 1.05)
 ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
 

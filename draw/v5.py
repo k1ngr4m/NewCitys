@@ -1,5 +1,33 @@
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import numpy as np
+
+# === 0. 设置中文字体（自动选择当前机器可用字体）===
+def setup_chinese_font():
+    candidates = [
+        "PingFang SC",          # macOS
+        "Hiragino Sans GB",     # macOS
+        "Microsoft YaHei",      # Windows
+        "SimHei",               # Windows/Linux
+        "Noto Sans CJK SC",     # Linux/跨平台
+        "Source Han Sans SC",   # Linux/跨平台
+        "WenQuanYi Micro Hei",  # Linux
+        "Arial Unicode MS",     # 部分 macOS/Office 环境
+    ]
+
+    available = {f.name for f in fm.fontManager.ttflist}
+    selected = next((name for name in candidates if name in available), None)
+
+    if selected:
+        # 同时设置 family 和 sans-serif，避免被默认 Arial 覆盖
+        plt.rcParams["font.family"] = "sans-serif"
+        plt.rcParams["font.sans-serif"] = [selected, "Arial Unicode MS", "DejaVu Sans"]
+        print(f"[INFO] 使用中文字体: {selected}")
+    else:
+        print("[WARN] 未找到可用中文字体，中文可能显示为方块。")
+
+    plt.rcParams["axes.unicode_minus"] = False
+
 
 # === 1. 模拟数据 (请替换为你实验中的真实数据) ===
 # 假设时间段是 6:00 到 12:00，每10分钟一个点，共36个点
@@ -27,22 +55,24 @@ plt.figure(figsize=(10, 5), dpi=300)
 
 # 设置风格
 plt.style.use('seaborn-v0_8-whitegrid')
+# 注意：style.use 可能覆盖字体配置，所以字体设置必须放在它后面
+setup_chinese_font()
 
 # 画线
-plt.plot(time_slots, ground_truth, color='black', linewidth=2.5, label='Ground Truth')
+plt.plot(time_slots, ground_truth, color='black', linewidth=2.5, label='真实流量')
 plt.plot(time_slots, rem_weather, color='red', linestyle='--', linewidth=2, label='RemWeather')
 plt.plot(time_slots, mstdfn, color='#1f77b4', linewidth=2.5, marker='o', markersize=4, label='MSTDFN (Ours)')
 
 # === 3. 关键：添加“下雨”背景区域 ===
 # 假设下雨时间是第12个点到第21个点 (08:00 - 09:30)
-plt.axvspan(12, 21, color='blue', alpha=0.15, label='Rainy Period')
+plt.axvspan(12, 21, color='blue', alpha=0.15, label='降雨时段')
 # 在背景上方添加文字说明
 # plt.text(12.5, 105, 'Heavy Rain', ha='center', va='bottom', fontsize=12, color='blue', fontweight='bold')
 
 # === 4. 细节调整 ===
 # plt.title('Case Study: Traffic Flow Prediction under Heavy Rain (NYC-BIKE)', fontsize=14, pad=15)
-plt.xlabel('Time of Day', fontsize=12)
-plt.ylabel('Traffic Flow', fontsize=12)
+plt.xlabel('时间', fontsize=12)
+plt.ylabel('交通流量', fontsize=12)
 plt.legend(loc='upper right', frameon=True, framealpha=0.9, shadow=True)
 
 # 设置X轴刻度
