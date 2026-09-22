@@ -5,7 +5,7 @@
     "osm_enabled": true,
     "osm_endpoint": "https://overpass-api.de/api/interpreter",
     "osm_radius": 300,
-    "osm_output_limit": 50,
+    "osm_output_limit": 200,
     "osm_timeout": 60,
     "osm_max_retries": 2,
     "osm_log_api_calls": true
@@ -14,121 +14,121 @@
     {
       "order": 0,
       "node_id": "700000",
-      "text": "Traffic sensor 700000 is located at latitude 34.051355, longitude -118.161145. Metadata: ID 700000; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 0. OpenStreetMap nearby road classes: service(35), secondary(6), residential(5). OpenStreetMap nearby POI types: amenity:parking_entrance(2), amenity:bench(2). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700000 is located at latitude 34.051355, longitude -118.161145. Metadata: ID 700000; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 0. OpenStreetMap nearby road classes: service(45), secondary(6), residential(5), footway(1). OpenStreetMap nearby POI types: amenity:parking_entrance(2), amenity:bench(2). OpenStreetMap nearby land use: residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 62,
       "osm_summary": {
-        "road_classes": "service(35), secondary(6), residential(5)",
+        "road_classes": "service(45), secondary(6), residential(5), footway(1)",
         "poi_types": "amenity:parking_entrance(2), amenity:bench(2)",
-        "landuse": "unknown land use"
+        "landuse": "residential(1)"
       }
     },
     {
       "order": 1,
       "node_id": "700001",
-      "text": "Traffic sensor 700001 is located at latitude 34.042993, longitude -118.158927. Metadata: ID 700001; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 1. OpenStreetMap nearby road classes: service(30), residential(9), tertiary(6), secondary(4). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(1).",
+      "text": "Traffic sensor 700001 is located at latitude 34.042993, longitude -118.158927. Metadata: ID 700001; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 1. OpenStreetMap nearby road classes: service(46), footway(17), residential(9), secondary(7), tertiary(7). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 91,
       "osm_summary": {
-        "road_classes": "service(30), residential(9), tertiary(6), secondary(4)",
+        "road_classes": "service(46), footway(17), residential(9), secondary(7), tertiary(7)",
         "poi_types": "no nearby POI returned",
-        "landuse": "residential(1)"
+        "landuse": "residential(4)"
       }
     },
     {
       "order": 2,
       "node_id": "700002",
-      "text": "Traffic sensor 700002 is located at latitude 34.076931, longitude -118.161153. Metadata: ID 700002; District 7; County Los Angeles; Fwy I405-E; Lanes 3; Type Ramp; Direction E; ID2 2. OpenStreetMap nearby road classes: service(14), primary(14), residential(12), motorway(3), secondary(2). OpenStreetMap nearby POI types: amenity:fuel(1), amenity:restaurant(1). OpenStreetMap nearby land use: industrial(3).",
+      "text": "Traffic sensor 700002 is located at latitude 34.076931, longitude -118.161153. Metadata: ID 700002; District 7; County Los Angeles; Fwy I405-E; Lanes 3; Type Ramp; Direction E; ID2 2. OpenStreetMap nearby road classes: service(26), primary(17), residential(14), footway(9), secondary(5). OpenStreetMap nearby POI types: amenity:fuel(1), amenity:restaurant(1). OpenStreetMap nearby land use: industrial(3), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 83,
       "osm_summary": {
-        "road_classes": "service(14), primary(14), residential(12), motorway(3), secondary(2)",
+        "road_classes": "service(26), primary(17), residential(14), footway(9), secondary(5)",
         "poi_types": "amenity:fuel(1), amenity:restaurant(1)",
-        "landuse": "industrial(3)"
+        "landuse": "industrial(3), residential(1)"
       }
     },
     {
       "order": 3,
       "node_id": "700003",
-      "text": "Traffic sensor 700003 is located at latitude 34.068897, longitude -118.16464. Metadata: ID 700003; District 7; County Los Angeles; Fwy US101-W; Lanes 3; Type Ramp; Direction W; ID2 3. OpenStreetMap nearby road classes: service(13), tertiary(6), residential(5), steps(4), footway(4). OpenStreetMap nearby POI types: amenity:bicycle_parking(5), amenity:parking_entrance(2), amenity:school(1), amenity:theatre(1). OpenStreetMap nearby land use: grass(1).",
+      "text": "Traffic sensor 700003 is located at latitude 34.068897, longitude -118.16464. Metadata: ID 700003; District 7; County Los Angeles; Fwy US101-W; Lanes 3; Type Ramp; Direction W; ID2 3. OpenStreetMap nearby road classes: footway(41), service(35), steps(8), tertiary(6), residential(6). OpenStreetMap nearby POI types: amenity:bicycle_parking(5), amenity:parking_entrance(2), amenity:school(1), amenity:theatre(1). OpenStreetMap nearby land use: grass(3), residential(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 120,
       "osm_summary": {
-        "road_classes": "service(13), tertiary(6), residential(5), steps(4), footway(4)",
+        "road_classes": "footway(41), service(35), steps(8), tertiary(6), residential(6)",
         "poi_types": "amenity:bicycle_parking(5), amenity:parking_entrance(2), amenity:school(1), amenity:theatre(1)",
-        "landuse": "grass(1)"
+        "landuse": "grass(3), residential(2)"
       }
     },
     {
       "order": 4,
       "node_id": "700004",
-      "text": "Traffic sensor 700004 is located at latitude 34.076123, longitude -118.158306. Metadata: ID 700004; District 7; County Los Angeles; Fwy SR60-N; Lanes 4; Type Ramp; Direction N; ID2 4. OpenStreetMap nearby road classes: service(15), residential(13), primary(12), motorway(2), primary_link(1). OpenStreetMap nearby POI types: amenity:place_of_worship(1), amenity:fuel(1), amenity:restaurant(1). OpenStreetMap nearby land use: industrial(2).",
+      "text": "Traffic sensor 700004 is located at latitude 34.076123, longitude -118.158306. Metadata: ID 700004; District 7; County Los Angeles; Fwy SR60-N; Lanes 4; Type Ramp; Direction N; ID2 4. OpenStreetMap nearby road classes: service(19), residential(14), primary(13), footway(10), motorway(3). OpenStreetMap nearby POI types: amenity:place_of_worship(1), amenity:fuel(1), amenity:restaurant(1). OpenStreetMap nearby land use: industrial(2), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 67,
       "osm_summary": {
-        "road_classes": "service(15), residential(13), primary(12), motorway(2), primary_link(1)",
+        "road_classes": "service(19), residential(14), primary(13), footway(10), motorway(3)",
         "poi_types": "amenity:place_of_worship(1), amenity:fuel(1), amenity:restaurant(1)",
-        "landuse": "industrial(2)"
+        "landuse": "industrial(2), residential(1)"
       }
     },
     {
       "order": 5,
       "node_id": "700005",
-      "text": "Traffic sensor 700005 is located at latitude 34.088175, longitude -118.153709. Metadata: ID 700005; District 7; County Los Angeles; Fwy SR91-S; Lanes 3; Type Ramp; Direction S; ID2 5. OpenStreetMap nearby road classes: service(17), secondary(9), residential(7), tertiary(7), unclassified(1). OpenStreetMap nearby POI types: amenity:fast_food(3), shop:convenience(1), amenity:charging_station(1), shop:pet(1), amenity:restaurant(1). OpenStreetMap nearby land use: retail(2).",
+      "text": "Traffic sensor 700005 is located at latitude 34.088175, longitude -118.153709. Metadata: ID 700005; District 7; County Los Angeles; Fwy SR91-S; Lanes 3; Type Ramp; Direction S; ID2 5. OpenStreetMap nearby road classes: footway(63), service(40), secondary(10), residential(7), tertiary(7). OpenStreetMap nearby POI types: amenity:fast_food(3), shop:convenience(1), amenity:charging_station(1), shop:pet(1), amenity:restaurant(1). OpenStreetMap nearby land use: residential(14), retail(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 151,
       "osm_summary": {
-        "road_classes": "service(17), secondary(9), residential(7), tertiary(7), unclassified(1)",
+        "road_classes": "footway(63), service(40), secondary(10), residential(7), tertiary(7)",
         "poi_types": "amenity:fast_food(3), shop:convenience(1), amenity:charging_station(1), shop:pet(1), amenity:restaurant(1)",
-        "landuse": "retail(2)"
+        "landuse": "residential(14), retail(2)"
       }
     },
     {
       "order": 6,
       "node_id": "700006",
-      "text": "Traffic sensor 700006 is located at latitude 34.096021, longitude -118.153527. Metadata: ID 700006; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 6. OpenStreetMap nearby road classes: primary(15), residential(12), primary_link(4), tertiary(4), service(3). OpenStreetMap nearby POI types: amenity:restaurant(2), amenity:place_of_worship(1), amenity:fuel(1), amenity:fast_food(1), amenity:pharmacy(1). OpenStreetMap nearby land use: retail(1).",
+      "text": "Traffic sensor 700006 is located at latitude 34.096021, longitude -118.153527. Metadata: ID 700006; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 6. OpenStreetMap nearby road classes: service(41), primary(23), footway(22), residential(16), tertiary(7). OpenStreetMap nearby POI types: amenity:restaurant(2), amenity:place_of_worship(1), amenity:fuel(1), amenity:fast_food(1), amenity:pharmacy(1). OpenStreetMap nearby land use: residential(8), commercial(4), retail(1), grass(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 138,
       "osm_summary": {
-        "road_classes": "primary(15), residential(12), primary_link(4), tertiary(4), service(3)",
+        "road_classes": "service(41), primary(23), footway(22), residential(16), tertiary(7)",
         "poi_types": "amenity:restaurant(2), amenity:place_of_worship(1), amenity:fuel(1), amenity:fast_food(1), amenity:pharmacy(1)",
-        "landuse": "retail(1)"
+        "landuse": "residential(8), commercial(4), retail(1), grass(1)"
       }
     },
     {
       "order": 7,
       "node_id": "700007",
-      "text": "Traffic sensor 700007 is located at latitude 34.10242, longitude -118.153585. Metadata: ID 700007; District 7; County Los Angeles; Fwy SR710-W; Lanes 5; Type Ramp; Direction W; ID2 7. OpenStreetMap nearby road classes: primary(18), residential(14), tertiary(7), primary_link(2), service(2). OpenStreetMap nearby POI types: amenity:restaurant(1), amenity:cafe(1), amenity:fast_food(1), amenity:veterinary(1). OpenStreetMap nearby land use: retail(3).",
+      "text": "Traffic sensor 700007 is located at latitude 34.10242, longitude -118.153585. Metadata: ID 700007; District 7; County Los Angeles; Fwy SR710-W; Lanes 5; Type Ramp; Direction W; ID2 7. OpenStreetMap nearby road classes: service(41), primary(21), residential(17), tertiary(10), primary_link(4). OpenStreetMap nearby POI types: amenity:restaurant(1), amenity:cafe(1), amenity:fast_food(1), amenity:veterinary(1). OpenStreetMap nearby land use: residential(4), retail(3).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 104,
       "osm_summary": {
-        "road_classes": "primary(18), residential(14), tertiary(7), primary_link(2), service(2)",
+        "road_classes": "service(41), primary(21), residential(17), tertiary(10), primary_link(4)",
         "poi_types": "amenity:restaurant(1), amenity:cafe(1), amenity:fast_food(1), amenity:veterinary(1)",
-        "landuse": "retail(3)"
+        "landuse": "residential(4), retail(3)"
       }
     },
     {
@@ -149,16 +149,16 @@
     {
       "order": 9,
       "node_id": "700009",
-      "text": "Traffic sensor 700009 is located at latitude 34.120402, longitude -118.148374. Metadata: ID 700009; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 9. OpenStreetMap nearby road classes: residential(16), motorway(6), primary(3), tertiary(3), footway(2). OpenStreetMap nearby POI types: amenity:fast_food(2), amenity:restaurant(2), shop:doityourself(1), amenity:cafe(1), tourism:motel(1). OpenStreetMap nearby land use: retail(1).",
+      "text": "Traffic sensor 700009 is located at latitude 34.120402, longitude -118.148374. Metadata: ID 700009; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 9. OpenStreetMap nearby road classes: footway(37), service(35), residential(16), primary(15), tertiary(10). OpenStreetMap nearby POI types: amenity:fast_food(2), amenity:restaurant(2), shop:doityourself(1), amenity:cafe(1), tourism:motel(1). OpenStreetMap nearby land use: residential(3), retail(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 148,
       "osm_summary": {
-        "road_classes": "residential(16), motorway(6), primary(3), tertiary(3), footway(2)",
+        "road_classes": "footway(37), service(35), residential(16), primary(15), tertiary(10)",
         "poi_types": "amenity:fast_food(2), amenity:restaurant(2), shop:doityourself(1), amenity:cafe(1), tourism:motel(1)",
-        "landuse": "retail(1)"
+        "landuse": "residential(3), retail(2)"
       }
     },
     {
@@ -194,14 +194,14 @@
     {
       "order": 12,
       "node_id": "700012",
-      "text": "Traffic sensor 700012 is located at latitude 34.146336, longitude -118.164822. Metadata: ID 700012; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 12. OpenStreetMap nearby road classes: residential(11), secondary(7), motorway_link(6), primary(6), tertiary(5). OpenStreetMap nearby POI types: amenity:drinking_water(1), tourism:attraction(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700012 is located at latitude 34.146336, longitude -118.164822. Metadata: ID 700012; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 12. OpenStreetMap nearby road classes: service(18), motorway(14), footway(14), residential(11), motorway_link(10). OpenStreetMap nearby POI types: amenity:drinking_water(1), tourism:attraction(1). OpenStreetMap nearby land use: unknown land use.",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 105,
       "osm_summary": {
-        "road_classes": "residential(11), secondary(7), motorway_link(6), primary(6), tertiary(5)",
+        "road_classes": "service(18), motorway(14), footway(14), residential(11), motorway_link(10)",
         "poi_types": "amenity:drinking_water(1), tourism:attraction(1)",
         "landuse": "unknown land use"
       }
@@ -209,14 +209,14 @@
     {
       "order": 13,
       "node_id": "700013",
-      "text": "Traffic sensor 700013 is located at latitude 34.143871, longitude -118.165462. Metadata: ID 700013; District 7; County Los Angeles; Fwy SR91-S; Lanes 2; Type Ramp; Direction S; ID2 13. OpenStreetMap nearby road classes: footway(14), path(7), service(7), residential(6), motorway_link(4). OpenStreetMap nearby POI types: tourism:attraction(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700013 is located at latitude 34.143871, longitude -118.165462. Metadata: ID 700013; District 7; County Los Angeles; Fwy SR91-S; Lanes 2; Type Ramp; Direction S; ID2 13. OpenStreetMap nearby road classes: footway(15), service(13), path(11), motorway(11), residential(7). OpenStreetMap nearby POI types: tourism:attraction(1). OpenStreetMap nearby land use: unknown land use.",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 75,
       "osm_summary": {
-        "road_classes": "footway(14), path(7), service(7), residential(6), motorway_link(4)",
+        "road_classes": "footway(15), service(13), path(11), motorway(11), residential(7)",
         "poi_types": "tourism:attraction(1)",
         "landuse": "unknown land use"
       }
@@ -224,14 +224,14 @@
     {
       "order": 14,
       "node_id": "700014",
-      "text": "Traffic sensor 700014 is located at latitude 34.14978, longitude -118.168027. Metadata: ID 700014; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 14. OpenStreetMap nearby road classes: service(25), residential(11), secondary(5), path(4), tertiary(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700014 is located at latitude 34.14978, longitude -118.168027. Metadata: ID 700014; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 14. OpenStreetMap nearby road classes: service(25), residential(11), footway(6), secondary(5), path(4). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 56,
       "osm_summary": {
-        "road_classes": "service(25), residential(11), secondary(5), path(4), tertiary(3)",
+        "road_classes": "service(25), residential(11), footway(6), secondary(5), path(4)",
         "poi_types": "no nearby POI returned",
         "landuse": "unknown land use"
       }
@@ -239,16 +239,16 @@
     {
       "order": 15,
       "node_id": "700015",
-      "text": "Traffic sensor 700015 is located at latitude 34.151345, longitude -118.164824. Metadata: ID 700015; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 15. OpenStreetMap nearby road classes: service(19), residential(13), tertiary(3), path(3), secondary(1). OpenStreetMap nearby POI types: amenity:bench(4), amenity:drinking_water(3), amenity:bicycle_repair_station(1), amenity:bicycle_parking(1), amenity:fast_food(1). OpenStreetMap nearby land use: recreation_ground(1).",
+      "text": "Traffic sensor 700015 is located at latitude 34.151345, longitude -118.164824. Metadata: ID 700015; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 15. OpenStreetMap nearby road classes: service(24), footway(22), residential(13), path(8), tertiary(3). OpenStreetMap nearby POI types: amenity:bench(4), amenity:drinking_water(3), amenity:bicycle_repair_station(1), amenity:bicycle_parking(1), amenity:fast_food(1). OpenStreetMap nearby land use: recreation_ground(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
-      "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_attempts": 2,
+      "osm_element_count": 88,
       "osm_summary": {
-        "road_classes": "service(19), residential(13), tertiary(3), path(3), secondary(1)",
+        "road_classes": "service(24), footway(22), residential(13), path(8), tertiary(3)",
         "poi_types": "amenity:bench(4), amenity:drinking_water(3), amenity:bicycle_repair_station(1), amenity:bicycle_parking(1), amenity:fast_food(1)",
-        "landuse": "recreation_ground(1)"
+        "landuse": "recreation_ground(2)"
       }
     },
     {
@@ -348,7 +348,7 @@
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
-      "osm_attempts": 1,
+      "osm_attempts": 2,
       "osm_element_count": 2,
       "osm_summary": {
         "road_classes": "track(2)",
@@ -389,14 +389,14 @@
     {
       "order": 25,
       "node_id": "700025",
-      "text": "Traffic sensor 700025 is located at latitude 34.166337, longitude -118.216263. Metadata: ID 700025; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 25. OpenStreetMap nearby road classes: service(18), footway(15), residential(11), tertiary(2). OpenStreetMap nearby POI types: amenity:waste_basket(2). OpenStreetMap nearby land use: recreation_ground(1), recreation(1).",
+      "text": "Traffic sensor 700025 is located at latitude 34.166337, longitude -118.216263. Metadata: ID 700025; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 25. OpenStreetMap nearby road classes: footway(48), service(18), residential(11), tertiary(2). OpenStreetMap nearby POI types: amenity:waste_basket(2). OpenStreetMap nearby land use: recreation_ground(1), recreation(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 83,
       "osm_summary": {
-        "road_classes": "service(18), footway(15), residential(11), tertiary(2)",
+        "road_classes": "footway(48), service(18), residential(11), tertiary(2)",
         "poi_types": "amenity:waste_basket(2)",
         "landuse": "recreation_ground(1), recreation(1)"
       }
@@ -419,14 +419,14 @@
     {
       "order": 27,
       "node_id": "700027",
-      "text": "Traffic sensor 700027 is located at latitude 34.156402, longitude -118.232567. Metadata: ID 700027; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 27. OpenStreetMap nearby road classes: footway(21), residential(19), service(8), tertiary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(1).",
+      "text": "Traffic sensor 700027 is located at latitude 34.156402, longitude -118.232567. Metadata: ID 700027; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 27. OpenStreetMap nearby road classes: footway(38), residential(19), service(8), tertiary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 67,
       "osm_summary": {
-        "road_classes": "footway(21), residential(19), service(8), tertiary(1)",
+        "road_classes": "footway(38), residential(19), service(8), tertiary(1)",
         "poi_types": "no nearby POI returned",
         "landuse": "residential(1)"
       }
@@ -434,211 +434,211 @@
     {
       "order": 28,
       "node_id": "700028",
-      "text": "Traffic sensor 700028 is located at latitude 34.145933, longitude -118.228263. Metadata: ID 700028; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 28. OpenStreetMap nearby road classes: motorway_link(28), motorway(15), secondary(3), residential(3). OpenStreetMap nearby POI types: amenity:charging_station(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700028 is located at latitude 34.145933, longitude -118.228263. Metadata: ID 700028; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 28. OpenStreetMap nearby road classes: footway(42), service(40), motorway_link(37), motorway(29), secondary(21). OpenStreetMap nearby POI types: amenity:charging_station(1). OpenStreetMap nearby land use: forest(3), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 180,
       "osm_summary": {
-        "road_classes": "motorway_link(28), motorway(15), secondary(3), residential(3)",
+        "road_classes": "footway(42), service(40), motorway_link(37), motorway(29), secondary(21)",
         "poi_types": "amenity:charging_station(1)",
-        "landuse": "unknown land use"
+        "landuse": "forest(3), residential(1)"
       }
     },
     {
       "order": 29,
       "node_id": "700029",
-      "text": "Traffic sensor 700029 is located at latitude 34.145483, longitude -118.25441. Metadata: ID 700029; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 29. OpenStreetMap nearby road classes: unknown road class. OpenStreetMap nearby POI types: amenity:restaurant(13), amenity:parking_entrance(9), amenity:fast_food(6), shop:clothes(5), amenity:cafe(3). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700029 is located at latitude 34.145483, longitude -118.25441. Metadata: ID 700029; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 29. OpenStreetMap nearby road classes: service(24), primary(18), footway(18), tertiary(14), residential(9). OpenStreetMap nearby POI types: amenity:restaurant(28), amenity:parking_entrance(10), shop:clothes(9), amenity:fast_food(8), amenity:cafe(4). OpenStreetMap nearby land use: retail(5), grass(3), commercial(3), construction(1), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "unknown road class",
-        "poi_types": "amenity:restaurant(13), amenity:parking_entrance(9), amenity:fast_food(6), shop:clothes(5), amenity:cafe(3)",
-        "landuse": "unknown land use"
+        "road_classes": "service(24), primary(18), footway(18), tertiary(14), residential(9)",
+        "poi_types": "amenity:restaurant(28), amenity:parking_entrance(10), shop:clothes(9), amenity:fast_food(8), amenity:cafe(4)",
+        "landuse": "retail(5), grass(3), commercial(3), construction(1), residential(1)"
       }
     },
     {
       "order": 30,
       "node_id": "700030",
-      "text": "Traffic sensor 700030 is located at latitude 34.13638, longitude -118.263102. Metadata: ID 700030; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 30. OpenStreetMap nearby road classes: service(13), primary(12), residential(9), secondary(6), unclassified(3). OpenStreetMap nearby POI types: amenity:place_of_worship(2), amenity:parking_entrance(1), shop:car_repair(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700030 is located at latitude 34.13638, longitude -118.263102. Metadata: ID 700030; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 30. OpenStreetMap nearby road classes: footway(86), service(43), primary(13), residential(10), secondary(6). OpenStreetMap nearby POI types: amenity:place_of_worship(2), amenity:parking_entrance(1), shop:car_repair(1). OpenStreetMap nearby land use: residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 167,
       "osm_summary": {
-        "road_classes": "service(13), primary(12), residential(9), secondary(6), unclassified(3)",
+        "road_classes": "footway(86), service(43), primary(13), residential(10), secondary(6)",
         "poi_types": "amenity:place_of_worship(2), amenity:parking_entrance(1), shop:car_repair(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(1)"
       }
     },
     {
       "order": 31,
       "node_id": "700031",
-      "text": "Traffic sensor 700031 is located at latitude 34.1321, longitude -118.264679. Metadata: ID 700031; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 31. OpenStreetMap nearby road classes: service(18), residential(12), primary(8), tertiary(6), secondary(2). OpenStreetMap nearby POI types: amenity:recycling(1), amenity:drinking_water(1). OpenStreetMap nearby land use: retail(1), construction(1).",
+      "text": "Traffic sensor 700031 is located at latitude 34.1321, longitude -118.264679. Metadata: ID 700031; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 31. OpenStreetMap nearby road classes: service(61), footway(37), residential(12), primary(8), path(8). OpenStreetMap nearby POI types: amenity:recycling(1), amenity:drinking_water(1). OpenStreetMap nearby land use: residential(4), commercial(2), retail(1), construction(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 144,
       "osm_summary": {
-        "road_classes": "service(18), residential(12), primary(8), tertiary(6), secondary(2)",
+        "road_classes": "service(61), footway(37), residential(12), primary(8), path(8)",
         "poi_types": "amenity:recycling(1), amenity:drinking_water(1)",
-        "landuse": "retail(1), construction(1)"
+        "landuse": "residential(4), commercial(2), retail(1), construction(1)"
       }
     },
     {
       "order": 32,
       "node_id": "700032",
-      "text": "Traffic sensor 700032 is located at latitude 34.113702, longitude -118.274046. Metadata: ID 700032; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 32. OpenStreetMap nearby road classes: service(18), residential(16), tertiary(3), primary(3), primary_link(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(5), grass(1), religious(1).",
+      "text": "Traffic sensor 700032 is located at latitude 34.113702, longitude -118.274046. Metadata: ID 700032; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 32. OpenStreetMap nearby road classes: footway(51), service(18), residential(16), primary(6), tertiary(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(6), grass(1), religious(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 105,
       "osm_summary": {
-        "road_classes": "service(18), residential(16), tertiary(3), primary(3), primary_link(2)",
+        "road_classes": "footway(51), service(18), residential(16), primary(6), tertiary(3)",
         "poi_types": "no nearby POI returned",
-        "landuse": "residential(5), grass(1), religious(1)"
+        "landuse": "residential(6), grass(1), religious(1)"
       }
     },
     {
       "order": 33,
       "node_id": "700033",
-      "text": "Traffic sensor 700033 is located at latitude 34.101277, longitude -118.285517. Metadata: ID 700033; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 33. OpenStreetMap nearby road classes: service(18), residential(10), tertiary(5), secondary(4), steps(2). OpenStreetMap nearby POI types: amenity:restaurant(3), amenity:cafe(1), shop:bakery(1), shop:beverages(1), shop:car_repair(1). OpenStreetMap nearby land use: commercial(1).",
+      "text": "Traffic sensor 700033 is located at latitude 34.101277, longitude -118.285517. Metadata: ID 700033; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 33. OpenStreetMap nearby road classes: footway(99), service(24), residential(11), secondary(6), tertiary(5). OpenStreetMap nearby POI types: amenity:restaurant(3), amenity:cafe(1), shop:bakery(1), shop:beverages(1), shop:car_repair(1). OpenStreetMap nearby land use: residential(4), commercial(2), retail(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 164,
       "osm_summary": {
-        "road_classes": "service(18), residential(10), tertiary(5), secondary(4), steps(2)",
+        "road_classes": "footway(99), service(24), residential(11), secondary(6), tertiary(5)",
         "poi_types": "amenity:restaurant(3), amenity:cafe(1), shop:bakery(1), shop:beverages(1), shop:car_repair(1)",
-        "landuse": "commercial(1)"
+        "landuse": "residential(4), commercial(2), retail(1)"
       }
     },
     {
       "order": 34,
       "node_id": "700034",
-      "text": "Traffic sensor 700034 is located at latitude 34.105987, longitude -118.290357. Metadata: ID 700034; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 34. OpenStreetMap nearby road classes: residential(9), service(8). OpenStreetMap nearby POI types: amenity:restaurant(12), amenity:fast_food(3), amenity:cafe(3), amenity:parking_entrance(2), shop:convenience(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700034 is located at latitude 34.105987, longitude -118.290357. Metadata: ID 700034; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 34. OpenStreetMap nearby road classes: footway(78), service(51), residential(15), secondary(8), tertiary(6). OpenStreetMap nearby POI types: amenity:restaurant(12), amenity:fast_food(3), amenity:cafe(3), amenity:parking_entrance(2), shop:convenience(1). OpenStreetMap nearby land use: residential(6), retail(2), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "residential(9), service(8)",
+        "road_classes": "footway(78), service(51), residential(15), secondary(8), tertiary(6)",
         "poi_types": "amenity:restaurant(12), amenity:fast_food(3), amenity:cafe(3), amenity:parking_entrance(2), shop:convenience(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(6), retail(2), commercial(1)"
       }
     },
     {
       "order": 35,
       "node_id": "700035",
-      "text": "Traffic sensor 700035 is located at latitude 34.09304, longitude -118.300098. Metadata: ID 700035; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 35. OpenStreetMap nearby road classes: residential(10), service(8), tertiary(6), primary(4). OpenStreetMap nearby POI types: shop:convenience(4), shop:bakery(2), shop:car_repair(2), shop:hairdresser(2), amenity:fast_food(1). OpenStreetMap nearby land use: commercial(1).",
+      "text": "Traffic sensor 700035 is located at latitude 34.09304, longitude -118.300098. Metadata: ID 700035; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 35. OpenStreetMap nearby road classes: footway(80), service(45), residential(11), tertiary(7), primary(4). OpenStreetMap nearby POI types: shop:convenience(4), shop:bakery(2), shop:car_repair(2), shop:hairdresser(2), amenity:fast_food(1). OpenStreetMap nearby land use: residential(3), construction(2), commercial(1), retail(1), brownfield(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 176,
       "osm_summary": {
-        "road_classes": "residential(10), service(8), tertiary(6), primary(4)",
+        "road_classes": "footway(80), service(45), residential(11), tertiary(7), primary(4)",
         "poi_types": "shop:convenience(4), shop:bakery(2), shop:car_repair(2), shop:hairdresser(2), amenity:fast_food(1)",
-        "landuse": "commercial(1)"
+        "landuse": "residential(3), construction(2), commercial(1), retail(1), brownfield(1)"
       }
     },
     {
       "order": 36,
       "node_id": "700036",
-      "text": "Traffic sensor 700036 is located at latitude 34.082224, longitude -118.302702. Metadata: ID 700036; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 36. OpenStreetMap nearby road classes: secondary(20), service(15), residential(13). OpenStreetMap nearby POI types: amenity:restaurant(1), shop:pet_grooming(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700036 is located at latitude 34.082224, longitude -118.302702. Metadata: ID 700036; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Ramp; Direction N; ID2 36. OpenStreetMap nearby road classes: footway(93), service(33), secondary(25), residential(18). OpenStreetMap nearby POI types: amenity:restaurant(1), shop:pet_grooming(1). OpenStreetMap nearby land use: brownfield(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 172,
       "osm_summary": {
-        "road_classes": "secondary(20), service(15), residential(13)",
+        "road_classes": "footway(93), service(33), secondary(25), residential(18)",
         "poi_types": "amenity:restaurant(1), shop:pet_grooming(1)",
-        "landuse": "unknown land use"
+        "landuse": "brownfield(1)"
       }
     },
     {
       "order": 37,
       "node_id": "700037",
-      "text": "Traffic sensor 700037 is located at latitude 34.064812, longitude -118.306699. Metadata: ID 700037; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 37. OpenStreetMap nearby road classes: secondary(14), residential(9), service(8), primary(6), tertiary(1). OpenStreetMap nearby POI types: amenity:fast_food(3), amenity:bank(2), amenity:restaurant(2), amenity:school(1), amenity:atm(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700037 is located at latitude 34.064812, longitude -118.306699. Metadata: ID 700037; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 37. OpenStreetMap nearby road classes: footway(98), service(46), secondary(14), residential(12), primary(6). OpenStreetMap nearby POI types: amenity:fast_food(3), amenity:bank(2), amenity:restaurant(2), amenity:school(1), amenity:atm(1). OpenStreetMap nearby land use: residential(7), retail(2), commercial(1), construction(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "secondary(14), residential(9), service(8), primary(6), tertiary(1)",
+        "road_classes": "footway(98), service(46), secondary(14), residential(12), primary(6)",
         "poi_types": "amenity:fast_food(3), amenity:bank(2), amenity:restaurant(2), amenity:school(1), amenity:atm(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(7), retail(2), commercial(1), construction(1)"
       }
     },
     {
       "order": 38,
       "node_id": "700038",
-      "text": "Traffic sensor 700038 is located at latitude 34.051046, longitude -118.316453. Metadata: ID 700038; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 38. OpenStreetMap nearby road classes: primary(12), service(10), residential(9), secondary(7), tertiary(3). OpenStreetMap nearby POI types: tourism:guest_house(2), amenity:fuel(1), amenity:restaurant(1), amenity:fast_food(1), shop:car(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700038 is located at latitude 34.051046, longitude -118.316453. Metadata: ID 700038; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 38. OpenStreetMap nearby road classes: footway(132), service(20), primary(12), residential(9), secondary(7). OpenStreetMap nearby POI types: tourism:guest_house(2), amenity:fuel(1), amenity:restaurant(1), amenity:fast_food(1), shop:car(1). OpenStreetMap nearby land use: residential(3), retail(2), religious(1), commercial(1), brownfield(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "primary(12), service(10), residential(9), secondary(7), tertiary(3)",
+        "road_classes": "footway(132), service(20), primary(12), residential(9), secondary(7)",
         "poi_types": "tourism:guest_house(2), amenity:fuel(1), amenity:restaurant(1), amenity:fast_food(1), shop:car(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(3), retail(2), religious(1), commercial(1), brownfield(1)"
       }
     },
     {
       "order": 39,
       "node_id": "700039",
-      "text": "Traffic sensor 700039 is located at latitude 34.033166, longitude -118.335343. Metadata: ID 700039; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 39. OpenStreetMap nearby road classes: residential(12), primary(12), motorway_link(5), service(4), footway(3). OpenStreetMap nearby POI types: amenity:fuel(4), amenity:fast_food(2), amenity:restaurant(2), shop:sports(1), shop:convenience(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700039 is located at latitude 34.033166, longitude -118.335343. Metadata: ID 700039; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 39. OpenStreetMap nearby road classes: footway(53), service(35), primary(20), residential(15), motorway_link(9). OpenStreetMap nearby POI types: amenity:fuel(4), amenity:fast_food(2), amenity:restaurant(2), shop:sports(1), shop:convenience(1). OpenStreetMap nearby land use: forest(7), residential(6), grass(2), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 170,
       "osm_summary": {
-        "road_classes": "residential(12), primary(12), motorway_link(5), service(4), footway(3)",
+        "road_classes": "footway(53), service(35), primary(20), residential(15), motorway_link(9)",
         "poi_types": "amenity:fuel(4), amenity:fast_food(2), amenity:restaurant(2), shop:sports(1), shop:convenience(1)",
-        "landuse": "unknown land use"
+        "landuse": "forest(7), residential(6), grass(2), commercial(1)"
       }
     },
     {
       "order": 40,
       "node_id": "700040",
-      "text": "Traffic sensor 700040 is located at latitude 34.025578, longitude -118.332399. Metadata: ID 700040; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 40. OpenStreetMap nearby road classes: service(27), residential(6), primary(5), secondary(3), construction(2). OpenStreetMap nearby POI types: amenity:fuel(2), amenity:parking_entrance(1), amenity:bank(1), amenity:fast_food(1). OpenStreetMap nearby land use: residential(1).",
+      "text": "Traffic sensor 700040 is located at latitude 34.025578, longitude -118.332399. Metadata: ID 700040; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 40. OpenStreetMap nearby road classes: service(34), footway(32), primary(7), residential(6), secondary(4). OpenStreetMap nearby POI types: amenity:fuel(2), amenity:parking_entrance(1), amenity:bank(1), amenity:fast_food(1). OpenStreetMap nearby land use: residential(3), religious(1), construction(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 98,
       "osm_summary": {
-        "road_classes": "service(27), residential(6), primary(5), secondary(3), construction(2)",
+        "road_classes": "service(34), footway(32), primary(7), residential(6), secondary(4)",
         "poi_types": "amenity:fuel(2), amenity:parking_entrance(1), amenity:bank(1), amenity:fast_food(1)",
-        "landuse": "residential(1)"
+        "landuse": "residential(3), religious(1), construction(1)"
       }
     },
     {
       "order": 41,
       "node_id": "700041",
-      "text": "Traffic sensor 700041 is located at latitude 34.018537, longitude -118.335952. Metadata: ID 700041; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 41. OpenStreetMap nearby road classes: service(28), residential(8), primary(8). OpenStreetMap nearby POI types: amenity:fast_food(1), amenity:cafe(1), amenity:pharmacy(1), amenity:bank(1), shop:charity(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700041 is located at latitude 34.018537, longitude -118.335952. Metadata: ID 700041; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 41. OpenStreetMap nearby road classes: service(42), footway(26), primary(12), residential(8), tertiary(5). OpenStreetMap nearby POI types: amenity:fast_food(1), amenity:cafe(1), amenity:pharmacy(1), amenity:bank(1), shop:charity(1). OpenStreetMap nearby land use: residential(3), retail(2), brownfield(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 106,
       "osm_summary": {
-        "road_classes": "service(28), residential(8), primary(8)",
+        "road_classes": "service(42), footway(26), primary(12), residential(8), tertiary(5)",
         "poi_types": "amenity:fast_food(1), amenity:cafe(1), amenity:pharmacy(1), amenity:bank(1), shop:charity(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(3), retail(2), brownfield(1)"
       }
     },
     {
@@ -674,46 +674,46 @@
     {
       "order": 44,
       "node_id": "700044",
-      "text": "Traffic sensor 700044 is located at latitude 33.976183, longitude -118.345414. Metadata: ID 700044; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 44. OpenStreetMap nearby road classes: footway(24), residential(13), service(6), tertiary(4). OpenStreetMap nearby POI types: amenity:school(1), amenity:place_of_worship(1), amenity:theatre(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700044 is located at latitude 33.976183, longitude -118.345414. Metadata: ID 700044; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 44. OpenStreetMap nearby road classes: footway(50), residential(17), service(15), tertiary(5). OpenStreetMap nearby POI types: amenity:school(1), amenity:place_of_worship(1), amenity:theatre(1). OpenStreetMap nearby land use: residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 91,
       "osm_summary": {
-        "road_classes": "footway(24), residential(13), service(6), tertiary(4)",
+        "road_classes": "footway(50), residential(17), service(15), tertiary(5)",
         "poi_types": "amenity:school(1), amenity:place_of_worship(1), amenity:theatre(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(1)"
       }
     },
     {
       "order": 45,
       "node_id": "700045",
-      "text": "Traffic sensor 700045 is located at latitude 33.963498, longitude -118.364965. Metadata: ID 700045; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 45. OpenStreetMap nearby road classes: service(18), primary(9), residential(8), secondary(8), unclassified(2). OpenStreetMap nearby POI types: amenity:place_of_worship(1), amenity:restaurant(1), amenity:fast_food(1), amenity:car_rental(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700045 is located at latitude 33.963498, longitude -118.364965. Metadata: ID 700045; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 45. OpenStreetMap nearby road classes: service(56), footway(36), residential(11), primary(11), secondary(11). OpenStreetMap nearby POI types: amenity:place_of_worship(1), amenity:restaurant(1), amenity:fast_food(1), amenity:car_rental(1). OpenStreetMap nearby land use: railway(1), residential(1), industrial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 141,
       "osm_summary": {
-        "road_classes": "service(18), primary(9), residential(8), secondary(8), unclassified(2)",
+        "road_classes": "service(56), footway(36), residential(11), primary(11), secondary(11)",
         "poi_types": "amenity:place_of_worship(1), amenity:restaurant(1), amenity:fast_food(1), amenity:car_rental(1)",
-        "landuse": "unknown land use"
+        "landuse": "railway(1), residential(1), industrial(1)"
       }
     },
     {
       "order": 46,
       "node_id": "700046",
-      "text": "Traffic sensor 700046 is located at latitude 33.946868, longitude -118.364157. Metadata: ID 700046; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 46. OpenStreetMap nearby road classes: service(20), residential(10), footway(5), motorway_link(3), primary(3). OpenStreetMap nearby POI types: amenity:restaurant(1), amenity:car_rental(1), shop:convenience(1), amenity:doctors(1), amenity:cafe(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700046 is located at latitude 33.946868, longitude -118.364157. Metadata: ID 700046; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 46. OpenStreetMap nearby road classes: service(60), footway(19), residential(12), primary(12), motorway_link(3). OpenStreetMap nearby POI types: amenity:restaurant(1), amenity:car_rental(1), shop:convenience(1), amenity:doctors(1), amenity:cafe(1). OpenStreetMap nearby land use: residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 116,
       "osm_summary": {
-        "road_classes": "service(20), residential(10), footway(5), motorway_link(3), primary(3)",
+        "road_classes": "service(60), footway(19), residential(12), primary(12), motorway_link(3)",
         "poi_types": "amenity:restaurant(1), amenity:car_rental(1), shop:convenience(1), amenity:doctors(1), amenity:cafe(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(1)"
       }
     },
     {
@@ -734,14 +734,14 @@
     {
       "order": 48,
       "node_id": "700048",
-      "text": "Traffic sensor 700048 is located at latitude 33.941565, longitude -118.378522. Metadata: ID 700048; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 48. OpenStreetMap nearby road classes: service(20), footway(11), secondary(7), tertiary(2), unclassified(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: railway(5), grass(2), commercial(2).",
+      "text": "Traffic sensor 700048 is located at latitude 33.941565, longitude -118.378522. Metadata: ID 700048; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 48. OpenStreetMap nearby road classes: service(20), footway(14), secondary(7), tertiary(2), unclassified(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: railway(5), grass(2), commercial(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 53,
       "osm_summary": {
-        "road_classes": "service(20), footway(11), secondary(7), tertiary(2), unclassified(1)",
+        "road_classes": "service(20), footway(14), secondary(7), tertiary(2), unclassified(1)",
         "poi_types": "no nearby POI returned",
         "landuse": "railway(5), grass(2), commercial(2)"
       }
@@ -764,16 +764,16 @@
     {
       "order": 50,
       "node_id": "700050",
-      "text": "Traffic sensor 700050 is located at latitude 33.917379, longitude -118.392922. Metadata: ID 700050; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 50. OpenStreetMap nearby road classes: service(27), tertiary(8), secondary(6), trunk(5), tertiary_link(2). OpenStreetMap nearby POI types: amenity:post_box(1), amenity:charging_station(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700050 is located at latitude 33.917379, longitude -118.392922. Metadata: ID 700050; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 50. OpenStreetMap nearby road classes: service(90), footway(67), tertiary(16), secondary(9), trunk(6). OpenStreetMap nearby POI types: amenity:post_box(1), amenity:charging_station(1). OpenStreetMap nearby land use: commercial(3), industrial(1), grass(1), recreation_ground(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "service(27), tertiary(8), secondary(6), trunk(5), tertiary_link(2)",
+        "road_classes": "service(90), footway(67), tertiary(16), secondary(9), trunk(6)",
         "poi_types": "amenity:post_box(1), amenity:charging_station(1)",
-        "landuse": "unknown land use"
+        "landuse": "commercial(3), industrial(1), grass(1), recreation_ground(1)"
       }
     },
     {
@@ -809,44 +809,44 @@
     {
       "order": 53,
       "node_id": "700053",
-      "text": "Traffic sensor 700053 is located at latitude 33.893969, longitude -118.404847. Metadata: ID 700053; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 53. OpenStreetMap nearby road classes: residential(15), tertiary(7), footway(6), secondary(2). OpenStreetMap nearby POI types: amenity:vending_machine(1), amenity:bench(1), amenity:drinking_water(1), amenity:waste_basket(1). OpenStreetMap nearby land use: residential(15), grass(1).",
+      "text": "Traffic sensor 700053 is located at latitude 33.893969, longitude -118.404847. Metadata: ID 700053; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 53. OpenStreetMap nearby road classes: footway(43), residential(17), tertiary(11), secondary(2), steps(1). OpenStreetMap nearby POI types: amenity:vending_machine(1), amenity:bench(1), amenity:drinking_water(1), amenity:waste_basket(1). OpenStreetMap nearby land use: residential(16), grass(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 95,
       "osm_summary": {
-        "road_classes": "residential(15), tertiary(7), footway(6), secondary(2)",
+        "road_classes": "footway(43), residential(17), tertiary(11), secondary(2), steps(1)",
         "poi_types": "amenity:vending_machine(1), amenity:bench(1), amenity:drinking_water(1), amenity:waste_basket(1)",
-        "landuse": "residential(15), grass(1)"
+        "landuse": "residential(16), grass(1)"
       }
     },
     {
       "order": 54,
       "node_id": "700054",
-      "text": "Traffic sensor 700054 is located at latitude 33.892703, longitude -118.415456. Metadata: ID 700054; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 54. OpenStreetMap nearby road classes: service(20), residential(11), pedestrian(4), tertiary(2), path(1). OpenStreetMap nearby POI types: amenity:toilets(1), amenity:shower(1). OpenStreetMap nearby land use: residential(7).",
+      "text": "Traffic sensor 700054 is located at latitude 33.892703, longitude -118.415456. Metadata: ID 700054; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 54. OpenStreetMap nearby road classes: footway(116), service(23), residential(16), pedestrian(14), steps(9). OpenStreetMap nearby POI types: amenity:toilets(1), amenity:shower(1). OpenStreetMap nearby land use: residential(8).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "service(20), residential(11), pedestrian(4), tertiary(2), path(1)",
+        "road_classes": "footway(116), service(23), residential(16), pedestrian(14), steps(9)",
         "poi_types": "amenity:toilets(1), amenity:shower(1)",
-        "landuse": "residential(7)"
+        "landuse": "residential(8)"
       }
     },
     {
       "order": 55,
       "node_id": "700055",
-      "text": "Traffic sensor 700055 is located at latitude 33.885266, longitude -118.402912. Metadata: ID 700055; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 55. OpenStreetMap nearby road classes: residential(17), service(13), footway(6), primary(3), tertiary(1). OpenStreetMap nearby POI types: amenity:doctors(1), amenity:parking_entrance(1). OpenStreetMap nearby land use: residential(4), recreation_ground(1), commercial(1), construction(1).",
+      "text": "Traffic sensor 700055 is located at latitude 33.885266, longitude -118.402912. Metadata: ID 700055; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 55. OpenStreetMap nearby road classes: footway(30), residential(17), service(13), primary(3), tertiary(1). OpenStreetMap nearby POI types: amenity:doctors(1), amenity:parking_entrance(1). OpenStreetMap nearby land use: residential(4), recreation_ground(1), commercial(1), construction(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 74,
       "osm_summary": {
-        "road_classes": "residential(17), service(13), footway(6), primary(3), tertiary(1)",
+        "road_classes": "footway(30), residential(17), service(13), primary(3), tertiary(1)",
         "poi_types": "amenity:doctors(1), amenity:parking_entrance(1)",
         "landuse": "residential(4), recreation_ground(1), commercial(1), construction(1)"
       }
@@ -854,16 +854,16 @@
     {
       "order": 56,
       "node_id": "700056",
-      "text": "Traffic sensor 700056 is located at latitude 33.879697, longitude -118.404564. Metadata: ID 700056; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 56. OpenStreetMap nearby road classes: residential(21), service(14), secondary(4), tertiary(2), footway(1). OpenStreetMap nearby POI types: amenity:bench(2), amenity:waste_basket(2), amenity:drinking_water(1), amenity:vending_machine(1), amenity:post_box(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700056 is located at latitude 33.879697, longitude -118.404564. Metadata: ID 700056; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 56. OpenStreetMap nearby road classes: residential(72), footway(53), service(25), tertiary(20), secondary(10). OpenStreetMap nearby POI types: amenity:bench(2), amenity:waste_basket(2), amenity:drinking_water(1), amenity:vending_machine(1), amenity:post_box(1). OpenStreetMap nearby land use: recreation_ground(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "residential(21), service(14), secondary(4), tertiary(2), footway(1)",
+        "road_classes": "residential(72), footway(53), service(25), tertiary(20), secondary(10)",
         "poi_types": "amenity:bench(2), amenity:waste_basket(2), amenity:drinking_water(1), amenity:vending_machine(1), amenity:post_box(1)",
-        "landuse": "unknown land use"
+        "landuse": "recreation_ground(1)"
       }
     },
     {
@@ -959,16 +959,16 @@
     {
       "order": 65,
       "node_id": "700065",
-      "text": "Traffic sensor 700065 is located at latitude 33.895746, longitude -118.412427. Metadata: ID 700065; District 7; County Los Angeles; Fwy I10-S; Lanes 3; Type Ramp; Direction S; ID2 65. OpenStreetMap nearby road classes: residential(21), service(16), tertiary(3), footway(2), primary(1). OpenStreetMap nearby POI types: amenity:recycling(1). OpenStreetMap nearby land use: residential(5).",
+      "text": "Traffic sensor 700065 is located at latitude 33.895746, longitude -118.412427. Metadata: ID 700065; District 7; County Los Angeles; Fwy I10-S; Lanes 3; Type Ramp; Direction S; ID2 65. OpenStreetMap nearby road classes: footway(48), residential(24), service(21), pedestrian(5), tertiary(3). OpenStreetMap nearby POI types: amenity:recycling(1). OpenStreetMap nearby land use: residential(13).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 117,
       "osm_summary": {
-        "road_classes": "residential(21), service(16), tertiary(3), footway(2), primary(1)",
+        "road_classes": "footway(48), residential(24), service(21), pedestrian(5), tertiary(3)",
         "poi_types": "amenity:recycling(1)",
-        "landuse": "residential(5)"
+        "landuse": "residential(13)"
       }
     },
     {
@@ -1004,31 +1004,31 @@
     {
       "order": 68,
       "node_id": "700068",
-      "text": "Traffic sensor 700068 is located at latitude 33.922949, longitude -118.400706. Metadata: ID 700068; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 68. OpenStreetMap nearby road classes: residential(15), service(13), footway(10), tertiary(1), path(1). OpenStreetMap nearby POI types: amenity:bench(4), amenity:bbq(2), amenity:place_of_worship(1), tourism:guest_house(1). OpenStreetMap nearby land use: forest(1), recreation_ground(1).",
+      "text": "Traffic sensor 700068 is located at latitude 33.922949, longitude -118.400706. Metadata: ID 700068; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 68. OpenStreetMap nearby road classes: footway(104), residential(19), service(13), tertiary(2), path(1). OpenStreetMap nearby POI types: amenity:bench(4), amenity:bbq(2), amenity:place_of_worship(1), tourism:guest_house(1). OpenStreetMap nearby land use: recreation_ground(2), forest(1), residential(1), construction(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 152,
       "osm_summary": {
-        "road_classes": "residential(15), service(13), footway(10), tertiary(1), path(1)",
+        "road_classes": "footway(104), residential(19), service(13), tertiary(2), path(1)",
         "poi_types": "amenity:bench(4), amenity:bbq(2), amenity:place_of_worship(1), tourism:guest_house(1)",
-        "landuse": "forest(1), recreation_ground(1)"
+        "landuse": "recreation_ground(2), forest(1), residential(1), construction(1)"
       }
     },
     {
       "order": 69,
       "node_id": "700069",
-      "text": "Traffic sensor 700069 is located at latitude 33.943318, longitude -118.39707. Metadata: ID 700069; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 69. OpenStreetMap nearby road classes: unknown road class. OpenStreetMap nearby POI types: amenity:toilets(8), amenity:cafe(4), amenity:parking_entrance(4), shop:convenience(4), tourism:information(4). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700069 is located at latitude 33.943318, longitude -118.39707. Metadata: ID 700069; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 69. OpenStreetMap nearby road classes: service(45), primary(24), footway(19), trunk_link(17), primary_link(13). OpenStreetMap nearby POI types: amenity:toilets(8), amenity:cafe(5), amenity:parking_entrance(4), shop:convenience(4), tourism:information(4). OpenStreetMap nearby land use: grass(5), forest(4), construction(1), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "unknown road class",
-        "poi_types": "amenity:toilets(8), amenity:cafe(4), amenity:parking_entrance(4), shop:convenience(4), tourism:information(4)",
-        "landuse": "unknown land use"
+        "road_classes": "service(45), primary(24), footway(19), trunk_link(17), primary_link(13)",
+        "poi_types": "amenity:toilets(8), amenity:cafe(5), amenity:parking_entrance(4), shop:convenience(4), tourism:information(4)",
+        "landuse": "grass(5), forest(4), construction(1), commercial(1)"
       }
     },
     {
@@ -1049,14 +1049,14 @@
     {
       "order": 71,
       "node_id": "700071",
-      "text": "Traffic sensor 700071 is located at latitude 33.9709, longitude -118.38211. Metadata: ID 700071; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 71. OpenStreetMap nearby road classes: residential(17), service(11), secondary(10), motorway_link(3), motorway(2). OpenStreetMap nearby POI types: amenity:fuel(1), amenity:restaurant(1). OpenStreetMap nearby land use: residential(2), retail(1).",
+      "text": "Traffic sensor 700071 is located at latitude 33.9709, longitude -118.38211. Metadata: ID 700071; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 71. OpenStreetMap nearby road classes: footway(118), residential(17), service(11), secondary(10), motorway_link(3). OpenStreetMap nearby POI types: amenity:fuel(1), amenity:restaurant(1). OpenStreetMap nearby land use: residential(2), retail(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 167,
       "osm_summary": {
-        "road_classes": "residential(17), service(11), secondary(10), motorway_link(3), motorway(2)",
+        "road_classes": "footway(118), residential(17), service(11), secondary(10), motorway_link(3)",
         "poi_types": "amenity:fuel(1), amenity:restaurant(1)",
         "landuse": "residential(2), retail(1)"
       }
@@ -1079,59 +1079,59 @@
     {
       "order": 73,
       "node_id": "700073",
-      "text": "Traffic sensor 700073 is located at latitude 34.005691, longitude -118.370411. Metadata: ID 700073; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 73. OpenStreetMap nearby road classes: footway(17), service(10), path(5), unclassified(3), primary(2). OpenStreetMap nearby POI types: tourism:picnic_site(2), amenity:drinking_water(2), amenity:charging_station(2), amenity:bicycle_parking(1). OpenStreetMap nearby land use: grass(4), industrial(1).",
+      "text": "Traffic sensor 700073 is located at latitude 34.005691, longitude -118.370411. Metadata: ID 700073; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 73. OpenStreetMap nearby road classes: footway(21), service(10), path(5), unclassified(3), primary(2). OpenStreetMap nearby POI types: tourism:picnic_site(2), amenity:drinking_water(2), amenity:charging_station(2), amenity:bicycle_parking(1). OpenStreetMap nearby land use: grass(4), industrial(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 56,
       "osm_summary": {
-        "road_classes": "footway(17), service(10), path(5), unclassified(3), primary(2)",
+        "road_classes": "footway(21), service(10), path(5), unclassified(3), primary(2)",
         "poi_types": "tourism:picnic_site(2), amenity:drinking_water(2), amenity:charging_station(2), amenity:bicycle_parking(1)",
-        "landuse": "grass(4), industrial(1)"
+        "landuse": "grass(4), industrial(2)"
       }
     },
     {
       "order": 74,
       "node_id": "700074",
-      "text": "Traffic sensor 700074 is located at latitude 34.019547, longitude -118.358571. Metadata: ID 700074; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 74. OpenStreetMap nearby road classes: footway(29), service(9), residential(8), primary(1), tertiary(1). OpenStreetMap nearby POI types: shop:dry_cleaning(1), amenity:bank(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700074 is located at latitude 34.019547, longitude -118.358571. Metadata: ID 700074; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 74. OpenStreetMap nearby road classes: footway(65), service(47), primary(12), residential(10), tertiary(2). OpenStreetMap nearby POI types: shop:dry_cleaning(1), amenity:bank(1). OpenStreetMap nearby land use: grass(4), residential(3), retail(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 147,
       "osm_summary": {
-        "road_classes": "footway(29), service(9), residential(8), primary(1), tertiary(1)",
+        "road_classes": "footway(65), service(47), primary(12), residential(10), tertiary(2)",
         "poi_types": "shop:dry_cleaning(1), amenity:bank(1)",
-        "landuse": "unknown land use"
+        "landuse": "grass(4), residential(3), retail(2)"
       }
     },
     {
       "order": 75,
       "node_id": "700075",
-      "text": "Traffic sensor 700075 is located at latitude 34.0259, longitude -118.362782. Metadata: ID 700075; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 75. OpenStreetMap nearby road classes: service(22), residential(14), secondary(10), tertiary(2), footway(1). OpenStreetMap nearby POI types: shop:wholesale(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700075 is located at latitude 34.0259, longitude -118.362782. Metadata: ID 700075; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 75. OpenStreetMap nearby road classes: footway(49), service(34), residential(14), secondary(10), tertiary(3). OpenStreetMap nearby POI types: shop:wholesale(1). OpenStreetMap nearby land use: residential(10), industrial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 123,
       "osm_summary": {
-        "road_classes": "service(22), residential(14), secondary(10), tertiary(2), footway(1)",
+        "road_classes": "footway(49), service(34), residential(14), secondary(10), tertiary(3)",
         "poi_types": "shop:wholesale(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(10), industrial(1)"
       }
     },
     {
       "order": 76,
       "node_id": "700076",
-      "text": "Traffic sensor 700076 is located at latitude 34.052193, longitude -118.334407. Metadata: ID 700076; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 76. OpenStreetMap nearby road classes: footway(16), service(14), residential(8), tertiary(7). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4), religious(1).",
+      "text": "Traffic sensor 700076 is located at latitude 34.052193, longitude -118.334407. Metadata: ID 700076; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 76. OpenStreetMap nearby road classes: footway(88), service(14), residential(8), tertiary(7). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4), religious(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 122,
       "osm_summary": {
-        "road_classes": "footway(16), service(14), residential(8), tertiary(7)",
+        "road_classes": "footway(88), service(14), residential(8), tertiary(7)",
         "poi_types": "no nearby POI returned",
         "landuse": "residential(4), religious(1)"
       }
@@ -1139,61 +1139,61 @@
     {
       "order": 77,
       "node_id": "700077",
-      "text": "Traffic sensor 700077 is located at latitude 34.065699, longitude -118.340355. Metadata: ID 700077; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 77. OpenStreetMap nearby road classes: footway(23), secondary(10), residential(8), service(4), tertiary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(3), grass(1).",
+      "text": "Traffic sensor 700077 is located at latitude 34.065699, longitude -118.340355. Metadata: ID 700077; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 77. OpenStreetMap nearby road classes: footway(88), secondary(10), residential(8), service(4), tertiary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(3), grass(1), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 116,
       "osm_summary": {
-        "road_classes": "footway(23), secondary(10), residential(8), service(4), tertiary(1)",
+        "road_classes": "footway(88), secondary(10), residential(8), service(4), tertiary(1)",
         "poi_types": "no nearby POI returned",
-        "landuse": "residential(3), grass(1)"
+        "landuse": "residential(3), grass(1), commercial(1)"
       }
     },
     {
       "order": 78,
       "node_id": "700078",
-      "text": "Traffic sensor 700078 is located at latitude 34.08702, longitude -118.339929. Metadata: ID 700078; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 78. OpenStreetMap nearby road classes: service(22), secondary(12), residential(9), tertiary(3). OpenStreetMap nearby POI types: shop:hardware(1), amenity:cafe(1), shop:coffee(1). OpenStreetMap nearby land use: residential(1).",
+      "text": "Traffic sensor 700078 is located at latitude 34.08702, longitude -118.339929. Metadata: ID 700078; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 78. OpenStreetMap nearby road classes: footway(125), service(40), residential(13), secondary(13), tertiary(4). OpenStreetMap nearby POI types: shop:hardware(1), amenity:cafe(1), shop:coffee(1). OpenStreetMap nearby land use: residential(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "service(22), secondary(12), residential(9), tertiary(3)",
+        "road_classes": "footway(125), service(40), residential(13), secondary(13), tertiary(4)",
         "poi_types": "shop:hardware(1), amenity:cafe(1), shop:coffee(1)",
-        "landuse": "residential(1)"
+        "landuse": "residential(2)"
       }
     },
     {
       "order": 79,
       "node_id": "700079",
-      "text": "Traffic sensor 700079 is located at latitude 34.095928, longitude -118.332874. Metadata: ID 700079; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 79. OpenStreetMap nearby road classes: service(15), residential(12), primary(10), footway(3), tertiary(1). OpenStreetMap nearby POI types: amenity:restaurant(2), amenity:nightclub(1), amenity:cinema(1), tourism:museum(1), shop:stationery(1). OpenStreetMap nearby land use: commercial(2).",
+      "text": "Traffic sensor 700079 is located at latitude 34.095928, longitude -118.332874. Metadata: ID 700079; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 79. OpenStreetMap nearby road classes: footway(114), service(45), residential(16), primary(10), tertiary(1). OpenStreetMap nearby POI types: amenity:restaurant(2), amenity:nightclub(1), amenity:cinema(1), tourism:museum(1), shop:stationery(1). OpenStreetMap nearby land use: commercial(3), residential(3), retail(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "service(15), residential(12), primary(10), footway(3), tertiary(1)",
+        "road_classes": "footway(114), service(45), residential(16), primary(10), tertiary(1)",
         "poi_types": "amenity:restaurant(2), amenity:nightclub(1), amenity:cinema(1), tourism:museum(1), shop:stationery(1)",
-        "landuse": "commercial(2)"
+        "landuse": "commercial(3), residential(3), retail(1)"
       }
     },
     {
       "order": 80,
       "node_id": "700080",
-      "text": "Traffic sensor 700080 is located at latitude 34.111802, longitude -118.306077. Metadata: ID 700080; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 80. OpenStreetMap nearby road classes: residential(14), footway(6), service(4), path(2), track(1). OpenStreetMap nearby POI types: amenity:waste_basket(14), amenity:drinking_water(2), tourism:picnic_site(2), tourism:information(1). OpenStreetMap nearby land use: grass(3).",
+      "text": "Traffic sensor 700080 is located at latitude 34.111802, longitude -118.306077. Metadata: ID 700080; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 80. OpenStreetMap nearby road classes: footway(73), residential(14), path(12), service(4), steps(3). OpenStreetMap nearby POI types: amenity:waste_basket(14), amenity:drinking_water(2), tourism:picnic_site(2), tourism:information(1). OpenStreetMap nearby land use: grass(3), residential(3).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 133,
       "osm_summary": {
-        "road_classes": "residential(14), footway(6), service(4), path(2), track(1)",
+        "road_classes": "footway(73), residential(14), path(12), service(4), steps(3)",
         "poi_types": "amenity:waste_basket(14), amenity:drinking_water(2), tourism:picnic_site(2), tourism:information(1)",
-        "landuse": "grass(3)"
+        "landuse": "grass(3), residential(3)"
       }
     },
     {
@@ -1229,14 +1229,14 @@
     {
       "order": 83,
       "node_id": "700083",
-      "text": "Traffic sensor 700083 is located at latitude 34.17944, longitude -118.2803. Metadata: ID 700083; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 83. OpenStreetMap nearby road classes: footway(30), residential(9), service(6). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(5).",
+      "text": "Traffic sensor 700083 is located at latitude 34.17944, longitude -118.2803. Metadata: ID 700083; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 83. OpenStreetMap nearby road classes: footway(49), residential(9), service(6). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(5).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 69,
       "osm_summary": {
-        "road_classes": "footway(30), residential(9), service(6)",
+        "road_classes": "footway(49), residential(9), service(6)",
         "poi_types": "no nearby POI returned",
         "landuse": "residential(5)"
       }
@@ -1274,16 +1274,16 @@
     {
       "order": 86,
       "node_id": "700086",
-      "text": "Traffic sensor 700086 is located at latitude 34.223336, longitude -118.241834. Metadata: ID 700086; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 86. OpenStreetMap nearby road classes: residential(12), service(11), primary(6), secondary(4), tertiary(2). OpenStreetMap nearby POI types: amenity:place_of_worship(2), amenity:cafe(2), amenity:school(1), shop:dry_cleaning(1), amenity:dentist(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700086 is located at latitude 34.223336, longitude -118.241834. Metadata: ID 700086; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 86. OpenStreetMap nearby road classes: service(42), footway(26), residential(15), primary(7), secondary(4). OpenStreetMap nearby POI types: amenity:place_of_worship(2), amenity:cafe(2), amenity:school(1), shop:dry_cleaning(1), amenity:dentist(1). OpenStreetMap nearby land use: grass(2), residential(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 116,
       "osm_summary": {
-        "road_classes": "residential(12), service(11), primary(6), secondary(4), tertiary(2)",
+        "road_classes": "service(42), footway(26), residential(15), primary(7), secondary(4)",
         "poi_types": "amenity:place_of_worship(2), amenity:cafe(2), amenity:school(1), shop:dry_cleaning(1), amenity:dentist(1)",
-        "landuse": "unknown land use"
+        "landuse": "grass(2), residential(2)"
       }
     },
     {
@@ -1448,7 +1448,7 @@
       "osm_status": "empty",
       "osm_error": "",
       "osm_status_code": 200,
-      "osm_attempts": 2,
+      "osm_attempts": 1,
       "osm_element_count": 0
     },
     {
@@ -1599,16 +1599,16 @@
     {
       "order": 110,
       "node_id": "700110",
-      "text": "Traffic sensor 700110 is located at latitude 34.140456, longitude -117.975752. Metadata: ID 700110; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 110. OpenStreetMap nearby road classes: residential(16), service(12), secondary(1). OpenStreetMap nearby POI types: amenity:fast_food(5), shop:supermarket(2), shop:variety_store(2), shop:mobile_phone(2), amenity:restaurant(2). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700110 is located at latitude 34.140456, longitude -117.975752. Metadata: ID 700110; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 110. OpenStreetMap nearby road classes: service(74), primary(19), residential(17), secondary(4), tertiary(3). OpenStreetMap nearby POI types: amenity:fast_food(5), shop:supermarket(2), shop:variety_store(2), shop:mobile_phone(2), amenity:restaurant(2). OpenStreetMap nearby land use: residential(4), grass(1), retail(1), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 149,
       "osm_summary": {
-        "road_classes": "residential(16), service(12), secondary(1)",
+        "road_classes": "service(74), primary(19), residential(17), secondary(4), tertiary(3)",
         "poi_types": "amenity:fast_food(5), shop:supermarket(2), shop:variety_store(2), shop:mobile_phone(2), amenity:restaurant(2)",
-        "landuse": "unknown land use"
+        "landuse": "residential(4), grass(1), retail(1), commercial(1)"
       }
     },
     {
@@ -1659,29 +1659,29 @@
     {
       "order": 114,
       "node_id": "700114",
-      "text": "Traffic sensor 700114 is located at latitude 34.05179, longitude -117.97667. Metadata: ID 700114; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 114. OpenStreetMap nearby road classes: service(22), secondary(15), residential(9), footway(3). OpenStreetMap nearby POI types: amenity:fast_food(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700114 is located at latitude 34.05179, longitude -117.97667. Metadata: ID 700114; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 114. OpenStreetMap nearby road classes: service(43), secondary(16), residential(9), footway(3), tertiary(1). OpenStreetMap nearby POI types: amenity:fast_food(1). OpenStreetMap nearby land use: residential(3).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 76,
       "osm_summary": {
-        "road_classes": "service(22), secondary(15), residential(9), footway(3)",
+        "road_classes": "service(43), secondary(16), residential(9), footway(3), tertiary(1)",
         "poi_types": "amenity:fast_food(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(3)"
       }
     },
     {
       "order": 115,
       "node_id": "700115",
-      "text": "Traffic sensor 700115 is located at latitude 34.024591, longitude -117.961463. Metadata: ID 700115; District 7; County Los Angeles; Fwy US101-W; Lanes 3; Type Ramp; Direction W; ID2 115. OpenStreetMap nearby road classes: service(35), primary(8), tertiary(6), residential(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700115 is located at latitude 34.024591, longitude -117.961463. Metadata: ID 700115; District 7; County Los Angeles; Fwy US101-W; Lanes 3; Type Ramp; Direction W; ID2 115. OpenStreetMap nearby road classes: service(59), tertiary(9), primary(8), residential(2), footway(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 79,
       "osm_summary": {
-        "road_classes": "service(35), primary(8), tertiary(6), residential(1)",
+        "road_classes": "service(59), tertiary(9), primary(8), residential(2), footway(1)",
         "poi_types": "no nearby POI returned",
         "landuse": "unknown land use"
       }
@@ -1704,16 +1704,16 @@
     {
       "order": 117,
       "node_id": "700117",
-      "text": "Traffic sensor 700117 is located at latitude 33.980067, longitude -117.973813. Metadata: ID 700117; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 117. OpenStreetMap nearby road classes: primary(22), residential(16), service(8), tertiary(1). OpenStreetMap nearby POI types: amenity:fast_food(1), amenity:ice_cream(1), amenity:charging_station(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700117 is located at latitude 33.980067, longitude -117.973813. Metadata: ID 700117; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 117. OpenStreetMap nearby road classes: service(42), primary(33), residential(17), tertiary(1), primary_link(1). OpenStreetMap nearby POI types: amenity:fast_food(1), amenity:ice_cream(1), amenity:charging_station(1). OpenStreetMap nearby land use: residential(5), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 103,
       "osm_summary": {
-        "road_classes": "primary(22), residential(16), service(8), tertiary(1)",
+        "road_classes": "service(42), primary(33), residential(17), tertiary(1), primary_link(1)",
         "poi_types": "amenity:fast_food(1), amenity:ice_cream(1), amenity:charging_station(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(5), commercial(1)"
       }
     },
     {
@@ -1749,14 +1749,14 @@
     {
       "order": 120,
       "node_id": "700120",
-      "text": "Traffic sensor 700120 is located at latitude 33.924004, longitude -117.979591. Metadata: ID 700120; District 7; County Los Angeles; Fwy I5-N; Lanes 5; Type Ramp; Direction N; ID2 120. OpenStreetMap nearby road classes: residential(15), secondary(13), service(8), footway(7), secondary_link(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(5).",
+      "text": "Traffic sensor 700120 is located at latitude 33.924004, longitude -117.979591. Metadata: ID 700120; District 7; County Los Angeles; Fwy I5-N; Lanes 5; Type Ramp; Direction N; ID2 120. OpenStreetMap nearby road classes: footway(24), residential(15), secondary(14), service(8), steps(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(5).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 71,
       "osm_summary": {
-        "road_classes": "residential(15), secondary(13), service(8), footway(7), secondary_link(1)",
+        "road_classes": "footway(24), residential(15), secondary(14), service(8), steps(3)",
         "poi_types": "no nearby POI returned",
         "landuse": "residential(5)"
       }
@@ -1764,46 +1764,46 @@
     {
       "order": 121,
       "node_id": "700121",
-      "text": "Traffic sensor 700121 is located at latitude 33.902021, longitude -117.982907. Metadata: ID 700121; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 121. OpenStreetMap nearby road classes: residential(32), primary(9), cycleway(4), service(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4).",
+      "text": "Traffic sensor 700121 is located at latitude 33.902021, longitude -117.982907. Metadata: ID 700121; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 121. OpenStreetMap nearby road classes: residential(37), primary(9), footway(5), cycleway(4), path(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(5).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
-      "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_attempts": 2,
+      "osm_element_count": 65,
       "osm_summary": {
-        "road_classes": "residential(32), primary(9), cycleway(4), service(1)",
+        "road_classes": "residential(37), primary(9), footway(5), cycleway(4), path(3)",
         "poi_types": "no nearby POI returned",
-        "landuse": "residential(4)"
+        "landuse": "residential(5)"
       }
     },
     {
       "order": 122,
       "node_id": "700122",
-      "text": "Traffic sensor 700122 is located at latitude 33.870988, longitude -117.991906. Metadata: ID 700122; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 122. OpenStreetMap nearby road classes: service(23), tertiary(10), secondary(9), residential(6). OpenStreetMap nearby POI types: amenity:school(1), amenity:place_of_worship(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700122 is located at latitude 33.870988, longitude -117.991906. Metadata: ID 700122; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 122. OpenStreetMap nearby road classes: service(60), secondary(15), tertiary(11), residential(6). OpenStreetMap nearby POI types: amenity:school(1), amenity:place_of_worship(1). OpenStreetMap nearby land use: residential(4).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 98,
       "osm_summary": {
-        "road_classes": "service(23), tertiary(10), secondary(9), residential(6)",
+        "road_classes": "service(60), secondary(15), tertiary(11), residential(6)",
         "poi_types": "amenity:school(1), amenity:place_of_worship(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(4)"
       }
     },
     {
       "order": 123,
       "node_id": "700123",
-      "text": "Traffic sensor 700123 is located at latitude 33.860088, longitude -117.994059. Metadata: ID 700123; District 7; County Los Angeles; Fwy US101-W; Lanes 4; Type Ramp; Direction W; ID2 123. OpenStreetMap nearby road classes: residential(6), tertiary(6), primary(6), service(2). OpenStreetMap nearby POI types: amenity:restaurant(7), shop:car_repair(4), amenity:cafe(3), shop:car_parts(2), amenity:bar(2). OpenStreetMap nearby land use: retail(1).",
+      "text": "Traffic sensor 700123 is located at latitude 33.860088, longitude -117.994059. Metadata: ID 700123; District 7; County Los Angeles; Fwy US101-W; Lanes 4; Type Ramp; Direction W; ID2 123. OpenStreetMap nearby road classes: service(68), footway(43), primary(24), residential(8), tertiary(8). OpenStreetMap nearby POI types: amenity:restaurant(7), shop:car_repair(4), amenity:cafe(3), shop:car_parts(2), amenity:bar(2). OpenStreetMap nearby land use: retail(4), residential(4), commercial(4), industrial(2), religious(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "residential(6), tertiary(6), primary(6), service(2)",
+        "road_classes": "service(68), footway(43), primary(24), residential(8), tertiary(8)",
         "poi_types": "amenity:restaurant(7), shop:car_repair(4), amenity:cafe(3), shop:car_parts(2), amenity:bar(2)",
-        "landuse": "retail(1)"
+        "landuse": "retail(4), residential(4), commercial(4), industrial(2), religious(1)"
       }
     },
     {
@@ -1824,14 +1824,14 @@
     {
       "order": 125,
       "node_id": "700125",
-      "text": "Traffic sensor 700125 is located at latitude 33.836594, longitude -118.000539. Metadata: ID 700125; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 125. OpenStreetMap nearby road classes: service(19), residential(13), tertiary(3), secondary(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(12).",
+      "text": "Traffic sensor 700125 is located at latitude 33.836594, longitude -118.000539. Metadata: ID 700125; District 7; County Los Angeles; Fwy SR91-S; Lanes 4; Type Ramp; Direction S; ID2 125. OpenStreetMap nearby road classes: service(27), residential(15), secondary(5), tertiary(3), footway(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(12).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 63,
       "osm_summary": {
-        "road_classes": "service(19), residential(13), tertiary(3), secondary(3)",
+        "road_classes": "service(27), residential(15), secondary(5), tertiary(3), footway(1)",
         "poi_types": "no nearby POI returned",
         "landuse": "residential(12)"
       }
@@ -1839,31 +1839,31 @@
     {
       "order": 126,
       "node_id": "700126",
-      "text": "Traffic sensor 700126 is located at latitude 33.809729, longitude -118.022117. Metadata: ID 700126; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 126. OpenStreetMap nearby road classes: residential(23), secondary(9), service(6), unclassified(1), tertiary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(10).",
+      "text": "Traffic sensor 700126 is located at latitude 33.809729, longitude -118.022117. Metadata: ID 700126; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 126. OpenStreetMap nearby road classes: residential(23), service(10), secondary(9), tertiary(2), unclassified(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(13), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 59,
       "osm_summary": {
-        "road_classes": "residential(23), secondary(9), service(6), unclassified(1), tertiary(1)",
+        "road_classes": "residential(23), service(10), secondary(9), tertiary(2), unclassified(1)",
         "poi_types": "no nearby POI returned",
-        "landuse": "residential(10)"
+        "landuse": "residential(13), commercial(1)"
       }
     },
     {
       "order": 127,
       "node_id": "700127",
-      "text": "Traffic sensor 700127 is located at latitude 33.79533, longitude -118.01664. Metadata: ID 700127; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 127. OpenStreetMap nearby road classes: residential(22), tertiary(12), service(10). OpenStreetMap nearby POI types: amenity:bench(1), amenity:waste_basket(1), amenity:bicycle_parking(1), amenity:drinking_water(1). OpenStreetMap nearby land use: residential(2).",
+      "text": "Traffic sensor 700127 is located at latitude 33.79533, longitude -118.01664. Metadata: ID 700127; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 127. OpenStreetMap nearby road classes: footway(101), residential(30), tertiary(12), service(10). OpenStreetMap nearby POI types: amenity:bench(1), amenity:waste_basket(1), amenity:bicycle_parking(1), amenity:drinking_water(1). OpenStreetMap nearby land use: grass(12), residential(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 171,
       "osm_summary": {
-        "road_classes": "residential(22), tertiary(12), service(10)",
+        "road_classes": "footway(101), residential(30), tertiary(12), service(10)",
         "poi_types": "amenity:bench(1), amenity:waste_basket(1), amenity:bicycle_parking(1), amenity:drinking_water(1)",
-        "landuse": "residential(2)"
+        "landuse": "grass(12), residential(2)"
       }
     },
     {
@@ -1884,16 +1884,16 @@
     {
       "order": 129,
       "node_id": "700129",
-      "text": "Traffic sensor 700129 is located at latitude 33.76033, longitude -118.04078. Metadata: ID 700129; District 7; County Los Angeles; Fwy I10-S; Lanes 5; Type Ramp; Direction S; ID2 129. OpenStreetMap nearby road classes: residential(20), primary(19), service(3), track(2), primary_link(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4), retail(1).",
+      "text": "Traffic sensor 700129 is located at latitude 33.76033, longitude -118.04078. Metadata: ID 700129; District 7; County Los Angeles; Fwy I10-S; Lanes 5; Type Ramp; Direction S; ID2 129. OpenStreetMap nearby road classes: primary(25), residential(22), service(11), track(2), primary_link(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4), retail(1), military(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
-      "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_attempts": 2,
+      "osm_element_count": 67,
       "osm_summary": {
-        "road_classes": "residential(20), primary(19), service(3), track(2), primary_link(1)",
+        "road_classes": "primary(25), residential(22), service(11), track(2), primary_link(1)",
         "poi_types": "no nearby POI returned",
-        "landuse": "residential(4), retail(1)"
+        "landuse": "residential(4), retail(1), military(1)"
       }
     },
     {
@@ -1933,7 +1933,7 @@
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
-      "osm_attempts": 1,
+      "osm_attempts": 2,
       "osm_element_count": 8,
       "osm_summary": {
         "road_classes": "service(6), unclassified(2)",
@@ -1974,44 +1974,44 @@
     {
       "order": 135,
       "node_id": "700135",
-      "text": "Traffic sensor 700135 is located at latitude 33.756818, longitude -118.113857. Metadata: ID 700135; District 7; County Los Angeles; Fwy SR710-W; Lanes 2; Type Ramp; Direction W; ID2 135. OpenStreetMap nearby road classes: primary(16), service(7), secondary(6), trunk(6), footway(1). OpenStreetMap nearby POI types: amenity:parking_entrance(5), amenity:charging_station(3), amenity:pharmacy(1), amenity:ice_cream(1), amenity:restaurant(1). OpenStreetMap nearby land use: retail(1).",
+      "text": "Traffic sensor 700135 is located at latitude 33.756818, longitude -118.113857. Metadata: ID 700135; District 7; County Los Angeles; Fwy SR710-W; Lanes 2; Type Ramp; Direction W; ID2 135. OpenStreetMap nearby road classes: service(86), footway(48), primary(19), secondary(17), trunk(8). OpenStreetMap nearby POI types: amenity:parking_entrance(5), amenity:charging_station(3), amenity:pharmacy(1), amenity:ice_cream(1), amenity:restaurant(1). OpenStreetMap nearby land use: retail(3), industrial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "primary(16), service(7), secondary(6), trunk(6), footway(1)",
+        "road_classes": "service(86), footway(48), primary(19), secondary(17), trunk(8)",
         "poi_types": "amenity:parking_entrance(5), amenity:charging_station(3), amenity:pharmacy(1), amenity:ice_cream(1), amenity:restaurant(1)",
-        "landuse": "retail(1)"
+        "landuse": "retail(3), industrial(1)"
       }
     },
     {
       "order": 136,
       "node_id": "700136",
-      "text": "Traffic sensor 700136 is located at latitude 33.758175, longitude -118.143774. Metadata: ID 700136; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 136. OpenStreetMap nearby road classes: service(20), residential(18), secondary(5), cycleway(3). OpenStreetMap nearby POI types: amenity:fast_food(1), shop:convenience(1). OpenStreetMap nearby land use: recreation_ground(2).",
+      "text": "Traffic sensor 700136 is located at latitude 33.758175, longitude -118.143774. Metadata: ID 700136; District 7; County Los Angeles; Fwy I5-N; Lanes 4; Type Ramp; Direction N; ID2 136. OpenStreetMap nearby road classes: footway(30), service(22), residential(21), secondary(19), cycleway(3). OpenStreetMap nearby POI types: amenity:fast_food(1), shop:convenience(1). OpenStreetMap nearby land use: recreation_ground(2), grass(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 101,
       "osm_summary": {
-        "road_classes": "service(20), residential(18), secondary(5), cycleway(3)",
+        "road_classes": "footway(30), service(22), residential(21), secondary(19), cycleway(3)",
         "poi_types": "amenity:fast_food(1), shop:convenience(1)",
-        "landuse": "recreation_ground(2)"
+        "landuse": "recreation_ground(2), grass(1)"
       }
     },
     {
       "order": 137,
       "node_id": "700137",
-      "text": "Traffic sensor 700137 is located at latitude 33.765727, longitude -118.155913. Metadata: ID 700137; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 137. OpenStreetMap nearby road classes: residential(14), footway(11), service(9), secondary(7), tertiary(5). OpenStreetMap nearby POI types: amenity:social_facility(1), amenity:cafe(1), amenity:restaurant(1), amenity:place_of_worship(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700137 is located at latitude 33.765727, longitude -118.155913. Metadata: ID 700137; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 137. OpenStreetMap nearby road classes: footway(18), residential(14), service(9), secondary(8), tertiary(5). OpenStreetMap nearby POI types: amenity:social_facility(1), amenity:cafe(1), amenity:restaurant(1), amenity:place_of_worship(1). OpenStreetMap nearby land use: unknown land use.",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 58,
       "osm_summary": {
-        "road_classes": "residential(14), footway(11), service(9), secondary(7), tertiary(5)",
+        "road_classes": "footway(18), residential(14), service(9), secondary(8), tertiary(5)",
         "poi_types": "amenity:social_facility(1), amenity:cafe(1), amenity:restaurant(1), amenity:place_of_worship(1)",
         "landuse": "unknown land use"
       }
@@ -2019,46 +2019,46 @@
     {
       "order": 138,
       "node_id": "700138",
-      "text": "Traffic sensor 700138 is located at latitude 33.769031, longitude -118.160077. Metadata: ID 700138; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 138. OpenStreetMap nearby road classes: service(32), residential(13), tertiary(1), steps(1). OpenStreetMap nearby POI types: shop:bakery(1), shop:books(1), amenity:restaurant(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700138 is located at latitude 33.769031, longitude -118.160077. Metadata: ID 700138; District 7; County Los Angeles; Fwy I405-E; Lanes 4; Type Ramp; Direction E; ID2 138. OpenStreetMap nearby road classes: service(46), residential(16), footway(6), tertiary(2), steps(2). OpenStreetMap nearby POI types: shop:bakery(1), shop:books(1), amenity:restaurant(1). OpenStreetMap nearby land use: residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 76,
       "osm_summary": {
-        "road_classes": "service(32), residential(13), tertiary(1), steps(1)",
+        "road_classes": "service(46), residential(16), footway(6), tertiary(2), steps(2)",
         "poi_types": "shop:bakery(1), shop:books(1), amenity:restaurant(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(1)"
       }
     },
     {
       "order": 139,
       "node_id": "700139",
-      "text": "Traffic sensor 700139 is located at latitude 33.784686, longitude -118.184699. Metadata: ID 700139; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 139. OpenStreetMap nearby road classes: secondary(20), service(10), residential(8), tertiary(2). OpenStreetMap nearby POI types: amenity:place_of_worship(1), shop:car_parts(1), amenity:doctors(1), shop:convenience(1), amenity:pharmacy(1). OpenStreetMap nearby land use: recreation_ground(1), retail(1).",
+      "text": "Traffic sensor 700139 is located at latitude 33.784686, longitude -118.184699. Metadata: ID 700139; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Ramp; Direction W; ID2 139. OpenStreetMap nearby road classes: service(38), secondary(21), residential(12), tertiary(3). OpenStreetMap nearby POI types: amenity:place_of_worship(1), shop:car_parts(1), amenity:doctors(1), shop:convenience(1), amenity:pharmacy(1). OpenStreetMap nearby land use: retail(3), recreation_ground(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 86,
       "osm_summary": {
-        "road_classes": "secondary(20), service(10), residential(8), tertiary(2)",
+        "road_classes": "service(38), secondary(21), residential(12), tertiary(3)",
         "poi_types": "amenity:place_of_worship(1), shop:car_parts(1), amenity:doctors(1), shop:convenience(1), amenity:pharmacy(1)",
-        "landuse": "recreation_ground(1), retail(1)"
+        "landuse": "retail(3), recreation_ground(1)"
       }
     },
     {
       "order": 140,
       "node_id": "700140",
-      "text": "Traffic sensor 700140 is located at latitude 33.787889, longitude -118.198307. Metadata: ID 700140; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 140. OpenStreetMap nearby road classes: secondary(13), trunk(10), unclassified(6), tertiary(6), residential(5). OpenStreetMap nearby POI types: amenity:fuel(1), shop:convenience(1), tourism:motel(1). OpenStreetMap nearby land use: commercial(1).",
+      "text": "Traffic sensor 700140 is located at latitude 33.787889, longitude -118.198307. Metadata: ID 700140; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 140. OpenStreetMap nearby road classes: service(32), secondary(13), trunk(11), residential(8), unclassified(6). OpenStreetMap nearby POI types: amenity:fuel(1), shop:convenience(1), tourism:motel(1). OpenStreetMap nearby land use: commercial(1), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 82,
       "osm_summary": {
-        "road_classes": "secondary(13), trunk(10), unclassified(6), tertiary(6), residential(5)",
+        "road_classes": "service(32), secondary(13), trunk(11), residential(8), unclassified(6)",
         "poi_types": "amenity:fuel(1), shop:convenience(1), tourism:motel(1)",
-        "landuse": "commercial(1)"
+        "landuse": "commercial(1), residential(1)"
       }
     },
     {
@@ -2094,29 +2094,29 @@
     {
       "order": 143,
       "node_id": "700143",
-      "text": "Traffic sensor 700143 is located at latitude 33.822769, longitude -118.25031. Metadata: ID 700143; District 7; County Los Angeles; Fwy SR710-W; Lanes 3; Type Ramp; Direction W; ID2 143. OpenStreetMap nearby road classes: service(29), secondary(15), tertiary(2), residential(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: industrial(1), commercial(1).",
+      "text": "Traffic sensor 700143 is located at latitude 33.822769, longitude -118.25031. Metadata: ID 700143; District 7; County Los Angeles; Fwy SR710-W; Lanes 3; Type Ramp; Direction W; ID2 143. OpenStreetMap nearby road classes: service(57), secondary(16), tertiary(6), residential(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: industrial(1), commercial(1), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 84,
       "osm_summary": {
-        "road_classes": "service(29), secondary(15), tertiary(2), residential(2)",
+        "road_classes": "service(57), secondary(16), tertiary(6), residential(2)",
         "poi_types": "no nearby POI returned",
-        "landuse": "industrial(1), commercial(1)"
+        "landuse": "industrial(1), commercial(1), residential(1)"
       }
     },
     {
       "order": 144,
       "node_id": "700144",
-      "text": "Traffic sensor 700144 is located at latitude 33.850551, longitude -118.279715. Metadata: ID 700144; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 144. OpenStreetMap nearby road classes: service(17), primary(13), motorway_link(7), motorway(5), unclassified(4). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700144 is located at latitude 33.850551, longitude -118.279715. Metadata: ID 700144; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 144. OpenStreetMap nearby road classes: service(38), raceway(17), footway(16), primary(13), motorway(11). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 115,
       "osm_summary": {
-        "road_classes": "service(17), primary(13), motorway_link(7), motorway(5), unclassified(4)",
+        "road_classes": "service(38), raceway(17), footway(16), primary(13), motorway(11)",
         "poi_types": "no nearby POI returned",
         "landuse": "unknown land use"
       }
@@ -2124,59 +2124,59 @@
     {
       "order": 145,
       "node_id": "700145",
-      "text": "Traffic sensor 700145 is located at latitude 33.876057, longitude -118.28088. Metadata: ID 700145; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 145. OpenStreetMap nearby road classes: service(33), residential(6), secondary(6), unclassified(1), primary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: industrial(1), commercial(1).",
+      "text": "Traffic sensor 700145 is located at latitude 33.876057, longitude -118.28088. Metadata: ID 700145; District 7; County Los Angeles; Fwy I10-S; Lanes 4; Type Ramp; Direction S; ID2 145. OpenStreetMap nearby road classes: service(54), residential(8), secondary(6), unclassified(1), primary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: industrial(1), commercial(1), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 74,
       "osm_summary": {
-        "road_classes": "service(33), residential(6), secondary(6), unclassified(1), primary(1)",
+        "road_classes": "service(54), residential(8), secondary(6), unclassified(1), primary(1)",
         "poi_types": "no nearby POI returned",
-        "landuse": "industrial(1), commercial(1)"
+        "landuse": "industrial(1), commercial(1), residential(1)"
       }
     },
     {
       "order": 146,
       "node_id": "700146",
-      "text": "Traffic sensor 700146 is located at latitude 33.901273, longitude -118.313668. Metadata: ID 700146; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 146. OpenStreetMap nearby road classes: service(24), primary(15), residential(7), primary_link(4). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700146 is located at latitude 33.901273, longitude -118.313668. Metadata: ID 700146; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 146. OpenStreetMap nearby road classes: service(40), residential(18), primary(17), primary_link(4). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(3), industrial(2), construction(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 85,
       "osm_summary": {
-        "road_classes": "service(24), primary(15), residential(7), primary_link(4)",
+        "road_classes": "service(40), residential(18), primary(17), primary_link(4)",
         "poi_types": "no nearby POI returned",
-        "landuse": "unknown land use"
+        "landuse": "residential(3), industrial(2), construction(1)"
       }
     },
     {
       "order": 147,
       "node_id": "700147",
-      "text": "Traffic sensor 700147 is located at latitude 33.92981, longitude -118.317271. Metadata: ID 700147; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 147. OpenStreetMap nearby road classes: residential(15), service(14), primary(9), secondary(7). OpenStreetMap nearby POI types: amenity:place_of_worship(1). OpenStreetMap nearby land use: residential(4).",
+      "text": "Traffic sensor 700147 is located at latitude 33.92981, longitude -118.317271. Metadata: ID 700147; District 7; County Los Angeles; Fwy US101-W; Lanes 6; Type Mainline; Direction W; ID2 147. OpenStreetMap nearby road classes: footway(32), residential(15), service(15), primary(10), secondary(7). OpenStreetMap nearby POI types: amenity:place_of_worship(1). OpenStreetMap nearby land use: residential(6).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 86,
       "osm_summary": {
-        "road_classes": "residential(15), service(14), primary(9), secondary(7)",
+        "road_classes": "footway(32), residential(15), service(15), primary(10), secondary(7)",
         "poi_types": "amenity:place_of_worship(1)",
-        "landuse": "residential(4)"
+        "landuse": "residential(6)"
       }
     },
     {
       "order": 148,
       "node_id": "700148",
-      "text": "Traffic sensor 700148 is located at latitude 33.940106, longitude -118.337455. Metadata: ID 700148; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 148. OpenStreetMap nearby road classes: service(30), residential(8), footway(5), tertiary(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: grass(2), residential(2), retail(1).",
+      "text": "Traffic sensor 700148 is located at latitude 33.940106, longitude -118.337455. Metadata: ID 700148; District 7; County Los Angeles; Fwy SR60-N; Lanes 3; Type Ramp; Direction N; ID2 148. OpenStreetMap nearby road classes: service(30), footway(14), residential(8), tertiary(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: grass(2), residential(2), retail(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 59,
       "osm_summary": {
-        "road_classes": "service(30), residential(8), footway(5), tertiary(2)",
+        "road_classes": "service(30), footway(14), residential(8), tertiary(2)",
         "poi_types": "no nearby POI returned",
         "landuse": "grass(2), residential(2), retail(1)"
       }
@@ -2184,16 +2184,16 @@
     {
       "order": 149,
       "node_id": "700149",
-      "text": "Traffic sensor 700149 is located at latitude 33.973025, longitude -118.368086. Metadata: ID 700149; District 7; County Los Angeles; Fwy SR91-S; Lanes 5; Type Ramp; Direction S; ID2 149. OpenStreetMap nearby road classes: service(29), residential(13), primary(8). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700149 is located at latitude 33.973025, longitude -118.368086. Metadata: ID 700149; District 7; County Los Angeles; Fwy SR91-S; Lanes 5; Type Ramp; Direction S; ID2 149. OpenStreetMap nearby road classes: service(30), residential(15), footway(14), primary(8). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 69,
       "osm_summary": {
-        "road_classes": "service(29), residential(13), primary(8)",
+        "road_classes": "service(30), residential(15), footway(14), primary(8)",
         "poi_types": "no nearby POI returned",
-        "landuse": "unknown land use"
+        "landuse": "residential(2)"
       }
     },
     {
@@ -2214,29 +2214,29 @@
     {
       "order": 151,
       "node_id": "700151",
-      "text": "Traffic sensor 700151 is located at latitude 34.026704, longitude -118.392146. Metadata: ID 700151; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 151. OpenStreetMap nearby road classes: unknown road class. OpenStreetMap nearby POI types: amenity:fast_food(8), amenity:restaurant(7), amenity:parking_entrance(4), shop:supermarket(2), amenity:cafe(2). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700151 is located at latitude 34.026704, longitude -118.392146. Metadata: ID 700151; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 151. OpenStreetMap nearby road classes: secondary(25), service(25), footway(23), primary(10), residential(6). OpenStreetMap nearby POI types: amenity:restaurant(16), amenity:fast_food(11), amenity:parking_entrance(7), amenity:bicycle_parking(6), shop:supermarket(3). OpenStreetMap nearby land use: commercial(1), grass(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
-      "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_attempts": 2,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "unknown road class",
-        "poi_types": "amenity:fast_food(8), amenity:restaurant(7), amenity:parking_entrance(4), shop:supermarket(2), amenity:cafe(2)",
-        "landuse": "unknown land use"
+        "road_classes": "secondary(25), service(25), footway(23), primary(10), residential(6)",
+        "poi_types": "amenity:restaurant(16), amenity:fast_food(11), amenity:parking_entrance(7), amenity:bicycle_parking(6), shop:supermarket(3)",
+        "landuse": "commercial(1), grass(1)"
       }
     },
     {
       "order": 152,
       "node_id": "700152",
-      "text": "Traffic sensor 700152 is located at latitude 34.039105, longitude -118.408084. Metadata: ID 700152; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 152. OpenStreetMap nearby road classes: footway(28), residential(17), tertiary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4).",
+      "text": "Traffic sensor 700152 is located at latitude 34.039105, longitude -118.408084. Metadata: ID 700152; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 152. OpenStreetMap nearby road classes: footway(74), residential(17), tertiary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 96,
       "osm_summary": {
-        "road_classes": "footway(28), residential(17), tertiary(1)",
+        "road_classes": "footway(74), residential(17), tertiary(1)",
         "poi_types": "no nearby POI returned",
         "landuse": "residential(4)"
       }
@@ -2244,16 +2244,16 @@
     {
       "order": 153,
       "node_id": "700153",
-      "text": "Traffic sensor 700153 is located at latitude 34.079064, longitude -118.42042. Metadata: ID 700153; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 153. OpenStreetMap nearby road classes: footway(17), residential(13), secondary(10), service(8), secondary_link(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700153 is located at latitude 34.079064, longitude -118.42042. Metadata: ID 700153; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Mainline; Direction S; ID2 153. OpenStreetMap nearby road classes: footway(68), secondary(16), service(15), residential(13), secondary_link(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 119,
       "osm_summary": {
-        "road_classes": "footway(17), residential(13), secondary(10), service(8), secondary_link(2)",
+        "road_classes": "footway(68), secondary(16), service(15), residential(13), secondary_link(3)",
         "poi_types": "no nearby POI returned",
-        "landuse": "unknown land use"
+        "landuse": "residential(4)"
       }
     },
     {
@@ -2304,61 +2304,61 @@
     {
       "order": 157,
       "node_id": "700157",
-      "text": "Traffic sensor 700157 is located at latitude 34.185556, longitude -118.490354. Metadata: ID 700157; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 157. OpenStreetMap nearby road classes: service(14), footway(10), primary(5), cycleway(4), path(4). OpenStreetMap nearby POI types: amenity:fuel(1), amenity:waste_basket(1), amenity:drinking_water(1). OpenStreetMap nearby land use: meadow(1), grass(1).",
+      "text": "Traffic sensor 700157 is located at latitude 34.185556, longitude -118.490354. Metadata: ID 700157; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 157. OpenStreetMap nearby road classes: footway(34), service(29), cycleway(6), secondary(5), primary(5). OpenStreetMap nearby POI types: amenity:fuel(1), amenity:waste_basket(1), amenity:drinking_water(1). OpenStreetMap nearby land use: residential(2), meadow(1), grass(1), industrial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 98,
       "osm_summary": {
-        "road_classes": "service(14), footway(10), primary(5), cycleway(4), path(4)",
+        "road_classes": "footway(34), service(29), cycleway(6), secondary(5), primary(5)",
         "poi_types": "amenity:fuel(1), amenity:waste_basket(1), amenity:drinking_water(1)",
-        "landuse": "meadow(1), grass(1)"
+        "landuse": "residential(2), meadow(1), grass(1), industrial(1)"
       }
     },
     {
       "order": 158,
       "node_id": "700158",
-      "text": "Traffic sensor 700158 is located at latitude 34.209649, longitude -118.5103. Metadata: ID 700158; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 158. OpenStreetMap nearby road classes: service(23), residential(9), footway(8), secondary(6), tertiary(1). OpenStreetMap nearby POI types: amenity:bank(1), shop:bicycle(1). OpenStreetMap nearby land use: retail(1).",
+      "text": "Traffic sensor 700158 is located at latitude 34.209649, longitude -118.5103. Metadata: ID 700158; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Ramp; Direction E; ID2 158. OpenStreetMap nearby road classes: service(31), footway(13), residential(11), secondary(8), tertiary(2). OpenStreetMap nearby POI types: amenity:bank(1), shop:bicycle(1). OpenStreetMap nearby land use: residential(5), retail(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 73,
       "osm_summary": {
-        "road_classes": "service(23), residential(9), footway(8), secondary(6), tertiary(1)",
+        "road_classes": "service(31), footway(13), residential(11), secondary(8), tertiary(2)",
         "poi_types": "amenity:bank(1), shop:bicycle(1)",
-        "landuse": "retail(1)"
+        "landuse": "residential(5), retail(1)"
       }
     },
     {
       "order": 159,
       "node_id": "700159",
-      "text": "Traffic sensor 700159 is located at latitude 34.243749, longitude -118.510636. Metadata: ID 700159; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 159. OpenStreetMap nearby road classes: residential(17), secondary(12), footway(10), path(5), service(3). OpenStreetMap nearby POI types: amenity:bench(2), amenity:waste_basket(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700159 is located at latitude 34.243749, longitude -118.510636. Metadata: ID 700159; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 159. OpenStreetMap nearby road classes: residential(17), service(16), secondary(12), footway(12), path(6). OpenStreetMap nearby POI types: amenity:bench(2), amenity:waste_basket(1). OpenStreetMap nearby land use: residential(4).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 70,
       "osm_summary": {
-        "road_classes": "residential(17), secondary(12), footway(10), path(5), service(3)",
+        "road_classes": "residential(17), service(16), secondary(12), footway(12), path(6)",
         "poi_types": "amenity:bench(2), amenity:waste_basket(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(4)"
       }
     },
     {
       "order": 160,
       "node_id": "700160",
-      "text": "Traffic sensor 700160 is located at latitude 34.265737, longitude -118.521962. Metadata: ID 700160; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 160. OpenStreetMap nearby road classes: residential(4), tertiary(1). OpenStreetMap nearby POI types: shop:beauty(6), shop:hairdresser(4), amenity:waste_basket(3), amenity:cafe(3), amenity:dentist(3). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700160 is located at latitude 34.265737, longitude -118.521962. Metadata: ID 700160; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Ramp; Direction N; ID2 160. OpenStreetMap nearby road classes: service(80), footway(33), secondary(25), residential(8), pedestrian(4). OpenStreetMap nearby POI types: shop:beauty(6), shop:hairdresser(4), amenity:waste_basket(3), amenity:cafe(3), amenity:dentist(3). OpenStreetMap nearby land use: retail(1), grass(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "residential(4), tertiary(1)",
+        "road_classes": "service(80), footway(33), secondary(25), residential(8), pedestrian(4)",
         "poi_types": "shop:beauty(6), shop:hairdresser(4), amenity:waste_basket(3), amenity:cafe(3), amenity:dentist(3)",
-        "landuse": "unknown land use"
+        "landuse": "retail(1), grass(1)"
       }
     },
     {
@@ -2499,16 +2499,16 @@
     {
       "order": 170,
       "node_id": "700170",
-      "text": "Traffic sensor 700170 is located at latitude 34.422499, longitude -118.601297. Metadata: ID 700170; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 170. OpenStreetMap nearby road classes: footway(15), raceway(8), cycleway(4), secondary(3), service(2). OpenStreetMap nearby POI types: tourism:attraction(7), amenity:toilets(3), amenity:cafe(2), amenity:atm(2), amenity:fast_food(1). OpenStreetMap nearby land use: construction(1).",
+      "text": "Traffic sensor 700170 is located at latitude 34.422499, longitude -118.601297. Metadata: ID 700170; District 7; County Los Angeles; Fwy I405-E; Lanes 5; Type Ramp; Direction E; ID2 170. OpenStreetMap nearby road classes: footway(21), raceway(8), cycleway(6), secondary(3), service(2). OpenStreetMap nearby POI types: tourism:attraction(7), amenity:toilets(3), amenity:cafe(2), amenity:atm(2), amenity:fast_food(1). OpenStreetMap nearby land use: construction(2), greenfield(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 60,
       "osm_summary": {
-        "road_classes": "footway(15), raceway(8), cycleway(4), secondary(3), service(2)",
+        "road_classes": "footway(21), raceway(8), cycleway(6), secondary(3), service(2)",
         "poi_types": "tourism:attraction(7), amenity:toilets(3), amenity:cafe(2), amenity:atm(2), amenity:fast_food(1)",
-        "landuse": "construction(1)"
+        "landuse": "construction(2), greenfield(1)"
       }
     },
     {
@@ -2529,46 +2529,46 @@
     {
       "order": 172,
       "node_id": "700172",
-      "text": "Traffic sensor 700172 is located at latitude 34.424431, longitude -118.601801. Metadata: ID 700172; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 172. OpenStreetMap nearby road classes: footway(14), service(11), raceway(8), secondary(1). OpenStreetMap nearby POI types: tourism:attraction(7), amenity:cafe(3), amenity:atm(2), amenity:toilets(1), amenity:locker(1). OpenStreetMap nearby land use: grass(1).",
+      "text": "Traffic sensor 700172 is located at latitude 34.424431, longitude -118.601801. Metadata: ID 700172; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 172. OpenStreetMap nearby road classes: footway(29), service(11), raceway(8), secondary(3), tertiary(2). OpenStreetMap nearby POI types: tourism:attraction(7), amenity:cafe(3), amenity:atm(2), amenity:toilets(1), amenity:locker(1). OpenStreetMap nearby land use: grass(1), construction(1), greenfield(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 71,
       "osm_summary": {
-        "road_classes": "footway(14), service(11), raceway(8), secondary(1)",
+        "road_classes": "footway(29), service(11), raceway(8), secondary(3), tertiary(2)",
         "poi_types": "tourism:attraction(7), amenity:cafe(3), amenity:atm(2), amenity:toilets(1), amenity:locker(1)",
-        "landuse": "grass(1)"
+        "landuse": "grass(1), construction(1), greenfield(1)"
       }
     },
     {
       "order": 173,
       "node_id": "700173",
-      "text": "Traffic sensor 700173 is located at latitude 34.421129, longitude -118.612737. Metadata: ID 700173; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 173. OpenStreetMap nearby road classes: service(13), residential(7), tertiary(1), construction(1). OpenStreetMap nearby POI types: amenity:lounger(28). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700173 is located at latitude 34.421129, longitude -118.612737. Metadata: ID 700173; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Ramp; Direction S; ID2 173. OpenStreetMap nearby road classes: footway(45), service(22), residential(12), tertiary(7), cycleway(3). OpenStreetMap nearby POI types: amenity:lounger(28). OpenStreetMap nearby land use: grass(6), construction(1), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 127,
       "osm_summary": {
-        "road_classes": "service(13), residential(7), tertiary(1), construction(1)",
+        "road_classes": "footway(45), service(22), residential(12), tertiary(7), cycleway(3)",
         "poi_types": "amenity:lounger(28)",
-        "landuse": "unknown land use"
+        "landuse": "grass(6), construction(1), residential(1)"
       }
     },
     {
       "order": 174,
       "node_id": "700174",
-      "text": "Traffic sensor 700174 is located at latitude 34.420395, longitude -118.615627. Metadata: ID 700174; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 174. OpenStreetMap nearby road classes: service(20), residential(9), footway(9), tertiary(7), construction(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: construction(1).",
+      "text": "Traffic sensor 700174 is located at latitude 34.420395, longitude -118.615627. Metadata: ID 700174; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 174. OpenStreetMap nearby road classes: service(21), footway(14), residential(9), tertiary(7), construction(4). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: construction(1), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 58,
       "osm_summary": {
-        "road_classes": "service(20), residential(9), footway(9), tertiary(7), construction(3)",
+        "road_classes": "service(21), footway(14), residential(9), tertiary(7), construction(4)",
         "poi_types": "no nearby POI returned",
-        "landuse": "construction(1)"
+        "landuse": "construction(1), residential(1)"
       }
     },
     {
@@ -2684,31 +2684,31 @@
     {
       "order": 183,
       "node_id": "700183",
-      "text": "Traffic sensor 700183 is located at latitude 34.255103, longitude -118.56912. Metadata: ID 700183; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 183. OpenStreetMap nearby road classes: residential(13), primary(8), footway(7), path(7), service(4). OpenStreetMap nearby POI types: amenity:bench(2), amenity:waste_basket(1). OpenStreetMap nearby land use: religious(1), meadow(1).",
+      "text": "Traffic sensor 700183 is located at latitude 34.255103, longitude -118.56912. Metadata: ID 700183; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 183. OpenStreetMap nearby road classes: residential(13), footway(13), service(12), primary(9), path(7). OpenStreetMap nearby POI types: amenity:bench(2), amenity:waste_basket(1). OpenStreetMap nearby land use: residential(2), religious(1), meadow(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 67,
       "osm_summary": {
-        "road_classes": "residential(13), primary(8), footway(7), path(7), service(4)",
+        "road_classes": "residential(13), footway(13), service(12), primary(9), path(7)",
         "poi_types": "amenity:bench(2), amenity:waste_basket(1)",
-        "landuse": "religious(1), meadow(1)"
+        "landuse": "residential(2), religious(1), meadow(1)"
       }
     },
     {
       "order": 184,
       "node_id": "700184",
-      "text": "Traffic sensor 700184 is located at latitude 34.232944, longitude -118.535448. Metadata: ID 700184; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 184. OpenStreetMap nearby road classes: primary(10), residential(9), service(5), footway(2). OpenStreetMap nearby POI types: amenity:bicycle_parking(11), amenity:restaurant(2), amenity:bench(2), amenity:waste_basket(2), shop:tattoo(1). OpenStreetMap nearby land use: grass(2).",
+      "text": "Traffic sensor 700184 is located at latitude 34.232944, longitude -118.535448. Metadata: ID 700184; District 7; County Los Angeles; Fwy I5-N; Lanes 6; Type Mainline; Direction N; ID2 184. OpenStreetMap nearby road classes: service(55), footway(52), primary(18), cycleway(17), residential(12). OpenStreetMap nearby POI types: amenity:bicycle_parking(11), amenity:restaurant(2), amenity:bench(2), amenity:waste_basket(2), shop:tattoo(1). OpenStreetMap nearby land use: residential(7), retail(7), commercial(3), grass(2), construction(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "primary(10), residential(9), service(5), footway(2)",
+        "road_classes": "service(55), footway(52), primary(18), cycleway(17), residential(12)",
         "poi_types": "amenity:bicycle_parking(11), amenity:restaurant(2), amenity:bench(2), amenity:waste_basket(2), shop:tattoo(1)",
-        "landuse": "grass(2)"
+        "landuse": "residential(7), retail(7), commercial(3), grass(2), construction(1)"
       }
     },
     {
@@ -2729,31 +2729,31 @@
     {
       "order": 186,
       "node_id": "700186",
-      "text": "Traffic sensor 700186 is located at latitude 34.19112, longitude -118.507526. Metadata: ID 700186; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 186. OpenStreetMap nearby road classes: footway(19), service(12), residential(7), unclassified(2), secondary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: grass(8), education(1).",
+      "text": "Traffic sensor 700186 is located at latitude 34.19112, longitude -118.507526. Metadata: ID 700186; District 7; County Los Angeles; Fwy I405-E; Lanes 6; Type Mainline; Direction E; ID2 186. OpenStreetMap nearby road classes: footway(73), service(22), residential(9), unclassified(3), secondary(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: grass(8), residential(3), education(1), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 121,
       "osm_summary": {
-        "road_classes": "footway(19), service(12), residential(7), unclassified(2), secondary(1)",
+        "road_classes": "footway(73), service(22), residential(9), unclassified(3), secondary(1)",
         "poi_types": "no nearby POI returned",
-        "landuse": "grass(8), education(1)"
+        "landuse": "grass(8), residential(3), education(1), commercial(1)"
       }
     },
     {
       "order": 187,
       "node_id": "700187",
-      "text": "Traffic sensor 700187 is located at latitude 34.164638, longitude -118.492404. Metadata: ID 700187; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 187. OpenStreetMap nearby road classes: footway(12), secondary(10), motorway(6), service(6), residential(5). OpenStreetMap nearby POI types: amenity:bicycle_parking(1). OpenStreetMap nearby land use: farmland(1), allotments(1).",
+      "text": "Traffic sensor 700187 is located at latitude 34.164638, longitude -118.492404. Metadata: ID 700187; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 187. OpenStreetMap nearby road classes: service(19), footway(13), secondary(11), primary(7), motorway_link(6). OpenStreetMap nearby POI types: amenity:bicycle_parking(1). OpenStreetMap nearby land use: allotments(5), farmland(2), residential(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 84,
       "osm_summary": {
-        "road_classes": "footway(12), secondary(10), motorway(6), service(6), residential(5)",
+        "road_classes": "service(19), footway(13), secondary(11), primary(7), motorway_link(6)",
         "poi_types": "amenity:bicycle_parking(1)",
-        "landuse": "farmland(1), allotments(1)"
+        "landuse": "allotments(5), farmland(2), residential(2)"
       }
     },
     {
@@ -2789,44 +2789,44 @@
     {
       "order": 190,
       "node_id": "700190",
-      "text": "Traffic sensor 700190 is located at latitude 34.058395, longitude -118.448965. Metadata: ID 700190; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 190. OpenStreetMap nearby road classes: service(7), motorway_link(4), footway(3), unclassified(3), primary(2). OpenStreetMap nearby POI types: amenity:bench(12), amenity:parking_entrance(6), amenity:bicycle_parking(4), amenity:cafe(2), amenity:fast_food(2). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700190 is located at latitude 34.058395, longitude -118.448965. Metadata: ID 700190; District 7; County Los Angeles; Fwy SR110-E; Lanes 6; Type Mainline; Direction E; ID2 190. OpenStreetMap nearby road classes: footway(74), service(42), primary(12), tertiary(11), motorway_link(8). OpenStreetMap nearby POI types: amenity:bench(12), amenity:parking_entrance(6), amenity:bicycle_parking(4), amenity:cafe(2), amenity:fast_food(2). OpenStreetMap nearby land use: cemetery(1), retail(1), commercial(1), residential(1), industrial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "service(7), motorway_link(4), footway(3), unclassified(3), primary(2)",
+        "road_classes": "footway(74), service(42), primary(12), tertiary(11), motorway_link(8)",
         "poi_types": "amenity:bench(12), amenity:parking_entrance(6), amenity:bicycle_parking(4), amenity:cafe(2), amenity:fast_food(2)",
-        "landuse": "unknown land use"
+        "landuse": "cemetery(1), retail(1), commercial(1), residential(1), industrial(1)"
       }
     },
     {
       "order": 191,
       "node_id": "700191",
-      "text": "Traffic sensor 700191 is located at latitude 34.017804, longitude -118.43018. Metadata: ID 700191; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 191. OpenStreetMap nearby road classes: residential(14), service(8), tertiary(2), path(1). OpenStreetMap nearby POI types: amenity:bench(12), tourism:picnic_site(5), amenity:drinking_water(4), amenity:bicycle_parking(3), amenity:toilets(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700191 is located at latitude 34.017804, longitude -118.43018. Metadata: ID 700191; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 191. OpenStreetMap nearby road classes: footway(109), service(18), residential(15), path(11), tertiary(4). OpenStreetMap nearby POI types: amenity:bench(12), tourism:picnic_site(5), amenity:drinking_water(4), amenity:bicycle_parking(3), amenity:toilets(1). OpenStreetMap nearby land use: residential(6).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 188,
       "osm_summary": {
-        "road_classes": "residential(14), service(8), tertiary(2), path(1)",
+        "road_classes": "footway(109), service(18), residential(15), path(11), tertiary(4)",
         "poi_types": "amenity:bench(12), tourism:picnic_site(5), amenity:drinking_water(4), amenity:bicycle_parking(3), amenity:toilets(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(6)"
       }
     },
     {
       "order": 192,
       "node_id": "700192",
-      "text": "Traffic sensor 700192 is located at latitude 33.984478, longitude -118.40862. Metadata: ID 700192; District 7; County Los Angeles; Fwy I5-N; Lanes 3; Type Ramp; Direction N; ID2 192. OpenStreetMap nearby road classes: residential(13), service(13), primary(6), secondary(6), footway(5). OpenStreetMap nearby POI types: shop:car_repair(1), amenity:post_box(1). OpenStreetMap nearby land use: residential(1), industrial(1).",
+      "text": "Traffic sensor 700192 is located at latitude 33.984478, longitude -118.40862. Metadata: ID 700192; District 7; County Los Angeles; Fwy I5-N; Lanes 3; Type Ramp; Direction N; ID2 192. OpenStreetMap nearby road classes: footway(117), residential(14), service(13), primary(6), secondary(6). OpenStreetMap nearby POI types: shop:car_repair(1), amenity:post_box(1). OpenStreetMap nearby land use: residential(1), industrial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 164,
       "osm_summary": {
-        "road_classes": "residential(13), service(13), primary(6), secondary(6), footway(5)",
+        "road_classes": "footway(117), residential(14), service(13), primary(6), secondary(6)",
         "poi_types": "shop:car_repair(1), amenity:post_box(1)",
         "landuse": "residential(1), industrial(1)"
       }
@@ -2834,16 +2834,16 @@
     {
       "order": 193,
       "node_id": "700193",
-      "text": "Traffic sensor 700193 is located at latitude 33.946414, longitude -118.379809. Metadata: ID 700193; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 193. OpenStreetMap nearby road classes: primary(16), service(14), tertiary(3), unclassified(3), primary_link(2). OpenStreetMap nearby POI types: amenity:parking_entrance(8), amenity:fuel(1), amenity:vending_machine(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700193 is located at latitude 33.946414, longitude -118.379809. Metadata: ID 700193; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 193. OpenStreetMap nearby road classes: service(86), footway(49), primary(19), tertiary(12), secondary(6). OpenStreetMap nearby POI types: amenity:parking_entrance(8), amenity:fuel(2), amenity:vending_machine(1). OpenStreetMap nearby land use: commercial(5), retail(4), railway(2), construction(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "primary(16), service(14), tertiary(3), unclassified(3), primary_link(2)",
-        "poi_types": "amenity:parking_entrance(8), amenity:fuel(1), amenity:vending_machine(1)",
-        "landuse": "unknown land use"
+        "road_classes": "service(86), footway(49), primary(19), tertiary(12), secondary(6)",
+        "poi_types": "amenity:parking_entrance(8), amenity:fuel(2), amenity:vending_machine(1)",
+        "landuse": "commercial(5), retail(4), railway(2), construction(2)"
       }
     },
     {
@@ -2879,31 +2879,31 @@
     {
       "order": 196,
       "node_id": "700196",
-      "text": "Traffic sensor 700196 is located at latitude 33.861389, longitude -118.321385. Metadata: ID 700196; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 196. OpenStreetMap nearby road classes: service(32), residential(5), motorway(5), motorway_link(1). OpenStreetMap nearby POI types: amenity:bench(6), amenity:smoking_area(1). OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700196 is located at latitude 33.861389, longitude -118.321385. Metadata: ID 700196; District 7; County Los Angeles; Fwy SR60-N; Lanes 6; Type Mainline; Direction N; ID2 196. OpenStreetMap nearby road classes: service(55), footway(19), motorway(8), residential(6), motorway_link(2). OpenStreetMap nearby POI types: amenity:bench(6), amenity:smoking_area(1). OpenStreetMap nearby land use: residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 98,
       "osm_summary": {
-        "road_classes": "service(32), residential(5), motorway(5), motorway_link(1)",
+        "road_classes": "service(55), footway(19), motorway(8), residential(6), motorway_link(2)",
         "poi_types": "amenity:bench(6), amenity:smoking_area(1)",
-        "landuse": "unknown land use"
+        "landuse": "residential(1)"
       }
     },
     {
       "order": 197,
       "node_id": "700197",
-      "text": "Traffic sensor 700197 is located at latitude 33.828016, longitude -118.30803. Metadata: ID 700197; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 197. OpenStreetMap nearby road classes: service(21), primary(18), residential(11). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700197 is located at latitude 33.828016, longitude -118.30803. Metadata: ID 700197; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 197. OpenStreetMap nearby road classes: service(47), footway(25), primary(19), residential(12). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: commercial(1), residential(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 105,
       "osm_summary": {
-        "road_classes": "service(21), primary(18), residential(11)",
+        "road_classes": "service(47), footway(25), primary(19), residential(12)",
         "poi_types": "no nearby POI returned",
-        "landuse": "unknown land use"
+        "landuse": "commercial(1), residential(1)"
       }
     },
     {
@@ -3079,76 +3079,76 @@
     {
       "order": 213,
       "node_id": "700213",
-      "text": "Traffic sensor 700213 is located at latitude 33.641456, longitude -117.943496. Metadata: ID 700213; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 213. OpenStreetMap nearby road classes: residential(23), service(17), tertiary(5), footway(3). OpenStreetMap nearby POI types: shop:motorcycle_parts(1). OpenStreetMap nearby land use: residential(1).",
+      "text": "Traffic sensor 700213 is located at latitude 33.641456, longitude -117.943496. Metadata: ID 700213; District 7; County Los Angeles; Fwy SR91-S; Lanes 6; Type Mainline; Direction S; ID2 213. OpenStreetMap nearby road classes: residential(23), service(22), tertiary(6), footway(3), cycleway(1). OpenStreetMap nearby POI types: shop:motorcycle_parts(1). OpenStreetMap nearby land use: residential(1), grass(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 58,
       "osm_summary": {
-        "road_classes": "residential(23), service(17), tertiary(5), footway(3)",
+        "road_classes": "residential(23), service(22), tertiary(6), footway(3), cycleway(1)",
         "poi_types": "shop:motorcycle_parts(1)",
-        "landuse": "residential(1)"
+        "landuse": "residential(1), grass(1)"
       }
     },
     {
       "order": 214,
       "node_id": "700214",
-      "text": "Traffic sensor 700214 is located at latitude 33.655656, longitude -117.930538. Metadata: ID 700214; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 214. OpenStreetMap nearby road classes: service(22), residential(14), secondary(8), tertiary(5), cycleway(1). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700214 is located at latitude 33.655656, longitude -117.930538. Metadata: ID 700214; District 7; County Los Angeles; Fwy SR110-E; Lanes 5; Type Ramp; Direction E; ID2 214. OpenStreetMap nearby road classes: service(53), footway(21), residential(17), secondary(9), tertiary(7). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: grass(3).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 112,
       "osm_summary": {
-        "road_classes": "service(22), residential(14), secondary(8), tertiary(5), cycleway(1)",
+        "road_classes": "service(53), footway(21), residential(17), secondary(9), tertiary(7)",
         "poi_types": "no nearby POI returned",
-        "landuse": "unknown land use"
+        "landuse": "grass(3)"
       }
     },
     {
       "order": 215,
       "node_id": "700215",
-      "text": "Traffic sensor 700215 is located at latitude 33.667009, longitude -117.910196. Metadata: ID 700215; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 215. OpenStreetMap nearby road classes: footway(11), residential(9), service(5), cycleway(3), tertiary(1). OpenStreetMap nearby POI types: amenity:vending_machine(5), amenity:waste_basket(3), tourism:artwork(3), amenity:bench(2), amenity:bicycle_repair_station(1). OpenStreetMap nearby land use: recreation_ground(1).",
+      "text": "Traffic sensor 700215 is located at latitude 33.667009, longitude -117.910196. Metadata: ID 700215; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Ramp; Direction W; ID2 215. OpenStreetMap nearby road classes: footway(73), service(39), secondary(11), residential(10), cycleway(6). OpenStreetMap nearby POI types: amenity:vending_machine(5), amenity:waste_basket(3), tourism:artwork(3), amenity:bench(2), amenity:bicycle_repair_station(1). OpenStreetMap nearby land use: grass(32), recreation_ground(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 200,
       "osm_summary": {
-        "road_classes": "footway(11), residential(9), service(5), cycleway(3), tertiary(1)",
+        "road_classes": "footway(73), service(39), secondary(11), residential(10), cycleway(6)",
         "poi_types": "amenity:vending_machine(5), amenity:waste_basket(3), tourism:artwork(3), amenity:bench(2), amenity:bicycle_repair_station(1)",
-        "landuse": "recreation_ground(1)"
+        "landuse": "grass(32), recreation_ground(1)"
       }
     },
     {
       "order": 216,
       "node_id": "700216",
-      "text": "Traffic sensor 700216 is located at latitude 33.685831, longitude -117.905928. Metadata: ID 700216; District 7; County Los Angeles; Fwy I5-N; Lanes 5; Type Ramp; Direction N; ID2 216. OpenStreetMap nearby road classes: residential(19), secondary(15), motorway_link(8), motorway(6), tertiary(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700216 is located at latitude 33.685831, longitude -117.905928. Metadata: ID 700216; District 7; County Los Angeles; Fwy I5-N; Lanes 5; Type Ramp; Direction N; ID2 216. OpenStreetMap nearby road classes: residential(19), secondary(19), motorway(13), motorway_link(12), footway(12). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(2).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 81,
       "osm_summary": {
-        "road_classes": "residential(19), secondary(15), motorway_link(8), motorway(6), tertiary(2)",
+        "road_classes": "residential(19), secondary(19), motorway(13), motorway_link(12), footway(12)",
         "poi_types": "no nearby POI returned",
-        "landuse": "unknown land use"
+        "landuse": "residential(2)"
       }
     },
     {
       "order": 217,
       "node_id": "700217",
-      "text": "Traffic sensor 700217 is located at latitude 33.706538, longitude -117.874343. Metadata: ID 700217; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 217. OpenStreetMap nearby road classes: service(26), residential(10), tertiary(5), secondary(4), path(3). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: unknown land use.",
+      "text": "Traffic sensor 700217 is located at latitude 33.706538, longitude -117.874343. Metadata: ID 700217; District 7; County Los Angeles; Fwy I10-S; Lanes 6; Type Ramp; Direction S; ID2 217. OpenStreetMap nearby road classes: footway(52), service(41), residential(14), cycleway(11), tertiary(5). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(3), industrial(2), railway(1), commercial(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 137,
       "osm_summary": {
-        "road_classes": "service(26), residential(10), tertiary(5), secondary(4), path(3)",
+        "road_classes": "footway(52), service(41), residential(14), cycleway(11), tertiary(5)",
         "poi_types": "no nearby POI returned",
-        "landuse": "unknown land use"
+        "landuse": "residential(3), industrial(2), railway(1), commercial(1)"
       }
     },
     {
@@ -3169,31 +3169,31 @@
     {
       "order": 219,
       "node_id": "700219",
-      "text": "Traffic sensor 700219 is located at latitude 33.745529, longitude -117.85789. Metadata: ID 700219; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 219. OpenStreetMap nearby road classes: residential(15), service(15), secondary(13), tertiary(2). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4), railway(1).",
+      "text": "Traffic sensor 700219 is located at latitude 33.745529, longitude -117.85789. Metadata: ID 700219; District 7; County Los Angeles; Fwy US101-W; Lanes 5; Type Ramp; Direction W; ID2 219. OpenStreetMap nearby road classes: service(42), footway(23), residential(20), secondary(17), tertiary(4). OpenStreetMap nearby POI types: no nearby POI returned. OpenStreetMap nearby land use: residential(4), grass(4), brownfield(2), railway(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 117,
       "osm_summary": {
-        "road_classes": "residential(15), service(15), secondary(13), tertiary(2)",
+        "road_classes": "service(42), footway(23), residential(20), secondary(17), tertiary(4)",
         "poi_types": "no nearby POI returned",
-        "landuse": "residential(4), railway(1)"
+        "landuse": "residential(4), grass(4), brownfield(2), railway(1)"
       }
     },
     {
       "order": 220,
       "node_id": "700220",
-      "text": "Traffic sensor 700220 is located at latitude 33.776767, longitude -117.851218. Metadata: ID 700220; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 220. OpenStreetMap nearby road classes: footway(15), motorway(7), cycleway(5), motorway_link(4), residential(4). OpenStreetMap nearby POI types: amenity:drinking_water(4), amenity:bbq(1), amenity:fast_food(1), amenity:restaurant(1). OpenStreetMap nearby land use: recreation_ground(1).",
+      "text": "Traffic sensor 700220 is located at latitude 33.776767, longitude -117.851218. Metadata: ID 700220; District 7; County Los Angeles; Fwy SR60-N; Lanes 5; Type Ramp; Direction N; ID2 220. OpenStreetMap nearby road classes: footway(33), secondary(24), service(23), residential(10), motorway_link(9). OpenStreetMap nearby POI types: amenity:drinking_water(4), amenity:bbq(1), amenity:fast_food(1), amenity:restaurant(1). OpenStreetMap nearby land use: recreation_ground(1), retail(1), residential(1), orchard(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 132,
       "osm_summary": {
-        "road_classes": "footway(15), motorway(7), cycleway(5), motorway_link(4), residential(4)",
+        "road_classes": "footway(33), secondary(24), service(23), residential(10), motorway_link(9)",
         "poi_types": "amenity:drinking_water(4), amenity:bbq(1), amenity:fast_food(1), amenity:restaurant(1)",
-        "landuse": "recreation_ground(1)"
+        "landuse": "recreation_ground(1), retail(1), residential(1), orchard(1)"
       }
     },
     {
@@ -3229,16 +3229,16 @@
     {
       "order": 223,
       "node_id": "700223",
-      "text": "Traffic sensor 700223 is located at latitude 33.867152, longitude -117.805806. Metadata: ID 700223; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 223. OpenStreetMap nearby road classes: residential(16), footway(12), primary(7), service(6), secondary(5). OpenStreetMap nearby POI types: shop:doors(1). OpenStreetMap nearby land use: retail(1).",
+      "text": "Traffic sensor 700223 is located at latitude 33.867152, longitude -117.805806. Metadata: ID 700223; District 7; County Los Angeles; Fwy SR710-W; Lanes 6; Type Mainline; Direction W; ID2 223. OpenStreetMap nearby road classes: service(27), residential(17), footway(12), primary(8), secondary(6). OpenStreetMap nearby POI types: shop:doors(1). OpenStreetMap nearby land use: industrial(2), residential(2), retail(1).",
       "osm_status": "ok",
       "osm_error": "",
       "osm_status_code": 200,
       "osm_attempts": 1,
-      "osm_element_count": 50,
+      "osm_element_count": 78,
       "osm_summary": {
-        "road_classes": "residential(16), footway(12), primary(7), service(6), secondary(5)",
+        "road_classes": "service(27), residential(17), footway(12), primary(8), secondary(6)",
         "poi_types": "shop:doors(1)",
-        "landuse": "retail(1)"
+        "landuse": "industrial(2), residential(2), retail(1)"
       }
     },
     {

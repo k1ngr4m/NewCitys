@@ -3,5 +3,5 @@
   "model_name": "distilbert-base-uncased",
   "max_length": 128,
   "text_count": 228,
-  "texts_sha256": "43e4b4d75affe108e23c28630d5a9af081293d8ac65f30bc1b2235839d8ae657"
+  "texts_sha256": "d40bb9d58c08a6f1fc07e2a8cfb1c4413f823a69aa35e7c333741bb3f4a54aab"
 }
